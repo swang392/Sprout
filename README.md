@@ -88,7 +88,7 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
           => Duration of plan
           => Fitness schedule
           => Which wellness/health goals do you want to do every day
-    => Home after saving trip
+    => Home after saving plan
 * Search
     => None
 * My Plan
