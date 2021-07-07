@@ -96,8 +96,8 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://i.imgur.com/jvp9vyB.jpg" width=600>
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
