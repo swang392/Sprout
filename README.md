@@ -106,7 +106,28 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+
+
+Goal
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| objectId | string | unique id for the user goal (default field) |
+| author | pointer to user | image author |
+| timeframe | Number |number of days in the schedule|
+| createdAt | DateTime | date when post is created (default field)|
+| dailyTasks | NSMutableArray | list of daily tasks |
+| fitnessPlan | NSMutableArray | fitness schedule|
+
+User 
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| objectId | String | unique id for the user goal (default field) |
+| username | String | username|
+| password | String | password |
+| name | String | display name |
+| profileImageURL | String | url link to user's profile photo|
+| facebook profile ?|          |          |
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
