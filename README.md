@@ -142,5 +142,16 @@ Daily Post
 
 ### Networking
 - [Add list of network requests by screen ]
+- 
+- Social Screen
+    - (Read/GET) Query posts in personal and friend feed
+- Home feed
+    - (GET) Query current plan
+    - (GET) today's tasks
+- Create a fitness Plan (from profile)
+    - (CREATE) Create a new plan 
+- Profile
+    - (GET) Query logged in user
+    - optional: (Read/GET) query user's followers and following
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
