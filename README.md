@@ -117,6 +117,8 @@ Goal
 | createdAt | DateTime | date when post is created (default field)|
 | dailyTasks | NSMutableArray | list of daily tasks |
 | fitnessPlan | NSMutableArray | fitness schedule|
+| post | pointer to post | posts daily accomplishments|
+| completedTasks | NSMutableArray | array of booleans for tasks that were completed, gets passed to the post |
 
 User 
 | Property | Type | Description |
@@ -127,6 +129,16 @@ User
 | name | String | display name |
 | profileImageURL | String | url link to user's profile photo|
 | facebook profile ?|          |          |
+| currentPlan | pointer to goal?|          |
+
+Daily Post
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| objectId | String | unique id for the user goal (default field) |
+| likeCount | number | number of likes on post |
+| completedCount | number | number of trues on completedTask  |
+| author | pointer to user | author ID |
+
 
 ### Networking
 - [Add list of network requests by screen ]
