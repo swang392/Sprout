@@ -28,15 +28,15 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 
 **Required Must-have Stories**
 
-* User can create a new account, log in, and sign out of account
-* User can create a new fitness plan
-* user can search for other users
-* User can add friends
-* User can see locations of other friends
-* Social feed of other people's daily accomplishments
-* User sees profile with their fitness plan and accomplishments
-* user can edit/save/delete plan
-* User can mark tasks on their plan as complete
+[] User can create a new account, log in, and sign out of account
+[] User can create a new fitness plan
+[] user can search for other users
+[] User can add friends
+[] User can see locations of other friends
+[] Social feed of other people's daily accomplishments
+[] User sees profile with their fitness plan and accomplishments
+[] user can edit/save/delete plan
+[] User can mark tasks on their plan as complete
 
 
 
