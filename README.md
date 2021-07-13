@@ -106,7 +106,6 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 [This section will be completed in Unit 9]
 ### Models
 
-
 Goal
 | Property | Type | Description |
 | -------- | -------- | -------- |
@@ -114,29 +113,36 @@ Goal
 | author | pointer to user | image author |
 | timeframe | Number |number of days in the schedule|
 | createdAt | DateTime | date when post is created (default field)|
-| dailyTasks | NSMutableArray | list of daily tasks |
-| fitnessPlan | NSMutableArray | fitness schedule|
+| tasks | array of Tasks | list of all of the daily tasks |
 | post | pointer to post | posts daily accomplishments|
-| completedTasks | NSMutableArray | array of booleans for tasks that were completed, gets passed to the post |
 
 User 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| objectId | String | unique id for the user goal (default field) |
+| objectId | String | unique id for the user (default field) |
 | username | String | username|
 | password | String | password |
 | name | String | display name |
 | profileImageURL | String | url link to user's profile photo|
 | facebook profile ?|          |          |
-| currentPlan | pointer to goal?|          |
+| goals | pointer to Goal | connects user with their current goals |
 
-Daily Post
+Post
 | Property | Type | Description |
 | -------- | -------- | -------- |
-| objectId | String | unique id for the user goal (default field) |
+| objectId | String | unique id for the post (default field) |
 | likeCount | number | number of likes on post |
-| completedCount | number | number of trues on completedTask  |
+| goal | pointer to Goal | connects post to the goal where the contents of the post are from |
 | author | pointer to user | author ID |
+
+Task
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| objectId | String | unique id for the task (default field) |
+| createdAt | DateTime | date created |
+| expiresAt | DateTime | need a mechanism to remove the completed feature every day|
+| completed | BOOL | if the task is completed or not |
+| type | String | groups the task into different types: fitness, diet, spiritual, etc.|
 
 
 ### Networking
