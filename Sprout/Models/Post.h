@@ -1,23 +1,21 @@
 //
-//  Goal.h
+//  Post.h
 //  Sprout
 //
 //  Created by Sarah Wang on 7/13/21.
 //
 
 #import <Parse/Parse.h>
+#import "Goal.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Goal : PFObject <PFSubclassing>
+@interface Post : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSNumber *timeframe;
-@property (nonatomic, strong) NSArray *tasks;
+@property (nonatomic, strong) NSNumber *likeCount;
+@property (nonatomic, strong) Goal *goal;
 @property (nonatomic, strong) PFUser *author;
-//author
-//createdat?
-//post
 
 @end
 

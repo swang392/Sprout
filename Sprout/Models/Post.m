@@ -1,20 +1,20 @@
 //
-//  Goal.m
+//  Post.m
 //  Sprout
 //
 //  Created by Sarah Wang on 7/13/21.
 //
 
-#import "Goal.h"
+#import "Post.h"
 
-@implementation Goal
+@implementation Post
 
-@dynamic timeframe;
-@dynamic tasks;
+@dynamic likeCount;
 @dynamic author;
+@dynamic goal;
 
 + (nonnull NSString *)parseClassName{
-    return @"Goal";
+    return @"Post";
 }
 
 @end
