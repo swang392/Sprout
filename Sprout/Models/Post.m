@@ -17,4 +17,6 @@
     return @"Post";
 }
 
+- (instanceType) 
+
 @end

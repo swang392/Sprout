@@ -158,16 +158,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pab-3O-hXu">
-                                <rect key="frame" x="334" y="71" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vb3-nc-QlI">
+                                <rect key="frame" x="44" y="70" width="60" height="30"/>
                                 <state key="normal" title="Edit Plan"/>
+                                <connections>
+                                    <segue destination="Ycb-K1-ksa" kind="presentation" id="AHE-rc-DxG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xU9-Lg-3Vf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Pab-3O-hXu" firstAttribute="top" secondItem="xU9-Lg-3Vf" secondAttribute="top" constant="15" id="XqS-hj-jKg"/>
-                            <constraint firstItem="xU9-Lg-3Vf" firstAttribute="trailing" secondItem="Pab-3O-hXu" secondAttribute="trailing" constant="20" id="s7I-OL-tX3"/>
+                            <constraint firstItem="vb3-nc-QlI" firstAttribute="top" secondItem="xU9-Lg-3Vf" secondAttribute="top" constant="14" id="aua-z5-VFR"/>
+                            <constraint firstItem="vb3-nc-QlI" firstAttribute="leading" secondItem="xU9-Lg-3Vf" secondAttribute="leading" constant="44" id="hOs-lQ-xid"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Dvg-yR-8Tu"/>
@@ -175,6 +178,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX9-gk-aCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="1635.9375"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Nlg-eT-mKT">
+            <objects>
+                <viewController id="Ycb-K1-ksa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4B8-ca-YIh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEN-2l-kLX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="KAQ-24-oUd"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="UZZ-3a-Sws"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dnX-cq-gda"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4UU-4b-7R7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.59420289855075" y="2341.0714285714284"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="7kc-aW-dfK">
