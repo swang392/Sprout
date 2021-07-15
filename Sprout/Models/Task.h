@@ -13,11 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Task : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *expiresAt;
-@property (nonatomic) BOOL *completed;
-@property (nonatomic, strong) NSString *type;
-
+typedef enum taskStatus {complete, incomplete} taskStatus;
+@property (nonatomic) NSTimeInterval *duration;
+//@property (nonatomic) NSDate *createdAt;
+//@property (nonatomic) NSDate *expiresAt;
+//@property (nonatomic) taskStatus *tastkStatus;
+@property (nonatomic) BOOL completed;
+@property (nonatomic) NSString *type;
+@property (nonatomic) NSString *taskName;
+@property (nonatomic) Goal *goal; 
+ 
 @end
 
 NS_ASSUME_NONNULL_END

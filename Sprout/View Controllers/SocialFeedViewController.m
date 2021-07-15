@@ -6,8 +6,15 @@
 //
 
 #import "SocialFeedViewController.h"
+#import "Parse/Parse.h"
+#import "PostCell.h"
+#import "AppDelegate.h"
 
-@interface SocialFeedViewController ()
+@interface SocialFeedViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) NSMutableArray *posts;
 
 @end
 
@@ -15,17 +22,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self queryPosts:1];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
-/*
-#pragma mark - Navigation
+- (void) queryPosts:(int) numPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    query.limit = numPosts;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.posts = (NSMutableArray *)posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
-*/
+
+- (void)refreshData:(UIRefreshControl *)refreshControl {
+    [self queryPosts:1];
+    [refreshControl endRefreshing]; 
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.posts.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    cell.post = self.posts[indexPath.row];
+    [cell refreshData]; 
+    return cell;
+}
 
 @end

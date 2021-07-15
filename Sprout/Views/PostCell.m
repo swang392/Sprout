@@ -6,18 +6,24 @@
 //
 
 #import "PostCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation PostCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void) refreshData {
+    [self.profileImage setImage:nil];
+    
+    PFUser *user = self.post.author;
+    self.usernameLabel.text = user.username;
+    self.captionLabel.text = @"Today I accomplished _____!";
 }
 
 @end
