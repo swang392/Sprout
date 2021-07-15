@@ -38,7 +38,7 @@
 
 }
 
-- (IBAction)didTap:(id)sender {
+- (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:true];
 }
 

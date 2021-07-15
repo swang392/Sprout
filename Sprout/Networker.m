@@ -12,7 +12,7 @@
 
 @implementation Networker
 
-+ (void)createGoal:(NSArray * _Nullable)tasks withTimeframe:(NSNumber *)timeframe withCompletion:(PFBooleanResultBlock _Nullable)completion {
++ (void)createGoal:(NSMutableArray * _Nullable)tasks withTimeframe:(NSNumber *)timeframe withCompletion:(PFBooleanResultBlock _Nullable)completion {
     Goal *newGoal = [Goal new];
     
     newGoal.timeframe = timeframe;
@@ -40,7 +40,7 @@
     newTask.duration = duration;
     newTask.type = type;
     newTask.completed = completed;
-    newTask.goal = goal;
+    //newTask.goal = goal;
     
     [newTask saveInBackgroundWithBlock:completion];
 }
