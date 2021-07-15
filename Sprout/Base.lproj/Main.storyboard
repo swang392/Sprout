@@ -155,6 +155,10 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="completedButton" destination="z6m-tW-Yfg" id="cM3-zM-Yvq"/>
+                                            <outlet property="taskLabel" destination="HWI-dx-7K7" id="EMd-gl-WxZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -174,6 +178,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Dvg-yR-8Tu"/>
+                    <connections>
+                        <outlet property="tableView" destination="DLo-DM-cHc" id="OzF-4Q-58n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fX9-gk-aCh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -22,15 +22,13 @@
 @property (nonatomic, strong) NSNumber *timeframe;
 @property (nonatomic, strong) NSMutableArray<Task *> *arrayOfTasks;
 
-//typedef double NSTimeInterval;
-
 @end
 
 @implementation ComposePlanViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 - (IBAction)saveTimeFrame:(id)sender {
     _timeframe = @7;
@@ -48,13 +46,7 @@
 
 - (IBAction)addTaskButton:(id)sender {
     NSString *taskName = self.taskNameField.text;
-    
-    NSTimeInterval duration = 86400.0;
-    if(self.taskFrequencyControl.selectedSegmentIndex == 1)
-    {
-        duration = 604800.0;
-    }
-    
+   
     NSString *taskType = @"Physical";
     if(self.taskTypeControl.selectedSegmentIndex == 1){
         taskType = @"Diet";
@@ -65,9 +57,15 @@
     else if(self.taskTypeControl.selectedSegmentIndex == 3){
         taskType = @"Miscellaneous";
     }
-    BOOL completed = false;
-    Task *newTask = [[Task alloc] initTaskWithName:taskName withType:taskType withStatus:&completed];
-    //Task *newTask = [[Task alloc] initTaskWithName:taskName withDuration:&duration withType:taskType withStatus:&completed];
+
+    [Task createTaskWithName:taskName withType:taskType withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded){
+            NSLog(@"created task successfully");
+        }
+        else {
+            NSLog(@"Error creating task: %@", error.localizedDescription);
+        }
+    }];
 }
 
 - (IBAction)saveGoal:(id)sender {
@@ -76,5 +74,6 @@
 - (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:true];
 }
+
 
 @end

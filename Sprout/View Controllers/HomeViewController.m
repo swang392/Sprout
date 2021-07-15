@@ -7,8 +7,14 @@
 
 #import "HomeViewController.h"
 #import "Parse/Parse.h"
+#import "TaskCell.h"
+#import "Task.h"
 
-@interface HomeViewController ()
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) PFUser *user;
+@property (nonatomic, strong) NSMutableArray *arrayOfTasks;
 
 @end
 
@@ -16,17 +22,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    self.user = PFUser.currentUser;
+    
+    [self queryTasks:20];
 }
 
-/*
-#pragma mark - Navigation
+- (void) queryTasks:(int) numPosts {
+    //TODO: add refresh control. Later on: sort by category?
+    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+    //[query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query includeKey:@"taskName"];
+    [query includeKey:@"type"];
+    [query includeKey:@"completed"];
+    
+    query.limit = numPosts;
+    
+    [query whereKey:@"author" equalTo:self.user];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [query findObjectsInBackgroundWithBlock:^(NSArray *arrayOfTasks, NSError *error) {
+        if (arrayOfTasks != nil) {
+            self.arrayOfTasks = (NSMutableArray *)arrayOfTasks;
+            [self.tableView reloadData];
+            //self.morePostsLoading = false;
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    
+    [self.tableView reloadData];
+    
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskCell"];
+    
+    Task *task = self.arrayOfTasks[indexPath.row];
+    
+    cell.taskLabel.text = task.taskName;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.arrayOfTasks.count;
+}
 
 @end
