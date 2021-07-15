@@ -18,14 +18,7 @@
     return @"Goal";
 }
 
-+ (Goal *) postGoal:(NSArray * _Nullable)tasks withTimeframe:(NSNumber * _Nullable)timeframe withCompletion:(PFBooleanResultBlock _Nullable)completion {
-    Goal *newGoal = [Goal new];
-    newGoal.timeframe = timeframe;
-    newGoal.tasks = tasks;
-    
-    [newGoal saveInBackgroundWithBlock: completion];
-    return newGoal;
-}
+
 
 @end
 

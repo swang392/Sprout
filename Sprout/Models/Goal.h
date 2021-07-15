@@ -18,10 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray<Task *> *tasks;
 
 
-+ (Goal *) postGoal:(NSArray * _Nullable)tasks withTimeframe:(NSNumber * _Nullable)timeframe withCompletion:(PFBooleanResultBlock _Nullable)completion;
-
-//+ (void) postGoal: (NSNumber )
-//+ (void) postGoal:(NSArray * _Nullable)users withName:(NSString * _Nullable)name withLocation:(NSString * _Nullable)location withStartDate:(NSDate * _Nullable)startDate withEndDate:(NSDate * _Nullable)endDate
 
 
 @end
