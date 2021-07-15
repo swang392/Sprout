@@ -28,19 +28,25 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 
 **Required Must-have Stories**
 
+- Onboarding and Profile
 - [x] User can create a new account, log in, and sign out of account
-- [ ] User can create a new fitness plan
-- [ ] User can connect friends through facebook or google sdk
-- [ ] Social feed of other people's daily accomplishments
 - [ ] User sees profile with their fitness plan and accomplishments
-- [ ] user can edit/save/delete plan
+- [ ] User can edit their profile (either during onboarding or after)
+
+- Home Screen
+- [x] User can add new tasks
+- [x] User can view tasks on Home screen
+- [ ] User can delete tasks
 - [ ] User can mark tasks on their plan as complete
 
-
+- Social Screen
+- [ ] User can connect friends through facebook or google sdk
+- [ ] User can view social feed of other people's daily accomplishments
 
 **Optional Nice-to-have Stories**
 
 - [ ] User can see a list of their followers
+- [ ] User can edit tasks
 - [ ] User can see locations of other friends
 - [ ] user can search for other users
 - [ ] User can see a list of their following
@@ -106,7 +112,7 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 [This section will be completed in Unit 9]
 ### Models
 
-Goal
+Goal -- NOT USING THIS!
 | Property | Type | Description |
 | -------- | -------- | -------- |
 | objectId | string | unique id for the user goal (default field) |
