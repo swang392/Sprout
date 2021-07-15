@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Goal : PFObject <PFSubclassing>
 
 @property (nonatomic, strong) NSNumber *timeframe;
-@property (nonatomic, strong) NSArray<Task *> *tasks;
+@property (nonatomic, strong) NSMutableArray<Task *> *tasks;
 
 
 
