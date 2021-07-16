@@ -23,6 +23,7 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 - **Scope:** Since the plan is mostly customized, the scope of what the app does can be varied. However, the app's main focus is creating the plan and reminded the user to complete tasks.
 
 ## Product Spec
+<img src="https://i.imgur.com/ziUNC4F.gif" width=300>
 
 ### 1. User Stories (Required and Optional)
 
