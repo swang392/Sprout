@@ -11,7 +11,6 @@
 
 @dynamic likeCount;
 @dynamic author;
-@dynamic goal;
 
 + (nonnull NSString *)parseClassName{
     return @"Post";

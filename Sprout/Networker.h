@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "Task.h"
 #import "Post.h"
-#import "Goal.h"
+//#import "Goal.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)createGoal:(NSMutableArray * _Nullable)tasks withTimeframe:(NSNumber *)timeframe withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
-+ (void)createPostWithGoal:(Goal *)goal withAuthor:(PFUser *)author withLikeCount:(NSNumber *)likeCount withCompletion:(PFBooleanResultBlock _Nullable)completion;
+//+ (void)createPostWithGoal:(Goal *)goal withAuthor:(PFUser *)author withLikeCount:(NSNumber *)likeCount withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
 + (void)createTaskWithName:(NSString *)taskName withType:(NSString * _Nullable)type withStatus:(BOOL *)completed
                     withCompletion:(PFBooleanResultBlock _Nullable)completion;

@@ -7,7 +7,6 @@
 
 #import <Parse/Parse.h>
 #import <Foundation/Foundation.h>
-#import "Goal.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,9 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) PFUser *author;
 @property (nonatomic) BOOL completed;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString *timeframe;
 @property (nonatomic) NSString *taskName;
  
-+ (void)createTaskWithName:(NSString *)taskName 
++ (void)createTaskWithName:(NSString *)taskName withTimeframe:(NSString *)timeframe 
                   withType:(NSString * _Nullable)type withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
 @end
