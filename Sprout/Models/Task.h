@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL completed;
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSString *timeframe;
-@property (nonatomic) NSString *taskName;
+@property (nonatomic) NSString *name;
  
-+ (void)createTaskWithName:(NSString *)taskName withTimeframe:(NSString *)timeframe 
++ (void)createTaskWithName:(NSString *)taskName withTimeframe:(NSString *)timeframe
                   withType:(NSString * _Nullable)type withCompletion:(PFBooleanResultBlock _Nullable)completion;
 
 @end

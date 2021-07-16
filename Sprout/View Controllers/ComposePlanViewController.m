@@ -6,7 +6,6 @@
 //
 
 #import "ComposePlanViewController.h"
-//#import "Goal.h"
 #import "Networker.h"
 #import "Task.h"
 
@@ -24,7 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 - (IBAction)finishedAddingTasks:(id)sender {

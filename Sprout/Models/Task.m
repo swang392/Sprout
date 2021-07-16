@@ -11,7 +11,7 @@
 
 @dynamic completed;
 @dynamic type;
-@dynamic taskName;
+@dynamic name;
 @dynamic author;
 @dynamic timeframe;
 
@@ -25,7 +25,7 @@
     Task *newTask = [Task new];
     
     newTask.author = [PFUser currentUser];
-    newTask.taskName = taskName;
+    newTask.name = taskName;
     newTask.type = type;
     newTask.completed = false;
     newTask.timeframe = timeframe;
