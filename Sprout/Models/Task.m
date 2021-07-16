@@ -9,21 +9,17 @@
 
 @implementation Task
 
-//@dynamic createdAt;
-//@dynamic expiresAt;
-//@dynamic taskStatus;
-//@dynamic duration;
 @dynamic completed;
 @dynamic type;
 @dynamic taskName;
 @dynamic author;
-//@dynamic goal;
+@dynamic timeframe;
 
 + (nonnull NSString *)parseClassName{
     return @"Task";
 }
 
-+ (void)createTaskWithName:(NSString *)taskName
++ (void)createTaskWithName:(NSString *)taskName withTimeframe:(NSString *)timeframe
                   withType:(NSString * _Nullable)type
             withCompletion:(PFBooleanResultBlock _Nullable)completion{
     Task *newTask = [Task new];
@@ -32,6 +28,7 @@
     newTask.taskName = taskName;
     newTask.type = type;
     newTask.completed = false;
+    newTask.timeframe = timeframe;
     
     [newTask saveInBackgroundWithBlock:completion];
 }

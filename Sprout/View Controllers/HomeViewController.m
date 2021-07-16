@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) PFUser *user;
+@property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) NSMutableArray *arrayOfTasks;
 
 @end
@@ -26,19 +27,22 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.user = PFUser.currentUser;
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
     
+    self.user = PFUser.currentUser;
     [self queryTasks:20];
 }
 
 - (void) queryTasks:(int) numPosts {
     //TODO: add refresh control. Later on: sort by category?
     PFQuery *query = [PFQuery queryWithClassName:@"Task"];
-    //[query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     [query includeKey:@"taskName"];
     [query includeKey:@"type"];
     [query includeKey:@"completed"];
+    [query includeKey:@"timeframe"];
     
     query.limit = numPosts;
     
@@ -48,22 +52,24 @@
         if (arrayOfTasks != nil) {
             self.arrayOfTasks = (NSMutableArray *)arrayOfTasks;
             [self.tableView reloadData];
-            //self.morePostsLoading = false;
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
     
     [self.tableView reloadData];
-    
 }
 
+- (void)refreshData:(UIRefreshControl *)refreshControl {
+    [self queryTasks:20];
+    [refreshControl endRefreshing];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TaskCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskCell"];
-    
     Task *task = self.arrayOfTasks[indexPath.row];
     
     cell.taskLabel.text = task.taskName;
+    cell.timeframeLabel.text = task.timeframe;
     
     return cell;
 }
