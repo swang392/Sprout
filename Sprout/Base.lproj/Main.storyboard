@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -128,7 +129,12 @@
                                                         <constraint firstAttribute="width" constant="20" id="m5q-zh-UTn"/>
                                                     </constraints>
                                                     <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" image="square" catalog="system"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapCompleted:" destination="fsT-9x-1ZU" eventType="touchUpInside" id="GTX-9F-uUy"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Run 30 minutes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWI-dx-7K7">
                                                     <rect key="frame" x="60" y="19" width="119.5" height="20.5"/>
@@ -160,7 +166,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="completedButton" destination="z6m-tW-Yfg" id="cM3-zM-Yvq"/>
+                                            <outlet property="completedButton" destination="z6m-tW-Yfg" id="1DL-TS-6QQ"/>
                                             <outlet property="taskLabel" destination="HWI-dx-7K7" id="EMd-gl-WxZ"/>
                                             <outlet property="timeframeLabel" destination="WDm-7x-Mjr" id="gtk-4o-PEJ"/>
                                         </connections>

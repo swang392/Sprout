@@ -6,14 +6,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Task.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TaskCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *taskLabel;
-@property (weak, nonatomic) IBOutlet UIButton *completedButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeframeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *completedButton;
+@property (nonatomic, strong) Task *task;
+
+- (void)refreshData;
 
 @end
 
