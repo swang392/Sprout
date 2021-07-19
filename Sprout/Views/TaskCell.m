@@ -23,17 +23,16 @@
     self.timeframeLabel.text = self.task.timeframe;
     self.taskLabel.text = self.task.name;
     [self markCompleteness:self.task.completed];
-    
-//    if(self.task.completed){
-//        [self markAsCompleted];
-//    }
-//    else{
-//        [self markAsIncompleted];
-//    }
 }
 
 - (IBAction)didTapCompleted:(id)sender {
+    PFUser *current = [PFUser currentUser];
     self.task.completed = !self.task.completed;
+    if(self.task.completed)
+        current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] + 1];
+    else
+        current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] - 1];
+    [current saveInBackground];
     [self.task saveInBackground];
     [self markCompleteness:self.task.completed];
 }
