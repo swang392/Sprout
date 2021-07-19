@@ -19,8 +19,9 @@
     return @"Task";
 }
 
-+ (void)createTaskWithName:(NSString *)taskName withTimeframe:(NSString *)timeframe
-                  withType:(NSString * _Nullable)type
++ (void)createTaskWithName:(NSString *)taskName
+            withTimeframe:(NSString *)timeframe
+            withType:(NSString * _Nullable)type
             withCompletion:(PFBooleanResultBlock _Nullable)completion{
     Task *newTask = [Task new];
     
