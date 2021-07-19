@@ -51,7 +51,6 @@
         if (tasks != nil)
         {
             self.tasks = [NSMutableArray arrayWithArray:tasks];
-            //self.tasks = (NSMutableArray *)tasks;
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);

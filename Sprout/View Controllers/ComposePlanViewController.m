@@ -21,6 +21,11 @@
 
 @implementation ComposePlanViewController
 
+- (void)viewDidLoad {
+    self.taskTypeControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+    self.taskFrequencyControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+}
+
 - (IBAction)finishedAddingTasks:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
@@ -51,6 +56,10 @@
             NSLog(@"Error creating task: %@", error.localizedDescription);
         }
     }];
+    
+    self.taskNameField.text = nil;
+    self.taskTypeControl.selectedSegmentIndex = UISegmentedControlNoSegment;
+    self.taskFrequencyControl.selectedSegmentIndex = UISegmentedControlNoSegment;
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
