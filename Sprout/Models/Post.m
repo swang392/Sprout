@@ -11,9 +11,27 @@
 
 @dynamic likeCount;
 @dynamic author;
+@dynamic completedTasks;
+@dynamic totalTasks;
+@dynamic caption;
 
 + (nonnull NSString *)parseClassName{
     return @"Post";
+}
+
++ (void)createPost:(NSString *)caption
+        withCompleted:(NSNumber *)completedTasks
+         withTotal:(NSNumber *)totalTasks
+    withCompletion:(PFBooleanResultBlock _Nullable)completion {
+    Post *newPost = [Post new];
+    
+    newPost.author = [PFUser currentUser];
+    newPost.likeCount = 0;
+    newPost.completedTasks = completedTasks;
+    newPost.totalTasks = totalTasks;
+    newPost.caption = caption;
+    
+    [newPost saveInBackgroundWithBlock:completion];
 }
 
 @end

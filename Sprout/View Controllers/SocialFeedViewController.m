@@ -14,7 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray *posts;
+@property (nonatomic, strong) NSMutableArray<Post *> *posts;
+@property (nonatomic, strong) PFUser *user;
 
 @end
 
@@ -28,9 +29,10 @@
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
-    [self queryPosts:1];
+    [self queryPosts:20];
     
-    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
@@ -51,7 +53,7 @@
 }
 
 - (void)refreshData:(UIRefreshControl *)refreshControl {
-    [self queryPosts:1];
+    [self queryPosts:20];
     [refreshControl endRefreshing]; 
 }
 
@@ -61,7 +63,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    cell.post = self.posts[indexPath.row];
+    Post *post = self.posts[indexPath.row];
+    
+    [cell.profileImage setImage:nil];
+    cell.usernameLabel.text = nil;
+    cell.progressLabel.text = nil;
+    cell.usernameLabel.text = nil;
+    
+    cell.usernameLabel.text = self.user.username;
+    cell.captionLabel.text = post.caption;
+    cell.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", post.completedTasks, post.totalTasks];
+    
+    cell.post = post;
     [cell refreshData]; 
     return cell;
 }

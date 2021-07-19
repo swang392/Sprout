@@ -6,6 +6,7 @@
 //
 
 #import "Task.h"
+#import "Parse.h"
 
 @implementation Task
 
@@ -24,12 +25,16 @@
             withType:(NSString * _Nullable)type
             withCompletion:(PFBooleanResultBlock _Nullable)completion{
     Task *newTask = [Task new];
+    PFUser *current = [PFUser currentUser];
     
-    newTask.author = [PFUser currentUser];
+    newTask.author = current;
     newTask.name = taskName;
     newTask.type = type;
     newTask.completed = false;
     newTask.timeframe = timeframe;
+    
+    current[@"totalTasks"] =  [NSNumber numberWithInt:[current[@"totalTasks"] intValue] + 1];
+    [current saveInBackground];
     
     [newTask saveInBackgroundWithBlock:completion];
 }

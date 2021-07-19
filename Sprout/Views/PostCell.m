@@ -23,7 +23,7 @@
     
     PFUser *user = self.post.author;
     self.usernameLabel.text = user.username;
-    self.captionLabel.text = @"Today I accomplished _____!";
+    self.captionLabel.text = self.post.caption;
 }
 
 @end

@@ -57,7 +57,10 @@
         
         newUser.username = self.usernameField.text;
         newUser.password = self.passwordField.text;
-        
+        newUser[@"completedTasks"] = @0;
+        newUser[@"totalTasks"] = @0;
+        [newUser saveInBackground];
+
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
                 NSLog(@"Error: %@", error.localizedDescription);
