@@ -21,10 +21,6 @@
 
 @implementation ComposePlanViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)finishedAddingTasks:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }

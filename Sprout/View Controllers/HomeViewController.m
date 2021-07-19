@@ -35,7 +35,6 @@
     [self queryTasks:20];
 }
 
-
 - (void) queryTasks:(int) numPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Task"];
     [query includeKey:@"author"];
@@ -49,8 +48,10 @@
     [query whereKey:@"author" equalTo:self.user];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
-        if (tasks != nil) {
-            self.tasks = (NSMutableArray *)tasks;
+        if (tasks != nil)
+        {
+            self.tasks = [NSMutableArray arrayWithArray:tasks];
+            //self.tasks = (NSMutableArray *)tasks;
             [self.tableView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -62,13 +63,14 @@
     [self queryTasks:20];
     [refreshControl endRefreshing];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TaskCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TaskCell"];
     Task *task = self.tasks[indexPath.row];
     UIImage *image = [UIImage systemImageNamed:@"square" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
     [cell.completedButton setImage:image forState:UIControlStateNormal];
-    UIColor *customColor = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
-    [cell.completedButton setTintColor:customColor];
+    UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+    [cell.completedButton setTintColor:color];
     
     cell.taskLabel.text = nil;
     cell.timeframeLabel.text = nil;
@@ -77,6 +79,7 @@
     cell.taskLabel.text = task.name;
     cell.timeframeLabel.text = task.timeframe;
     cell.task = task;
+    [cell markCompleteness:task.completed];
     
     return cell;
 }

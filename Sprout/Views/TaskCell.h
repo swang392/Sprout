@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)refreshData;
 
+- (void)markCompleteness:(BOOL) completedStatus;
+
 @end
 
 NS_ASSUME_NONNULL_END
