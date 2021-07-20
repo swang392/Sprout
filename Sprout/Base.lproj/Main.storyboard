@@ -386,6 +386,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9nx-eY-T9Y" kind="relationship" relationship="viewControllers" id="kYY-3A-udJ"/>
@@ -401,7 +403,7 @@
         <scene sceneID="uZN-Wu-CP9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XNS-G9-H2g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house.fill" catalog="system" id="ARg-W3-O1E"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="ARg-W3-O1E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HDG-fg-H9b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -488,7 +490,7 @@
         <scene sceneID="G1B-1b-adV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LXD-C4-nnX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.circle" catalog="system" id="T5L-bv-qs7"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle" id="T5L-bv-qs7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gge-qy-uDp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -532,39 +534,49 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9x-B4-sn4">
-                                                    <rect key="frame" x="97" y="11" width="78" height="20.5"/>
+                                                    <rect key="frame" x="97" y="8" width="78" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" red="0.3803921569" green="0.70196078429999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personal caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUF-MQ-BaL">
-                                                    <rect key="frame" x="97" y="67.5" width="125.5" height="20.5"/>
+                                                    <rect key="frame" x="97" y="65" width="125.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="progress caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tw-q2-CLN">
-                                                    <rect key="frame" x="97" y="37" width="127" height="20.5"/>
+                                                    <rect key="frame" x="97" y="36.5" width="127" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timestamp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2To-Ot-q5v">
+                                                    <rect key="frame" x="324" y="8" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EUF-MQ-BaL" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="GeO-50-DO7"/>
+                                                <constraint firstAttribute="trailing" secondItem="2To-Ot-q5v" secondAttribute="trailing" constant="10" id="Gyb-15-OSE"/>
+                                                <constraint firstItem="2To-Ot-q5v" firstAttribute="firstBaseline" secondItem="L9x-B4-sn4" secondAttribute="firstBaseline" id="HU0-pT-QRm"/>
                                                 <constraint firstItem="g7M-Mx-KwA" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="top" constant="10" id="KAn-K0-t7c"/>
-                                                <constraint firstItem="L9x-B4-sn4" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="topMargin" id="KBS-ZW-jQv"/>
+                                                <constraint firstItem="EUF-MQ-BaL" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="TH7-mp-Ks6"/>
+                                                <constraint firstItem="L9x-B4-sn4" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="top" constant="8" id="Wah-Xs-Cjp"/>
+                                                <constraint firstItem="EUF-MQ-BaL" firstAttribute="top" secondItem="3tw-q2-CLN" secondAttribute="bottom" constant="8" id="Y6n-iM-Dh5"/>
                                                 <constraint firstItem="g7M-Mx-KwA" firstAttribute="leading" secondItem="dQI-Y3-5An" secondAttribute="leading" constant="10" id="YaN-Xw-ZZS"/>
-                                                <constraint firstItem="L9x-B4-sn4" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="apK-oX-H0N"/>
-                                                <constraint firstItem="EUF-MQ-BaL" firstAttribute="top" secondItem="3tw-q2-CLN" secondAttribute="bottom" constant="10" id="cbt-xn-nbN"/>
-                                                <constraint firstItem="3tw-q2-CLN" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="f0h-vd-xK4"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="EUF-MQ-BaL" secondAttribute="bottom" constant="10" id="hDK-W4-xrB"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="g7M-Mx-KwA" secondAttribute="bottom" constant="10" id="lCk-GS-1p2"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="EUF-MQ-BaL" secondAttribute="bottom" constant="10" id="zNY-sv-owL"/>
+                                                <constraint firstItem="2To-Ot-q5v" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="top" constant="8" id="ZB0-VO-o0D"/>
+                                                <constraint firstItem="3tw-q2-CLN" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="Zox-Z3-QjZ"/>
+                                                <constraint firstItem="2To-Ot-q5v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L9x-B4-sn4" secondAttribute="trailing" constant="10" id="abk-sA-UKb"/>
+                                                <constraint firstItem="L9x-B4-sn4" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="c1Z-k7-cmb"/>
+                                                <constraint firstItem="3tw-q2-CLN" firstAttribute="top" secondItem="L9x-B4-sn4" secondAttribute="bottom" constant="8" id="nmH-uY-UBv"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="EUF-MQ-BaL" secondAttribute="bottom" constant="10" id="ttf-Hw-oEb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="EUF-MQ-BaL" id="idA-VH-zfj"/>
+                                            <outlet property="createdAtLabel" destination="2To-Ot-q5v" id="9MW-OP-z6F"/>
                                             <outlet property="profileImage" destination="g7M-Mx-KwA" id="HPz-2o-IyT"/>
                                             <outlet property="progressLabel" destination="3tw-q2-CLN" id="gpf-le-IeT"/>
                                             <outlet property="usernameLabel" destination="L9x-B4-sn4" id="e1N-mA-xRG"/>
@@ -658,7 +670,7 @@
         <scene sceneID="N7a-fe-PZY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9nx-eY-T9Y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" selectedImage="person.3.fill" catalog="system" id="5Bp-3n-KX7"/>
+                    <tabBarItem key="tabBarItem" title="Social" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="5Bp-3n-KX7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OsN-6r-WeF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
