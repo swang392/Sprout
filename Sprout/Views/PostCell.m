@@ -7,6 +7,7 @@
 
 #import "PostCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateTools.h"
 
 @implementation PostCell
 
@@ -24,6 +25,7 @@
     PFUser *user = self.post.author;
     self.usernameLabel.text = user.username;
     self.captionLabel.text = self.post.caption;
+    self.createdAtLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "PostCell.h"
 #import "AppDelegate.h"
+#import "DateTools.h"
 
 @interface SocialFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -73,6 +74,7 @@
     cell.usernameLabel.text = self.user.username;
     cell.captionLabel.text = post.caption;
     cell.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", post.completedTasks, post.totalTasks];
+    cell.createdAtLabel.text = post.createdAt.shortTimeAgoSinceNow;
     
     cell.post = post;
     [cell refreshData]; 
