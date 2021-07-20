@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srm-1Z-Oyb">
-                                <rect key="frame" x="20" y="76" width="374" height="52"/>
+                                <rect key="frame" x="20" y="20" width="374" height="52"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Plan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLm-Nw-CoS">
                                         <rect key="frame" x="117" y="12" width="141" height="29"/>
@@ -135,7 +135,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLo-DM-cHc">
-                                <rect key="frame" x="0.0" y="180" width="414" height="662"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="59" id="fsT-9x-1ZU" customClass="TaskCell">
@@ -197,7 +197,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vb3-nc-QlI">
-                                <rect key="frame" x="20" y="139" width="180" height="30"/>
+                                <rect key="frame" x="20" y="83" width="180" height="30"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.85098039219999999" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="MUB-DT-BbX"/>
@@ -215,7 +215,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4u-eM-t2K">
-                                <rect key="frame" x="214" y="139" width="180" height="30"/>
+                                <rect key="frame" x="214" y="83" width="180" height="30"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.85098039219999999" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="62t-xb-jge"/>
@@ -353,6 +353,12 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="UzJ-PE-Vez">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pRE-cf-bhq">
+                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTapCancel:" destination="Ycb-K1-ksa" id="Htl-f6-d3p"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3Bg-7W-5Gj">
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -476,6 +482,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="FTy-9e-DTt">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="BRd-1r-Lo9">
+                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapLogout:" destination="d8E-QW-fR0" id="8hs-0M-4Ud"/>
                             </connections>
@@ -652,7 +659,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oKQ-dA-fMf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3BW-J4-GAG">
+                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelPost:" destination="shg-cU-DRY" id="IB3-B7-jeC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="uob-zf-yt9">
+                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapShare:" destination="shg-cU-DRY" id="E7q-xq-LRv"/>
                             </connections>
@@ -725,7 +739,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="roi-9G-lV5"/>
+        <segue reference="PWC-Q6-JFs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="greentextloog" width="181" height="83"/>
