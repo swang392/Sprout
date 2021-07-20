@@ -38,11 +38,11 @@ Sprout is a personal fitness app, that allows you to create custom fitness and w
 - [x] User can add new tasks
 - [x] User can view tasks on Home screen
 - [ ] User can delete tasks
-- [ ] User can mark tasks on their plan as complete
+- [x] User can mark tasks on their plan as complete
 
 - Social Screen
 - [ ] User can connect friends through facebook or google sdk
-- [ ] User can view social feed of other people's daily accomplishments
+- [x] User can view social feed of other people's daily accomplishments
 
 **Optional Nice-to-have Stories**
 
