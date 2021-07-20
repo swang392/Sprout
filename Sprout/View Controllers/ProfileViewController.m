@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
+@import FBSDKLoginKit;
 
 @interface ProfileViewController ()
 
@@ -23,6 +24,9 @@
 
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error)  {
+        if (FBSDKAccessToken.currentAccessTokenIsActive) {
+            [[FBSDKLoginManager alloc] logOut];
+        }
     }];
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

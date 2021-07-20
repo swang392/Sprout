@@ -7,6 +7,8 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+@import FBSDKLoginKit;
+#import "SceneDelegate.h"
 
 @interface LoginViewController ()
 
@@ -35,11 +37,13 @@
     
     self.loginAlert = [UIAlertController alertControllerWithTitle:@"Error during user login." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     [self.loginAlert addAction:okAction];
-
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:true];
+}
+
+- (IBAction)continueWithFacebook:(id)sender {
 }
 
 - (IBAction)registerUser:(id)sender {

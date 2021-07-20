@@ -8,6 +8,8 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+@import FBSDKLoginKit;
 
 @interface SceneDelegate ()
 
@@ -17,15 +19,23 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-    // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-    // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-    if (PFUser.currentUser) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-        }
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if (PFUser.currentUser || FBSDKAccessToken.currentAccessTokenIsActive) {
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    }
+    else {
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    }
 }
 
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts
+{
+    UIOpenURLContext *context = URLContexts.allObjects.firstObject;
+    [FBSDKApplicationDelegate.sharedInstance application:UIApplication.sharedApplication
+                                               openURL:context.URL
+                                     sourceApplication:context.options.sourceApplication
+                                            annotation:context.options.annotation];
+}
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
     // Called as the scene is being released by the system.
