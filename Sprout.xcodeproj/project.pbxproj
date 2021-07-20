@@ -11,6 +11,7 @@
 		3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4C7269DE5E300D41611 /* HomeViewController.m */; };
 		3F0BE4CB269DE7A800D41611 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */; };
 		3F34F28126A5F8050035D0F0 /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */; };
+		3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F46509D26A7573000E6890E /* EditProfileViewController.m */; };
 		3F641D12269CD74500313D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D11269CD74500313D49 /* AppDelegate.m */; };
 		3F641D15269CD74500313D49 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D14269CD74500313D49 /* SceneDelegate.m */; };
 		3F641D1B269CD74500313D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F641D19269CD74500313D49 /* Main.storyboard */; };
@@ -61,6 +62,8 @@
 		3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3F34F27F26A5F8050035D0F0 /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
+		3F46509C26A7573000E6890E /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		3F46509D26A7573000E6890E /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		3F641D0D269CD74500313D49 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F641D10269CD74500313D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F641D11269CD74500313D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				3FADF3E4269E2C9E002B5911 /* ComposePlanViewController.m */,
 				3F34F27F26A5F8050035D0F0 /* ComposePostViewController.h */,
 				3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */,
+				3F46509C26A7573000E6890E /* EditProfileViewController.h */,
+				3F46509D26A7573000E6890E /* EditProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 			files = (
 				3F0BE4C5269CEB7700D41611 /* LoginViewController.m in Sources */,
 				3F641D12269CD74500313D49 /* AppDelegate.m in Sources */,
+				3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */,
 				3FADF3E826A07970002B5911 /* Networker.m in Sources */,
 				3FADF3DF269E2920002B5911 /* Task.m in Sources */,
 				3F641D23269CD74600313D49 /* main.m in Sources */,

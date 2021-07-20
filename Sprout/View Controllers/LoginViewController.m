@@ -44,6 +44,7 @@
 }
 
 - (IBAction)continueWithFacebook:(id)sender {
+    //TODO: allow users to create account through Facebook or log in through facebook
 }
 
 - (IBAction)registerUser:(id)sender {
@@ -63,18 +64,16 @@
         newUser.password = self.passwordField.text;
         newUser[@"completedTasks"] = @0;
         newUser[@"totalTasks"] = @0;
-        [newUser saveInBackground];
 
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
+                //TODO: - Show an alert for unexpected error
                 [self presentViewController:self.registrationAlert animated:YES completion:^{
                     [self.activityIndicator stopAnimating];
                 }];
             } else {
-                NSLog(@"User registered successfully");
                 [self.activityIndicator stopAnimating];
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self performSegueWithIdentifier:@"signUpSegue" sender:nil];
             }
         }];
     }
@@ -96,12 +95,11 @@
         
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
             if (error != nil) {
-                NSLog(@"User log in failed: %@", error.localizedDescription);
+                //TODO: - Show an alert for unexpected error
                 [self presentViewController:self.loginAlert animated:YES completion:^{
                     [self.activityIndicator stopAnimating];
                 }];
             } else {
-                NSLog(@"User logged in successfully");
                 [self.activityIndicator stopAnimating];
                 [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             }

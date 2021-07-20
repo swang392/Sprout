@@ -53,7 +53,7 @@
             self.tasks = [NSMutableArray arrayWithArray:tasks];
             [self.tableView reloadData];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            //TODO: - Show an alert for unexpected error
         }
     }];
 }

@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.taskTypeControl.selectedSegmentIndex = UISegmentedControlNoSegment;
     self.taskFrequencyControl.selectedSegmentIndex = UISegmentedControlNoSegment;
     
@@ -35,10 +36,6 @@
 }
 
 - (IBAction)finishedAddingTasks:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
-}
-
-- (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -67,11 +64,8 @@
             timeframe = @"Weekly";
         
         [Task createTaskWithName:taskName withTimeframe:timeframe withType:taskType withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(succeeded){
-                NSLog(@"created task successfully");
-            }
-            else {
-                NSLog(@"Error creating task: %@", error.localizedDescription);
+            if(!succeeded){
+                //TODO: - Show an alert for unexpected error
             }
         }];
         

@@ -99,7 +99,8 @@
                         <outlet property="activityIndicator" destination="RFZ-2o-ftE" id="zhC-NY-vV5"/>
                         <outlet property="passwordField" destination="iBO-xb-Vmd" id="2fS-7X-SdO"/>
                         <outlet property="usernameField" destination="4Hl-Lz-QIc" id="3Ti-Rm-tco"/>
-                        <segue destination="Pno-On-Ekf" kind="showDetail" identifier="loginSegue" id="62q-w6-DQ4"/>
+                        <segue destination="hBT-1C-SOB" kind="show" identifier="signUpSegue" id="WmJ-Vs-C7q"/>
+                        <segue destination="Pno-On-Ekf" kind="show" identifier="loginSegue" id="vA6-gw-o3j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,7 +110,83 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+            <point key="canvasLocation" x="-543" y="35"/>
+        </scene>
+        <!--EditProfileViewController-->
+        <scene sceneID="Fgp-Ah-Jnn">
+            <objects>
+                <viewController title="EditProfileViewController" id="hBT-1C-SOB" customClass="EditProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zub-yc-Yuq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greentextloog" translatesAutoresizingMaskIntoConstraints="NO" id="aNN-4r-5RI">
+                                <rect key="frame" x="126" y="0.0" width="162" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ixo-c1-QjL">
+                                <rect key="frame" x="0.0" y="59" width="414" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3w-rN-WJt">
+                                <rect key="frame" x="20" y="282" width="50" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a profile photo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LC5-za-eC3">
+                                <rect key="frame" x="20" y="83" width="178" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ia5-4B-kdN">
+                                <rect key="frame" x="286" y="275" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqH-wL-eCd">
+                                <rect key="frame" x="349" y="347" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="hBT-1C-SOB" eventType="touchUpInside" id="Ujo-WQ-QWG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1I-gT-nf5">
+                                <rect key="frame" x="286" y="75" width="120" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select a photo">
+                                    <color key="titleColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectProfileImage:" destination="hBT-1C-SOB" eventType="touchUpInside" id="Dvw-6y-oza"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65b-hT-ZCm">
+                                <rect key="frame" x="138" y="125" width="138" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="il9-Lu-D9g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TK0-KD-0Ju"/>
+                    <connections>
+                        <outlet property="pickPhotoButton" destination="C1I-gT-nf5" id="xdl-bQ-14Q"/>
+                        <outlet property="profilePicView" destination="65b-hT-ZCm" id="Sr7-xe-OtG"/>
+                        <outlet property="saveButton" destination="EqH-wL-eCd" id="Er6-VI-RZP"/>
+                        <outlet property="userNameField" destination="ia5-4B-kdN" id="xXI-fV-11I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6Q-UD-QMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="257.97101449275362" y="83.705357142857139"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="Dxj-Eb-UkZ">
@@ -333,10 +410,16 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxS-M2-dBi">
-                                <rect key="frame" x="292" y="406" width="96" height="30"/>
+                                <rect key="frame" x="273" y="406" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add This Task"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addTaskButton:" destination="Ycb-K1-ksa" eventType="touchUpInside" id="S1J-8f-X8p"/>
                                 </connections>
@@ -361,13 +444,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="UzJ-PE-Vez">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="pRE-cf-bhq">
-                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="didTapCancel:" destination="Ycb-K1-ksa" id="Htl-f6-d3p"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="3Bg-7W-5Gj">
+                        <barButtonItem key="rightBarButtonItem" title="Finished Adding Tasks" id="3Bg-7W-5Gj">
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="finishedAddingTasks:" destination="Ycb-K1-ksa" id="KGg-4s-SLs"/>
@@ -388,12 +465,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1161" y="3106"/>
+            <point key="canvasLocation" x="1160.8695652173915" y="3105.8035714285711"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="7kc-aW-dfK">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pno-On-Ekf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pno-On-Ekf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="90P-hn-waP"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lWt-j1-DBA">

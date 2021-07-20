@@ -70,13 +70,8 @@
     cell.usernameLabel.text = nil;
     cell.progressLabel.text = nil;
     cell.usernameLabel.text = nil;
-    
-    cell.usernameLabel.text = self.user.username;
-    cell.captionLabel.text = post.caption;
-    cell.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", post.completedTasks, post.totalTasks];
-    cell.createdAtLabel.text = post.createdAt.shortTimeAgoSinceNow;
-    
     cell.post = post;
+    
     [cell refreshData]; 
     return cell;
 }

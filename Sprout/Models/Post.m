@@ -20,7 +20,7 @@
 }
 
 + (void)createPost:(NSString *)caption
-        withCompleted:(NSNumber *)completedTasks
+     withCompleted:(NSNumber *)completedTasks
          withTotal:(NSNumber *)totalTasks
     withCompletion:(PFBooleanResultBlock _Nullable)completion {
     Post *newPost = [Post new];

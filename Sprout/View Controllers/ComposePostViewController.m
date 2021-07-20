@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.composeTextView.layer.borderWidth = 1.5f;
     self.composeTextView.layer.borderColor = [[UIColor colorWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0] CGColor];
     self.composeTextView.layer.cornerRadius = 8;
@@ -48,12 +49,8 @@
         NSString *caption = self.composeTextView.text;
         
         [Post createPost:caption withCompleted:completedTasks withTotal:totalTasks withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(succeeded){
-                NSLog(@"created post successfully");
-                [self dismissViewControllerAnimated:true completion:nil];
-            }
-            else {
-                NSLog(@"Error creating task: %@", error.localizedDescription);
+            if(!succeeded){
+                //TODO: - Show an alert for unexpected error
             }
         }];
     }
