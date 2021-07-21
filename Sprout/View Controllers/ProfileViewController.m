@@ -24,6 +24,7 @@
 
 - (IBAction)didTapLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error)  {
+        [[FBSDKLoginManager alloc] logOut];
         if (FBSDKAccessToken.currentAccessTokenIsActive) {
             [[FBSDKLoginManager alloc] logOut];
         }

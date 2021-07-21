@@ -79,7 +79,7 @@
                                     <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mmX-Rb-fP3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-Sy-dHF" customClass="FBSDKLoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqY-Sy-dHF">
                                 <rect key="frame" x="125" y="615" width="165" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Continue with Facebook"/>
@@ -99,7 +99,6 @@
                         <outlet property="activityIndicator" destination="RFZ-2o-ftE" id="zhC-NY-vV5"/>
                         <outlet property="passwordField" destination="iBO-xb-Vmd" id="2fS-7X-SdO"/>
                         <outlet property="usernameField" destination="4Hl-Lz-QIc" id="3Ti-Rm-tco"/>
-                        <segue destination="hBT-1C-SOB" kind="show" identifier="signUpSegue" id="WmJ-Vs-C7q"/>
                         <segue destination="Pno-On-Ekf" kind="show" identifier="loginSegue" id="vA6-gw-o3j"/>
                     </connections>
                 </viewController>
@@ -186,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6Q-UD-QMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257.97101449275362" y="83.705357142857139"/>
+            <point key="canvasLocation" x="2574" y="1636"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="Dxj-Eb-UkZ">
@@ -570,6 +569,12 @@
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="didTapLogout:" destination="d8E-QW-fR0" id="8hs-0M-4Ud"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="BZj-cl-1Ss">
+                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="hBT-1C-SOB" kind="presentation" id="cjP-5b-Y7V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
