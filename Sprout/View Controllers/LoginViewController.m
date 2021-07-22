@@ -47,39 +47,21 @@
 
 - (IBAction)continueWithFacebook:(id)sender {
     //TODO: allow users to create account through Facebook or log in through facebook. rn this is registering user
-    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     [loginManager logOut];
     [loginManager logInWithPermissions:@[@"public_profile", @"email"]
                          fromViewController:self
                          handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
         if (error == nil && !result.isCancelled) {
-            [self createFBUser:FBSDKProfile.currentProfile];
+            self.graphRequest = [[FBSDKGraphRequest alloc]
+                                                    initWithGraphPath:@"/me"
+                                                    parameters:@{@"fields":@"first_name,last_name,email,picture"}
+                                                    HTTPMethod:@"GET"];
+            //TODO: modify graph request/the following method to get a high-res profile picture
+            [self createUserThroughFB: self.graphRequest];
         }
         else{
             NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-}
-
-- (void)createFBUser:(FBSDKProfile *)profile {
-    //TODO: this is a temporary fix. no profile picture, because FBSDKProfile does not have access to a user's pfp.
-    PFUser *newUser = [PFUser user];
-    newUser[@"completedTasks"] = @0;
-    newUser[@"totalTasks"] = @0;
-    newUser[@"name"] = profile.name;
-    newUser.username = profile.email;
-    newUser.password = profile.email;
-    newUser.email = profile.email;
-    
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            //TODO: - Show an alert for unexpected error
-            [self presentViewController:self.registrationAlert animated:YES completion:^{
-                [self.activityIndicator stopAnimating];
-            }];
-        } else {
-            [self.activityIndicator stopAnimating];
-            [self showTabBar];
         }
     }];
 }
@@ -94,10 +76,19 @@
             PFUser *newUser = [PFUser user];
             newUser[@"completedTasks"] = @0;
             newUser[@"totalTasks"] = @0;
-            newUser[@"firstName"] = result[@"first_name"];
-            newUser[@"lastName"] = result[@"last_name"];
+            newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
             newUser[@"email"] = result[@"email"];
+            newUser.password = result[@"email"];
             newUser.username = result[@"email"];
+            
+            PFFileObject *photo = result[@"picture"];
+            NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
+            NSURL *url = [NSURL URLWithString:photoURL];
+            UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            NSData *imageData = UIImagePNGRepresentation(aImage);
+            PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+            newUser[@"profileImage"] = image;
+            
             
             //TODO: check if a user with this email already exists. If so, log in without creating a new user
             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -113,7 +104,6 @@
             }];
         }
     }];
-    
 }
 
 - (IBAction)registerUser:(id)sender {
