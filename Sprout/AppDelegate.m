@@ -32,7 +32,7 @@
         }];
 
     [Parse initializeWithConfiguration:config];
-    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    [FBSDKApplicationDelegate.sharedInstance application:UIApplication.sharedApplication didFinishLaunchingWithOptions:launchOptions];
     return YES;
 }
 

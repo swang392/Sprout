@@ -8,7 +8,6 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
 @import FBSDKLoginKit;
 
 @interface SceneDelegate ()
@@ -20,7 +19,8 @@
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    if (PFUser.currentUser || FBSDKAccessToken.currentAccessTokenIsActive) {
+    if (PFUser.currentUser) {
+    //if (PFUser.currentUser || FBSDKAccessToken.currentAccessTokenIsActive) {
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     }
     else {
