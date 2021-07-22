@@ -53,9 +53,10 @@
                          handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
         if (error == nil && !result.isCancelled) {
             //TODO: graph request is being created, but competion block in createUserThroughFB isn't being called. need to fix.
+            //TODO: for now: directly call method that uses FBSDK Profile (this needs to be done)
             self.graphRequest = [[FBSDKGraphRequest alloc]
                                         initWithGraphPath:@"/me"
-                                        parameters:@{@"fields":@"first_name,last_name,email"}
+                                        parameters:@{@"fields":@"email"}
                                           //removed picture from parameters for debugging purposes
                                         HTTPMethod:@"GET"];
 
@@ -68,6 +69,9 @@
 }
 
 - (void)createUserThroughFB:(FBSDKGraphRequest *)request {
+    FBSDKProfile *profile = FBSDKProfile.currentProfile;
+    //TODO: NEED TO FIX: for now use the above profile. asking for help to fix permissions error
+    //TODO: create user without completion block for graph request
     [request startWithCompletion:^(
                        id<FBSDKGraphRequestConnecting> _Nullable connection,
                        id _Nullable result,
