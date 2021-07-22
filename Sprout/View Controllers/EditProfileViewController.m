@@ -42,12 +42,11 @@
 }
 
 - (IBAction)saveButton:(id)sender {
-    self.user =  [PFUser currentUser];
     self.user[@"name"] = self.userNameField.text;
     NSData *imageData = UIImagePNGRepresentation(self.profilePicView.image);
     PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
     self.user[@"profileImage"] = image;
-    [[PFUser currentUser] saveInBackground];
+    [PFUser.currentUser saveInBackground];
     
     [self dismissViewControllerAnimated:true completion:nil];
 }

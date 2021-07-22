@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) NSMutableArray<Post *> *posts;
-@property (nonatomic) PFUser *user;
 
 @end
 
@@ -27,8 +26,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    self.refreshControl = [UIRefreshControl new];
     
     [self queryPosts:20];
     
