@@ -193,6 +193,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="il9-Lu-D9g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vyo-AT-otS" appends="YES" id="fmo-4z-a3O"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="TK0-KD-0Ju"/>
                     <connections>
@@ -203,6 +207,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6Q-UD-QMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Vyo-AT-otS">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="hBT-1C-SOB" id="45h-Nf-ICA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2574" y="1636"/>
         </scene>
@@ -597,6 +606,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="bQo-oa-zG0" id="0Pe-9w-70X"/>
+                        <outlet property="profileImageView" destination="yfJ-Ax-iFF" id="h7P-qx-YMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZ6-N1-oL6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -758,6 +771,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WUi-C3-7cp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TGc-1a-QcJ" firstAttribute="top" secondItem="WUi-C3-7cp" secondAttribute="top" constant="69" id="CJW-51-bis"/>
                             <constraint firstItem="WUi-C3-7cp" firstAttribute="trailing" secondItem="P4i-qQ-8r0" secondAttribute="trailing" constant="126" id="NGO-r8-gQL"/>
@@ -766,6 +780,9 @@
                             <constraint firstItem="P4i-qQ-8r0" firstAttribute="top" secondItem="WUi-C3-7cp" secondAttribute="top" constant="10" id="iwp-cj-1lm"/>
                             <constraint firstItem="P4i-qQ-8r0" firstAttribute="leading" secondItem="WUi-C3-7cp" secondAttribute="leading" constant="126" id="qED-Mn-6H4"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RGU-nw-hdf" appends="YES" id="Hgg-Df-Xff"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="oKQ-dA-fMf">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3BW-J4-GAG">
@@ -786,6 +803,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBP-9S-I1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RGU-nw-hdf">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="shg-cU-DRY" id="oW1-eL-vjG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="340.57971014492756" y="3105.8035714285711"/>
         </scene>

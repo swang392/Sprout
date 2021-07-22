@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *pickPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (nonatomic, strong) PFUser *user;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
+@property (nonatomic) PFUser *user;
 
 @end
 
@@ -30,11 +30,15 @@
         self.userNameField.text = self.user[@"name"];
         PFFileObject *temp_file = self.user[@"profileImage"];
         [temp_file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-                UIImage *thumbnailImage = [UIImage imageWithData:imageData];
-                UIImageView *thumbnailImageView = [[UIImageView alloc] initWithImage:thumbnailImage];
-            [self.profilePicView setImage:thumbnailImageView];
-            }];
+            UIImage *thumbnailImage = [UIImage imageWithData:imageData];
+            UIImageView *thumbnailImageView = [[UIImageView alloc] initWithImage:thumbnailImage];
+            self.profilePicView.image = thumbnailImageView.image;
+        }];
     }
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.view endEditing:true];
 }
 
 - (IBAction)saveButton:(id)sender {
@@ -44,6 +48,8 @@
     PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
     self.user[@"profileImage"] = image;
     [[PFUser currentUser] saveInBackground];
+    
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 //methods from codepath

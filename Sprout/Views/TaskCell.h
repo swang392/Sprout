@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *taskLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeframeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *completedButton;
-@property (nonatomic, strong) Task *task;
+@property (nonatomic) Task *task;
 
 - (void)refreshData;
 

@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Post : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSNumber *likeCount;
-@property (nonatomic, strong) PFUser *author;
-@property (nonatomic, strong) NSNumber *completedTasks;
-@property (nonatomic, strong) NSNumber *totalTasks;
-@property (nonatomic, strong) NSString *caption;
+@property (nonatomic) NSNumber *likeCount;
+@property (nonatomic) PFUser *author;
+@property (nonatomic) NSNumber *completedTasks;
+@property (nonatomic) NSNumber *totalTasks;
+@property (nonatomic) NSString *caption;
 
 + (void)createPost:(NSString *)caption
      withCompleted:(NSNumber *)completedTasks

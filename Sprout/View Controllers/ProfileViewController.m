@@ -14,12 +14,29 @@
 
 @interface ProfileViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameField;
+@property (nonatomic) PFUser *user;
+
 @end
 
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.user = PFUser.currentUser;
+    
+    if([self.user[@"name"] isEqual:@""]){
+        self.nameField.text = self.user.username;
+    }
+    else{
+        self.nameField.text = self.user[@"name"];
+    }
+    PFFileObject *photo = self.user[@"profileImage"];
+    [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
+        self.profileImageView.image = [UIImage imageWithData:imageData];
+    }];
 }
 
 - (IBAction)didTapLogout:(id)sender {

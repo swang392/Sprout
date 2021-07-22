@@ -15,9 +15,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) UIAlertController *blankAlert;
-@property (strong, nonatomic) UIAlertController *registrationAlert;
-@property (strong, nonatomic) UIAlertController *loginAlert;
+@property (nonatomic) UIAlertController *blankAlert;
+@property (nonatomic) UIAlertController *registrationAlert;
+@property (nonatomic) UIAlertController *loginAlert;
 @property (nonatomic) FBSDKGraphRequest *graphRequest;
 
 @end

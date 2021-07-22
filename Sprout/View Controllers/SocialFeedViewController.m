@@ -14,9 +14,9 @@
 @interface SocialFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray<Post *> *posts;
-@property (nonatomic, strong) PFUser *user;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) NSMutableArray<Post *> *posts;
+@property (nonatomic) PFUser *user;
 
 @end
 

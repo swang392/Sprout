@@ -13,9 +13,9 @@
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) PFUser *user;
+@property (nonatomic) PFUser *user;
 @property (nonatomic) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray<Task *> *tasks;
+@property (nonatomic) NSMutableArray<Task *> *tasks;
 
 @end
 

@@ -12,8 +12,8 @@
 
 @interface ComposePostViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *composeTextView;
-@property (nonatomic, strong) PFUser *user;
-@property (strong, nonatomic) UIAlertController *postAlert;
+@property (nonatomic) PFUser *user;
+@property (nonatomic) UIAlertController *postAlert;
 
 @end
 
@@ -54,6 +54,10 @@
             }
         }];
     }
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.view endEditing:true];
 }
 
 @end

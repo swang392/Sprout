@@ -15,8 +15,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskTypeControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskFrequencyControl;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
-@property (nonatomic, strong) NSMutableArray<Task *> *arrayOfTasks;
-@property (strong, nonatomic) UIAlertController *addTaskAlert;
+@property (nonatomic) NSMutableArray<Task *> *arrayOfTasks;
+@property (nonatomic) UIAlertController *addTaskAlert;
 
 @end
 
