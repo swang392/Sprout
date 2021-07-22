@@ -669,13 +669,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="personal caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUF-MQ-BaL">
-                                                    <rect key="frame" x="97" y="65" width="125.5" height="20.5"/>
+                                                    <rect key="frame" x="97" y="65" width="297" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="progress caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tw-q2-CLN">
-                                                    <rect key="frame" x="97" y="36.5" width="127" height="20.5"/>
+                                                    <rect key="frame" x="97" y="36.5" width="297" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <color key="textColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -691,6 +691,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="2To-Ot-q5v" secondAttribute="trailing" constant="10" id="Gyb-15-OSE"/>
                                                 <constraint firstItem="2To-Ot-q5v" firstAttribute="firstBaseline" secondItem="L9x-B4-sn4" secondAttribute="firstBaseline" id="HU0-pT-QRm"/>
                                                 <constraint firstItem="g7M-Mx-KwA" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="top" constant="10" id="KAn-K0-t7c"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3tw-q2-CLN" secondAttribute="trailing" id="Nb1-FJ-fSF"/>
                                                 <constraint firstItem="EUF-MQ-BaL" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="TH7-mp-Ks6"/>
                                                 <constraint firstItem="L9x-B4-sn4" firstAttribute="top" secondItem="dQI-Y3-5An" secondAttribute="top" constant="8" id="Wah-Xs-Cjp"/>
                                                 <constraint firstItem="EUF-MQ-BaL" firstAttribute="top" secondItem="3tw-q2-CLN" secondAttribute="bottom" constant="8" id="Y6n-iM-Dh5"/>
@@ -699,6 +700,7 @@
                                                 <constraint firstItem="3tw-q2-CLN" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="Zox-Z3-QjZ"/>
                                                 <constraint firstItem="2To-Ot-q5v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L9x-B4-sn4" secondAttribute="trailing" constant="10" id="abk-sA-UKb"/>
                                                 <constraint firstItem="L9x-B4-sn4" firstAttribute="leading" secondItem="g7M-Mx-KwA" secondAttribute="trailing" constant="8" symbolic="YES" id="c1Z-k7-cmb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EUF-MQ-BaL" secondAttribute="trailing" id="lfW-qq-Za4"/>
                                                 <constraint firstItem="3tw-q2-CLN" firstAttribute="top" secondItem="L9x-B4-sn4" secondAttribute="bottom" constant="8" id="nmH-uY-UBv"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="EUF-MQ-BaL" secondAttribute="bottom" constant="10" id="ttf-Hw-oEb"/>
                                             </constraints>

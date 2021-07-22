@@ -7,8 +7,9 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
-@import FBSDKLoginKit;
 #import "SceneDelegate.h"
+#import "HomeViewController.h"
+@import FBSDKLoginKit;
 
 @interface LoginViewController ()
 
@@ -52,15 +53,7 @@
                          fromViewController:self
                          handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
         if (error == nil && !result.isCancelled) {
-            //TODO: graph request is being created, but competion block in createUserThroughFB isn't being called. need to fix.
-            //TODO: for now: directly call method that uses FBSDK Profile (this needs to be done)
-            self.graphRequest = [[FBSDKGraphRequest alloc]
-                                        initWithGraphPath:@"/me"
-                                        parameters:@{@"fields":@"email"}
-                                          //removed picture from parameters for debugging purposes
-                                        HTTPMethod:@"GET"];
-
-            [self createUserThroughFB: self.graphRequest];
+            [self createFBUser:FBSDKProfile.currentProfile];
         }
         else{
             NSLog(@"%@", error.localizedDescription);
@@ -68,10 +61,31 @@
     }];
 }
 
+- (void)createFBUser:(FBSDKProfile *)profile {
+    //TODO: this is a temporary fix. no profile picture, because FBSDKProfile does not have access to a user's pfp.
+    PFUser *newUser = [PFUser user];
+    newUser[@"completedTasks"] = @0;
+    newUser[@"totalTasks"] = @0;
+    newUser[@"name"] = profile.name;
+    newUser.username = profile.email;
+    newUser.password = profile.email;
+    newUser.email = profile.email;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            //TODO: - Show an alert for unexpected error
+            [self presentViewController:self.registrationAlert animated:YES completion:^{
+                [self.activityIndicator stopAnimating];
+            }];
+        } else {
+            [self.activityIndicator stopAnimating];
+            [self showTabBar];
+        }
+    }];
+}
+
 - (void)createUserThroughFB:(FBSDKGraphRequest *)request {
-    FBSDKProfile *profile = FBSDKProfile.currentProfile;
-    //TODO: NEED TO FIX: for now use the above profile. asking for help to fix permissions error
-    //TODO: create user without completion block for graph request
+    //TODO: NEED TO FIX: For now i'm using the createFBUser method.
     [request startWithCompletion:^(
                        id<FBSDKGraphRequestConnecting> _Nullable connection,
                        id _Nullable result,
@@ -84,7 +98,6 @@
             newUser[@"lastName"] = result[@"last_name"];
             newUser[@"email"] = result[@"email"];
             newUser.username = result[@"email"];
-            //newUser[@"profileImage"] = result[@"picture"];
             
             //TODO: check if a user with this email already exists. If so, log in without creating a new user
             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -95,7 +108,7 @@
                     }];
                 } else {
                     [self.activityIndicator stopAnimating];
-                    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                    [self showTabBar];
                 }
             }];
         }
@@ -129,7 +142,7 @@
                 }];
             } else {
                 [self.activityIndicator stopAnimating];
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self showTabBar];
             }
         }];
     }
@@ -157,10 +170,17 @@
                 }];
             } else {
                 [self.activityIndicator stopAnimating];
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self showTabBar];
             }
         }];
     }
 }
 
+- (void)showTabBar {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+
+    [sceneDelegate changeRootViewController:viewController];
+} 
 @end
