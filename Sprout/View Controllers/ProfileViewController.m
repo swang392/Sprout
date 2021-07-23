@@ -5,12 +5,12 @@
 //  Created by Sarah Wang on 7/13/21.
 //
 
+@import FBSDKLoginKit;
 #import "ProfileViewController.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
-@import FBSDKLoginKit;
 
 @interface ProfileViewController ()
 
