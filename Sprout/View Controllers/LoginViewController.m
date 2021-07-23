@@ -50,13 +50,13 @@
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     [loginManager logOut];
     [loginManager logInWithPermissions:@[@"public_profile", @"email"]
-                         fromViewController:self
-                         handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
+                    fromViewController:self
+                               handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
         if (error == nil && !result.isCancelled) {
             self.graphRequest = [[FBSDKGraphRequest alloc]
-                                                    initWithGraphPath:@"/me"
-                                                    parameters:@{@"fields":@"first_name,last_name,email,picture"}
-                                                    HTTPMethod:@"GET"];
+                                 initWithGraphPath:@"/me"
+                                 parameters:@{@"fields":@"first_name,last_name,email,picture"}
+                                 HTTPMethod:@"GET"];
             //TODO: modify graph request/the following method to get a high-res profile picture
             [self createUserThroughFB: self.graphRequest];
         }
@@ -67,39 +67,51 @@
 }
 
 - (void)createUserThroughFB:(FBSDKGraphRequest *)request {
-    //TODO: NEED TO FIX: For now i'm using the createFBUser method.
     [request startWithCompletion:^(
-                       id<FBSDKGraphRequestConnecting> _Nullable connection,
-                       id _Nullable result,
-                       NSError *_Nullable error) {
+                                   id<FBSDKGraphRequestConnecting> _Nullable connection,
+                                   id _Nullable result,
+                                   NSError *_Nullable error) {
         if (result) {
-            PFUser *newUser = [PFUser user];
-            newUser[@"completedTasks"] = @0;
-            newUser[@"totalTasks"] = @0;
-            newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
-            newUser[@"email"] = result[@"email"];
-            newUser.password = result[@"email"];
-            newUser.username = result[@"email"];
-            
-            PFFileObject *photo = result[@"picture"];
-            NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
-            NSURL *url = [NSURL URLWithString:photoURL];
-            UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-            NSData *imageData = UIImagePNGRepresentation(aImage);
-            PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
-            newUser[@"profileImage"] = image;
-            
-            
-            //TODO: check if a user with this email already exists. If so, log in without creating a new user
-            [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-                if (error != nil) {
-                    //TODO: - Show an alert for unexpected error
-                    [self presentViewController:self.registrationAlert animated:YES completion:^{
-                        [self.activityIndicator stopAnimating];
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"email" equalTo:result[@"email"]];
+            [query countObjectsInBackgroundWithBlock:^(int count, NSError * _Nullable error) {
+                if (count == 0) {
+                    PFUser *newUser = [PFUser user];
+                    newUser[@"completedTasks"] = @0;
+                    newUser[@"totalTasks"] = @0;
+                    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
+                    newUser[@"email"] = result[@"email"];
+                    newUser.password = result[@"email"];
+                    newUser.username = result[@"email"];
+                    
+                    PFFileObject *photo = result[@"picture"];
+                    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
+                    NSURL *url = [NSURL URLWithString:photoURL];
+                    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+                    NSData *imageData = UIImagePNGRepresentation(aImage);
+                    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+                    newUser[@"profileImage"] = image;
+
+                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                        if (error != nil) {
+                            //TODO: - Show an alert for unexpected error
+                            [self presentViewController:self.registrationAlert animated:YES completion:^{
+                                [self.activityIndicator stopAnimating];
+                            }];
+                        } else {
+                            [self.activityIndicator stopAnimating];
+                            [self showTabBar];
+                        }
                     }];
-                } else {
-                    [self.activityIndicator stopAnimating];
-                    [self showTabBar];
+                }
+                else {
+                    NSString *username = result[@"email"];
+                    NSString *password = result[@"email"];
+                    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+                        if(error == nil) {
+                            [self showTabBar];
+                        }
+                    }];
                 }
             }];
         }
@@ -123,7 +135,7 @@
         newUser.password = self.passwordField.text;
         newUser[@"completedTasks"] = @0;
         newUser[@"totalTasks"] = @0;
-
+        
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
                 //TODO: - Show an alert for unexpected error
