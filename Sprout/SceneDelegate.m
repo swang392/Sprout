@@ -5,10 +5,10 @@
 //  Created by Sarah Wang on 7/12/21.
 //
 
+@import FBSDKLoginKit;
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
-@import FBSDKLoginKit;
 
 @interface SceneDelegate ()
 

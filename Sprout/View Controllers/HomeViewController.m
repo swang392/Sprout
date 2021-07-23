@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "TaskCell.h"
 #import "Task.h"
+#import "TaskDetailsViewController.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -84,6 +85,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.tasks.count;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"taskDetailsSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        TaskDetailsViewController *taskDetailsViewController = [segue destinationViewController];
+        taskDetailsViewController.task = self.tasks[indexPath.row];
+    }
 }
 
 @end

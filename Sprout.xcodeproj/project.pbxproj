@@ -13,6 +13,7 @@
 		3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4C7269DE5E300D41611 /* HomeViewController.m */; };
 		3F0BE4CB269DE7A800D41611 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */; };
 		3F34F28126A5F8050035D0F0 /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */; };
+		3F36696826AB6E700026F32D /* TaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F36696726AB6E700026F32D /* TaskDetailsViewController.m */; };
 		3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F46509D26A7573000E6890E /* EditProfileViewController.m */; };
 		3F641D12269CD74500313D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D11269CD74500313D49 /* AppDelegate.m */; };
 		3F641D15269CD74500313D49 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D14269CD74500313D49 /* SceneDelegate.m */; };
@@ -65,6 +66,8 @@
 		3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3F34F27F26A5F8050035D0F0 /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
+		3F36696626AB6E700026F32D /* TaskDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailsViewController.h; sourceTree = "<group>"; };
+		3F36696726AB6E700026F32D /* TaskDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailsViewController.m; sourceTree = "<group>"; };
 		3F46509C26A7573000E6890E /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		3F46509D26A7573000E6890E /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		3F641D0D269CD74500313D49 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +160,8 @@
 				3F46509D26A7573000E6890E /* EditProfileViewController.m */,
 				3FD86C4326AB3B2700320DD3 /* PostDetailsViewController.h */,
 				3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */,
+				3F36696626AB6E700026F32D /* TaskDetailsViewController.h */,
+				3F36696726AB6E700026F32D /* TaskDetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0BE4C5269CEB7700D41611 /* LoginViewController.m in Sources */,
+				3F36696826AB6E700026F32D /* TaskDetailsViewController.m in Sources */,
 				3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */,
 				3F641D12269CD74500313D49 /* AppDelegate.m in Sources */,
 				3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */,
