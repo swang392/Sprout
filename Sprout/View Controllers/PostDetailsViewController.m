@@ -52,7 +52,7 @@
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d likes", [self.post.likeCount intValue]];
     
     NSLog(@"%@", self.post.usersWhoLiked);
-    if([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId])
+    if([self.post.usersWhoLiked containsObject:PFUser.currentUser[@"email"]])
     {
         [self updateLikeButton:YES];
     }
@@ -63,11 +63,11 @@
 
 - (IBAction)didTapLike:(id)sender {
     
-    if([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId])
+    if([self.post.usersWhoLiked containsObject:PFUser.currentUser[@"email"]])
     {
-        NSLog(@"Unliking post");
+        //TODO: object ID isn't getting added to the array, so user keeps liking the post over and over
         NSMutableArray *mutableUsersWhoLiked = [self.post.usersWhoLiked mutableCopy];
-        [mutableUsersWhoLiked removeObject:PFUser.currentUser.objectId];
+        [mutableUsersWhoLiked removeObject: PFUser.currentUser[@"email"]];
         self.post.usersWhoLiked = (NSArray *)mutableUsersWhoLiked;
 
         self.post.likeCount = @([self.post.likeCount intValue] - 1);
@@ -77,9 +77,8 @@
         [self updateLikeButton:NO];
     }
     else {
-        NSLog(@"liking post");
         NSMutableArray *mutableUsersWhoLiked = [self.post.usersWhoLiked mutableCopy];
-        [mutableUsersWhoLiked addObject:PFUser.currentUser.objectId];
+        [mutableUsersWhoLiked addObject: PFUser.currentUser[@"email"]];
         self.post.usersWhoLiked = (NSArray *)mutableUsersWhoLiked;
        
         self.post.likeCount = @([self.post.likeCount intValue] + 1);
