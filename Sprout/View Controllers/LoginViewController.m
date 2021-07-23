@@ -7,15 +7,19 @@
 
 #import "LoginViewController.h"
 #import "Parse/Parse.h"
+#import "SceneDelegate.h"
+#import "HomeViewController.h"
+@import FBSDKLoginKit;
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) UIAlertController *blankAlert;
-@property (strong, nonatomic) UIAlertController *registrationAlert;
-@property (strong, nonatomic) UIAlertController *loginAlert;
+@property (nonatomic) UIAlertController *blankAlert;
+@property (nonatomic) UIAlertController *registrationAlert;
+@property (nonatomic) UIAlertController *loginAlert;
+@property (nonatomic) FBSDKGraphRequest *graphRequest;
 
 @end
 
@@ -35,11 +39,83 @@
     
     self.loginAlert = [UIAlertController alertControllerWithTitle:@"Error during user login." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     [self.loginAlert addAction:okAction];
-
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:true];
+}
+
+- (IBAction)continueWithFacebook:(id)sender {
+    //TODO: allow users to create account through Facebook or log in through facebook. rn this is registering user
+    FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    [loginManager logOut];
+    [loginManager logInWithPermissions:@[@"public_profile", @"email"]
+                    fromViewController:self
+                               handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
+        if (error == nil && !result.isCancelled) {
+            self.graphRequest = [[FBSDKGraphRequest alloc]
+                                 initWithGraphPath:@"/me"
+                                 parameters:@{@"fields":@"first_name,last_name,email,picture"}
+                                 HTTPMethod:@"GET"];
+            //TODO: modify graph request/the following method to get a high-res profile picture
+            [self createUserThroughFB: self.graphRequest];
+        }
+        else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)createUserThroughFB:(FBSDKGraphRequest *)request {
+    [request startWithCompletion:^(
+                                   id<FBSDKGraphRequestConnecting> _Nullable connection,
+                                   id _Nullable result,
+                                   NSError *_Nullable error) {
+        if (result) {
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"email" equalTo:result[@"email"]];
+            [query countObjectsInBackgroundWithBlock:^(int count, NSError * _Nullable error) {
+                if (count == 0) {
+                    PFUser *newUser = [PFUser user];
+                    newUser[@"completedTasks"] = @0;
+                    newUser[@"totalTasks"] = @0;
+                    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
+                    newUser[@"email"] = result[@"email"];
+                    newUser.password = result[@"email"];
+                    newUser.username = result[@"email"];
+                    
+                    PFFileObject *photo = result[@"picture"];
+                    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
+                    NSURL *url = [NSURL URLWithString:photoURL];
+                    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+                    NSData *imageData = UIImagePNGRepresentation(aImage);
+                    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+                    newUser[@"profileImage"] = image;
+
+                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                        if (error != nil) {
+                            //TODO: - Show an alert for unexpected error
+                            [self presentViewController:self.registrationAlert animated:YES completion:^{
+                                [self.activityIndicator stopAnimating];
+                            }];
+                        } else {
+                            [self.activityIndicator stopAnimating];
+                            [self showTabBar];
+                        }
+                    }];
+                }
+                else {
+                    NSString *username = result[@"email"];
+                    NSString *password = result[@"email"];
+                    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+                        if(error == nil) {
+                            [self showTabBar];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
 }
 
 - (IBAction)registerUser:(id)sender {
@@ -59,18 +135,16 @@
         newUser.password = self.passwordField.text;
         newUser[@"completedTasks"] = @0;
         newUser[@"totalTasks"] = @0;
-        [newUser saveInBackground];
-
+        
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
+                //TODO: - Show an alert for unexpected error
                 [self presentViewController:self.registrationAlert animated:YES completion:^{
                     [self.activityIndicator stopAnimating];
                 }];
             } else {
-                NSLog(@"User registered successfully");
                 [self.activityIndicator stopAnimating];
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self showTabBar];
             }
         }];
     }
@@ -92,17 +166,23 @@
         
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
             if (error != nil) {
-                NSLog(@"User log in failed: %@", error.localizedDescription);
+                //TODO: - Show an alert for unexpected error
                 [self presentViewController:self.loginAlert animated:YES completion:^{
                     [self.activityIndicator stopAnimating];
                 }];
             } else {
-                NSLog(@"User logged in successfully");
                 [self.activityIndicator stopAnimating];
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                [self showTabBar];
             }
         }];
     }
 }
 
+- (void)showTabBar {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+
+    [sceneDelegate changeRootViewController:viewController];
+} 
 @end

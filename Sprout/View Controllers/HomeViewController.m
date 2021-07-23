@@ -13,9 +13,9 @@
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) PFUser *user;
+@property (nonatomic) PFUser *user;
 @property (nonatomic) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray<Task *> *tasks;
+@property (nonatomic) NSMutableArray<Task *> *tasks;
 
 @end
 
@@ -53,7 +53,7 @@
             self.tasks = [NSMutableArray arrayWithArray:tasks];
             [self.tableView reloadData];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+            //TODO: - Show an alert for unexpected error
         }
     }];
 }

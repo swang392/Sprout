@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+@import FBSDKLoginKit;
 
 @interface AppDelegate ()
 
@@ -30,8 +31,8 @@
         
         }];
 
-        [Parse initializeWithConfiguration:config];
-
+    [Parse initializeWithConfiguration:config];
+    [FBSDKApplicationDelegate.sharedInstance application:UIApplication.sharedApplication didFinishLaunchingWithOptions:launchOptions];
     return YES;
 }
 

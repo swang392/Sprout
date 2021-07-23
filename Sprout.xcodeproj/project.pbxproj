@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F08096826A89D6A006342AE /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F08096726A89D6A006342AE /* FacebookCore */; };
+		3F08096A26A89D6A006342AE /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3F08096926A89D6A006342AE /* FacebookLogin */; };
 		3F0BE4C5269CEB7700D41611 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4C4269CEB7700D41611 /* LoginViewController.m */; };
 		3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4C7269DE5E300D41611 /* HomeViewController.m */; };
 		3F0BE4CB269DE7A800D41611 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */; };
 		3F34F28126A5F8050035D0F0 /* ComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */; };
+		3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F46509D26A7573000E6890E /* EditProfileViewController.m */; };
 		3F641D12269CD74500313D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D11269CD74500313D49 /* AppDelegate.m */; };
 		3F641D15269CD74500313D49 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D14269CD74500313D49 /* SceneDelegate.m */; };
 		3F641D1B269CD74500313D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F641D19269CD74500313D49 /* Main.storyboard */; };
@@ -27,6 +30,7 @@
 		3FADF3E5269E2C9E002B5911 /* ComposePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3E4269E2C9E002B5911 /* ComposePlanViewController.m */; };
 		3FADF3E826A07970002B5911 /* Networker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3E726A07970002B5911 /* Networker.m */; };
 		3FADF3EA26A07AB6002B5911 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FADF3E926A07AB6002B5911 /* Keys.plist */; };
+		3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */; };
 		4E034D14A9B8074CAFA4A32C /* Pods_SproutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */; };
 		DFA952BA6063164418312B07 /* Pods_Sprout_SproutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F8FDBF204F0E76FFE8AE1 /* Pods_Sprout_SproutUITests.framework */; };
 		F78073E6F7F5FAD3323095D1 /* Pods_Sprout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2926FF89B33740C3298CDACD /* Pods_Sprout.framework */; };
@@ -61,6 +65,8 @@
 		3F0BE4CA269DE7A800D41611 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3F34F27F26A5F8050035D0F0 /* ComposePostViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposePostViewController.h; sourceTree = "<group>"; };
 		3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposePostViewController.m; sourceTree = "<group>"; };
+		3F46509C26A7573000E6890E /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		3F46509D26A7573000E6890E /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		3F641D0D269CD74500313D49 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F641D10269CD74500313D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F641D11269CD74500313D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 		3FADF3E626A07970002B5911 /* Networker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networker.h; sourceTree = "<group>"; };
 		3FADF3E726A07970002B5911 /* Networker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networker.m; sourceTree = "<group>"; };
 		3FADF3E926A07AB6002B5911 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		3FD86C4326AB3B2700320DD3 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
+		3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 		743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SproutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		828F7BEAC83E0940E64469A2 /* Pods-Sprout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sprout.debug.xcconfig"; path = "Target Support Files/Pods-Sprout/Pods-Sprout.debug.xcconfig"; sourceTree = "<group>"; };
 		90C10A85E5528CB9A4A1FA15 /* Pods-SproutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SproutTests.debug.xcconfig"; path = "Target Support Files/Pods-SproutTests/Pods-SproutTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +114,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78073E6F7F5FAD3323095D1 /* Pods_Sprout.framework in Frameworks */,
+				3F08096826A89D6A006342AE /* FacebookCore in Frameworks */,
+				3F08096A26A89D6A006342AE /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +153,10 @@
 				3FADF3E4269E2C9E002B5911 /* ComposePlanViewController.m */,
 				3F34F27F26A5F8050035D0F0 /* ComposePostViewController.h */,
 				3F34F28026A5F8050035D0F0 /* ComposePostViewController.m */,
+				3F46509C26A7573000E6890E /* EditProfileViewController.h */,
+				3F46509D26A7573000E6890E /* EditProfileViewController.m */,
+				3FD86C4326AB3B2700320DD3 /* PostDetailsViewController.h */,
+				3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +286,10 @@
 			dependencies = (
 			);
 			name = Sprout;
+			packageProductDependencies = (
+				3F08096726A89D6A006342AE /* FacebookCore */,
+				3F08096926A89D6A006342AE /* FacebookLogin */,
+			);
 			productName = Sprout;
 			productReference = 3F641D0D269CD74500313D49 /* Sprout.app */;
 			productType = "com.apple.product-type.application";
@@ -345,6 +363,9 @@
 				Base,
 			);
 			mainGroup = 3F641D04269CD74500313D49;
+			packageReferences = (
+				3F08096626A89D6A006342AE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = 3F641D0E269CD74500313D49 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -493,7 +514,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0BE4C5269CEB7700D41611 /* LoginViewController.m in Sources */,
+				3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */,
 				3F641D12269CD74500313D49 /* AppDelegate.m in Sources */,
+				3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */,
 				3FADF3E826A07970002B5911 /* Networker.m in Sources */,
 				3FADF3DF269E2920002B5911 /* Task.m in Sources */,
 				3F641D23269CD74600313D49 /* main.m in Sources */,
@@ -830,6 +853,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F08096626A89D6A006342AE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F08096726A89D6A006342AE /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F08096626A89D6A006342AE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		3F08096926A89D6A006342AE /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F08096626A89D6A006342AE /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F641D05269CD74500313D49 /* Project object */;
 }

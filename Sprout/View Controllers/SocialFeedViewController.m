@@ -10,13 +10,13 @@
 #import "PostCell.h"
 #import "AppDelegate.h"
 #import "DateTools.h"
+#import "PostDetailsViewController.h"
 
 @interface SocialFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) NSMutableArray<Post *> *posts;
-@property (nonatomic, strong) PFUser *user;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) NSMutableArray<Post *> *posts;
 
 @end
 
@@ -27,8 +27,6 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
     
     [self queryPosts:20];
     
@@ -70,15 +68,18 @@
     cell.usernameLabel.text = nil;
     cell.progressLabel.text = nil;
     cell.usernameLabel.text = nil;
-    
-    cell.usernameLabel.text = self.user.username;
-    cell.captionLabel.text = post.caption;
-    cell.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", post.completedTasks, post.totalTasks];
-    cell.createdAtLabel.text = post.createdAt.shortTimeAgoSinceNow;
-    
     cell.post = post;
+    
     [cell refreshData]; 
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.post = self.posts[indexPath.row]; 
+    }
 }
 
 @end
