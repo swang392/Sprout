@@ -29,9 +29,9 @@
     self.createdAtLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
     self.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", self.post.completedTasks, self.post.totalTasks];
     PFFileObject *photo = user[@"profileImage"];
-        [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
-            self.profileImage.image = [UIImage imageWithData:imageData];
-        }];
+    [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
+        self.profileImage.image = [UIImage imageWithData:imageData];
+    }];
 }
 
 @end

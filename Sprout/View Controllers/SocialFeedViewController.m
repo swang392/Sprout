@@ -10,6 +10,7 @@
 #import "PostCell.h"
 #import "AppDelegate.h"
 #import "DateTools.h"
+#import "PostDetailsViewController.h"
 
 @interface SocialFeedViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -71,6 +72,14 @@
     
     [cell refreshData]; 
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailsSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
+        postDetailsViewController.post = self.posts[indexPath.row]; 
+    }
 }
 
 @end
