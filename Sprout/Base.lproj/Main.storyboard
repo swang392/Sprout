@@ -304,6 +304,7 @@
                                             <outlet property="completedButton" destination="z6m-tW-Yfg" id="1DL-TS-6QQ"/>
                                             <outlet property="taskLabel" destination="HWI-dx-7K7" id="EMd-gl-WxZ"/>
                                             <outlet property="timeframeLabel" destination="WDm-7x-Mjr" id="gtk-4o-PEJ"/>
+                                            <segue destination="JVO-ie-iW2" kind="show" identifier="taskDetailsSegue" id="gaQ-nQ-pSE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1006,6 +1007,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hc-Zr-JfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="941" y="2367"/>
+        </scene>
+        <!--Task Details View Controller-->
+        <scene sceneID="f4f-mW-odP">
+            <objects>
+                <viewController id="JVO-ie-iW2" customClass="TaskDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NUL-MD-UCD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aac-t8-fNy">
+                                <rect key="frame" x="20" y="281" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="timeframe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0m-v6-wrf">
+                                <rect key="frame" x="241" y="281" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhc-YA-LC6">
+                                <rect key="frame" x="44" y="218" width="29" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greentextloog" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-4K-cmi">
+                                <rect key="frame" x="126" y="0.0" width="162" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-1V-v44">
+                                <rect key="frame" x="0.0" y="59" width="414" height="8"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkN-GO-VmJ">
+                                <rect key="frame" x="199" y="372" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="delete task"/>
+                                <connections>
+                                    <action selector="deleteTask:" destination="JVO-ie-iW2" eventType="touchUpInside" id="4fp-MC-nzA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqK-vH-PA2">
+                                <rect key="frame" x="144" y="158" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Np-Hu-Top"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bme-4I-OOc"/>
+                    <connections>
+                        <outlet property="completedButton" destination="yhc-YA-LC6" id="006-Eh-4n5"/>
+                        <outlet property="taskNameLabel" destination="wqK-vH-PA2" id="Sin-qB-gb3"/>
+                        <outlet property="timeframeLabel" destination="k0m-v6-wrf" id="yP1-Nw-Uk6"/>
+                        <outlet property="typeLabel" destination="Aac-t8-fNy" id="Jdz-l5-hxX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdc-So-j88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782.608695652174" y="2366.5178571428569"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
