@@ -76,33 +76,8 @@
             [query whereKey:@"email" equalTo:result[@"email"]];
             [query countObjectsInBackgroundWithBlock:^(int count, NSError * _Nullable error) {
                 if (count == 0) {
-                    PFUser *newUser = [PFUser user];
-                    newUser[@"completedTasks"] = @0;
-                    newUser[@"totalTasks"] = @0;
-                    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
-                    newUser[@"email"] = result[@"email"];
-                    newUser.password = result[@"email"];
-                    newUser.username = result[@"email"];
-                    
-                    PFFileObject *photo = result[@"picture"];
-                    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
-                    NSURL *url = [NSURL URLWithString:photoURL];
-                    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-                    NSData *imageData = UIImagePNGRepresentation(aImage);
-                    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
-                    newUser[@"profileImage"] = image;
-
-                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-                        if (error != nil) {
-                            //TODO: - Show an alert for unexpected error
-                            [self presentViewController:self.registrationAlert animated:YES completion:^{
-                                [self.activityIndicator stopAnimating];
-                            }];
-                        } else {
-                            [self.activityIndicator stopAnimating];
-                            [self showTabBar];
-                        }
-                    }];
+                    NSArray *allResults = @[result[@"first_name"], result[@"last_name"], result[@"email"], result[@"picture"]];
+                    [self createNewUserFromResult:allResults];
                 }
                 else {
                     NSString *username = result[@"email"];
@@ -114,6 +89,36 @@
                     }];
                 }
             }];
+        }
+    }];
+}
+
+- (void)createNewUserFromResult:(NSArray *)result {
+    PFUser *newUser = [PFUser user];
+    newUser[@"completedTasks"] = @0;
+    newUser[@"totalTasks"] = @0;
+    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", [result objectAtIndex:0], [result objectAtIndex:1]];
+    newUser[@"email"] = [result objectAtIndex:2];
+    newUser.password = [result objectAtIndex:2];
+    newUser.username = [result objectAtIndex:2];
+    
+    PFFileObject *photo = [result objectAtIndex:3];
+    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
+    NSURL *url = [NSURL URLWithString:photoURL];
+    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    NSData *imageData = UIImagePNGRepresentation(aImage);
+    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+    newUser[@"profileImage"] = image;
+
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            //TODO: - Show an alert for unexpected error
+            [self presentViewController:self.registrationAlert animated:YES completion:^{
+                [self.activityIndicator stopAnimating];
+            }];
+        } else {
+            [self.activityIndicator stopAnimating];
+            [self showTabBar];
         }
     }];
 }
