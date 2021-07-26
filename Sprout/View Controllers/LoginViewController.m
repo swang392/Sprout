@@ -28,6 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self createAlerts];
+}
+
+- (void)createAlerts {
     self.blankAlert = [UIAlertController alertControllerWithTitle:@"Username or password is empty." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // handle response here.
@@ -46,7 +50,6 @@
 }
 
 - (IBAction)continueWithFacebook:(id)sender {
-    //TODO: allow users to create account through Facebook or log in through facebook. rn this is registering user
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     [loginManager logOut];
     [loginManager logInWithPermissions:@[@"public_profile", @"email"]
@@ -123,38 +126,6 @@
     }];
 }
 
-- (IBAction)registerUser:(id)sender {
-    [self.activityIndicator startAnimating];
-    
-    if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""])
-    {
-        [self presentViewController:self.blankAlert animated:YES completion:^{
-            [self.activityIndicator stopAnimating];
-        }];
-    }
-    else
-    {
-        PFUser *newUser = [PFUser user];
-        
-        newUser.username = self.usernameField.text;
-        newUser.password = self.passwordField.text;
-        newUser[@"completedTasks"] = @0;
-        newUser[@"totalTasks"] = @0;
-        
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (error != nil) {
-                //TODO: - Show an alert for unexpected error
-                [self presentViewController:self.registrationAlert animated:YES completion:^{
-                    [self.activityIndicator stopAnimating];
-                }];
-            } else {
-                [self.activityIndicator stopAnimating];
-                [self showTabBar];
-            }
-        }];
-    }
-}
-
 - (IBAction)loginUser:(id)sender {
     [self.activityIndicator startAnimating];
     
@@ -189,5 +160,6 @@
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
 
     [sceneDelegate changeRootViewController:viewController];
-} 
+}
+
 @end
