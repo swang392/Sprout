@@ -35,13 +35,13 @@ Sprint 1
 
 - Onboarding and Profile
 - [x] User can create a new account, log in, and sign out of account
-- [ ] User sees profile with their fitness plan and accomplishments
-- [ ] User can edit their profile (either during onboarding or after)
+- [x] User sees profile with their fitness plan and accomplishments
+- [x] User can edit their profile (either during onboarding or after)
 
 - Home Screen
 - [x] User can add new tasks
 - [x] User can view tasks on Home screen
-- [ ] User can delete tasks
+- [x] User can delete tasks
 - [x] User can mark tasks on their plan as complete
 
 - Social Screen
