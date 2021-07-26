@@ -60,8 +60,15 @@
     }
 }
 
+- (IBAction)doubleTapped:(id)sender {
+    [self clickedLike];
+}
+
 - (IBAction)didTapLike:(id)sender {
-    
+    [self clickedLike];
+}
+
+- (void)clickedLike {
     if ([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId])
     {
         [self.post removeObject:PFUser.currentUser.objectId forKey:@"usersWhoLiked"];
