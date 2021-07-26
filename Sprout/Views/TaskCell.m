@@ -28,7 +28,7 @@
 - (IBAction)didTapCompleted:(id)sender {
     PFUser *current = [PFUser currentUser];
     self.task.completed = !self.task.completed;
-    if(self.task.completed) {
+    if (self.task.completed) {
         current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] + 1];
     }
     else {
