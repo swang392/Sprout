@@ -9,16 +9,17 @@
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
+#import "UITextView+Placeholder.h"
 
-@interface SignUpViewController ()
+@interface SignUpViewController () <UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) UIAlertController *blankAlert;
 @property (nonatomic) UIAlertController *registrationAlert;
+@property (weak, nonatomic) IBOutlet UITextView *usernameField;
+@property (weak, nonatomic) IBOutlet UITextView *passwordField;
+@property (weak, nonatomic) IBOutlet UITextView *nameField;
+@property (weak, nonatomic) IBOutlet UITextView *emailField;
 
 @end
 
@@ -28,6 +29,35 @@
     [super viewDidLoad];
     
     [self createAlerts];
+    [self formatTextViews];
+}
+
+- (void)formatTextViews {
+    UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+    
+    self.usernameField.delegate = self;
+    self.usernameField.layer.borderWidth = 1.0f;
+    self.usernameField.layer.borderColor = [color CGColor];
+    self.usernameField.layer.cornerRadius = 8;
+    self.usernameField.placeholder = @"username";
+    
+    self.passwordField.delegate = self;
+    self.passwordField.layer.borderWidth = 1.0f;
+    self.passwordField.layer.borderColor = [color CGColor];
+    self.passwordField.layer.cornerRadius = 8;
+    self.passwordField.placeholder = @"password";
+    
+    self.nameField.delegate = self;
+    self.nameField.layer.borderWidth = 1.0f;
+    self.nameField.layer.borderColor = [color CGColor];
+    self.nameField.layer.cornerRadius = 8;
+    self.nameField.placeholder = @"name";
+    
+    self.emailField.delegate = self;
+    self.emailField.layer.borderWidth = 1.0f;
+    self.emailField.layer.borderColor = [color CGColor];
+    self.emailField.layer.cornerRadius = 8;
+    self.emailField.placeholder = @"email";
 }
 
 - (void)createAlerts{

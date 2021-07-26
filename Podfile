@@ -9,6 +9,7 @@ target 'Sprout' do
   pod 'AFNetworking' 
   pod 'Parse'
   pod 'DateTools'
+  pod 'UITextView+Placeholder'
 
   target 'SproutTests' do
     inherit! :search_paths
