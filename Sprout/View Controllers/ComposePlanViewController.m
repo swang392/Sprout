@@ -28,6 +28,10 @@
     self.taskTypeControl.selectedSegmentIndex = UISegmentedControlNoSegment;
     self.taskFrequencyControl.selectedSegmentIndex = UISegmentedControlNoSegment;
     
+    [self createAlerts];
+}
+
+- (void)createAlerts {
     self.addTaskAlert = [UIAlertController alertControllerWithTitle:@"Please complete all fields to create a task." message:@"Try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // handle response here.

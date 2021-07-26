@@ -27,6 +27,10 @@
     self.composeTextView.layer.cornerRadius = 8;
     self.user = PFUser.currentUser;
     
+    [self createAlerts];
+}
+
+- (void) createAlerts {
     self.postAlert = [UIAlertController alertControllerWithTitle:@"Please write a caption to post." message:@"Try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // handle response here.
@@ -39,7 +43,7 @@
 }
 
 - (IBAction)didTapShare:(id)sender {
-    if([self.composeTextView.text isEqual:@""]){
+    if ([self.composeTextView.text isEqual:@""]) {
         [self presentViewController:self.postAlert animated:YES completion:^{
         }];
     }
@@ -49,7 +53,7 @@
         NSString *caption = self.composeTextView.text;
         
         [Post createPost:caption withCompleted:completedTasks withTotal:totalTasks withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(!succeeded){
+            if (!succeeded) {
                 //TODO: - Show an alert for unexpected error
             }
         }];

@@ -20,9 +20,13 @@
 }
 
 - (void) refreshData {
-    PFUser *user = self.post.author;
-    
     [self.profileImage setImage:nil];
+    self.usernameLabel.text = nil;
+    self.captionLabel.text = nil;
+    self.createdAtLabel.text = nil;
+    self.progressLabel.text = nil;
+    
+    PFUser *user = self.post.author;
     
     self.usernameLabel.text = user.username;
     self.captionLabel.text = self.post.caption;

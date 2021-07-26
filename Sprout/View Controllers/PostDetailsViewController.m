@@ -32,19 +32,19 @@
 }
 
 - (void)refreshData {
-    PFUser *postUser = self.post.author;
-    PFFileObject *photo = postUser[@"profileImage"];
+    PFUser *author = self.post.author;
+    PFFileObject *photo = author[@"profileImage"];
     [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
         self.profileImageView.image = [UIImage imageWithData:imageData];
     }];
     self.timestampLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
-    if([postUser[@"name"] isEqual:nil]){
+    if ([author[@"name"] isEqual:nil]) {
         self.usernameLabel.text = nil;
-        self.nameLabel.text = postUser.username;
+        self.nameLabel.text = author.username;
     }
-    else{
-        self.usernameLabel.text = postUser.username;
-        self.nameLabel.text = postUser[@"name"];
+    else {
+        self.usernameLabel.text = author.username;
+        self.nameLabel.text = author[@"name"];
     }
     self.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", self.post.completedTasks, self.post.totalTasks];
     self.captionLabel.text = self.post.caption;
@@ -52,8 +52,7 @@
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d likes", [self.post.likeCount intValue]];
     
     NSLog(@"%@", self.post.usersWhoLiked);
-    if([self.post.usersWhoLiked containsObject:PFUser.currentUser[@"email"]])
-    {
+    if ([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId]) {
         [self updateLikeButton:YES];
     }
     else {
@@ -63,13 +62,10 @@
 
 - (IBAction)didTapLike:(id)sender {
     
-    if([self.post.usersWhoLiked containsObject:PFUser.currentUser[@"email"]])
+    if ([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId])
     {
-        //TODO: object ID isn't getting added to the array, so user keeps liking the post over and over
-        NSMutableArray *mutableUsersWhoLiked = [self.post.usersWhoLiked mutableCopy];
-        [mutableUsersWhoLiked removeObject: PFUser.currentUser[@"email"]];
-        self.post.usersWhoLiked = (NSArray *)mutableUsersWhoLiked;
-
+        [self.post removeObject:PFUser.currentUser.objectId forKey:@"usersWhoLiked"];
+        
         self.post.likeCount = @([self.post.likeCount intValue] - 1);
         [self.post saveInBackground];
         
@@ -77,9 +73,7 @@
         [self updateLikeButton:NO];
     }
     else {
-        NSMutableArray *mutableUsersWhoLiked = [self.post.usersWhoLiked mutableCopy];
-        [mutableUsersWhoLiked addObject: PFUser.currentUser[@"email"]];
-        self.post.usersWhoLiked = (NSArray *)mutableUsersWhoLiked;
+        [self.post addObject:PFUser.currentUser.objectId forKey:@"usersWhoLiked"];
        
         self.post.likeCount = @([self.post.likeCount intValue] + 1);
         [self.post saveInBackground];
@@ -91,7 +85,7 @@
 
 - (void)updateLikeButton:(BOOL) buttonStatus {
     UIColor *color = [[UIColor alloc]initWithRed:97/255.0 green:179/255.0 blue:121/255.0 alpha:1.0];
-    if(buttonStatus)
+    if (buttonStatus)
     {
         UIImage *image = [UIImage systemImageNamed:@"heart.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
         [self.likeButton setImage:image forState:UIControlStateNormal];

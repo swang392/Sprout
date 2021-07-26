@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSNumber *completedTasks;
 @property (nonatomic) NSNumber *totalTasks;
 @property (nonatomic) NSString *caption;
-@property (nonatomic) NSArray *usersWhoLiked;
+@property (nonatomic) NSArray<NSString *> *usersWhoLiked;
 
 + (void)createPost:(NSString *)caption
      withCompleted:(NSNumber *)completedTasks

@@ -28,6 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self createAlerts];
+}
+
+- (void)createAlerts {
     self.blankAlert = [UIAlertController alertControllerWithTitle:@"Username or password is empty." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // handle response here.
@@ -46,7 +50,6 @@
 }
 
 - (IBAction)continueWithFacebook:(id)sender {
-    //TODO: allow users to create account through Facebook or log in through facebook. rn this is registering user
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     [loginManager logOut];
     [loginManager logInWithPermissions:@[@"public_profile", @"email"]
@@ -76,33 +79,8 @@
             [query whereKey:@"email" equalTo:result[@"email"]];
             [query countObjectsInBackgroundWithBlock:^(int count, NSError * _Nullable error) {
                 if (count == 0) {
-                    PFUser *newUser = [PFUser user];
-                    newUser[@"completedTasks"] = @0;
-                    newUser[@"totalTasks"] = @0;
-                    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", result[@"first_name"], result[@"last_name"]];
-                    newUser[@"email"] = result[@"email"];
-                    newUser.password = result[@"email"];
-                    newUser.username = result[@"email"];
-                    
-                    PFFileObject *photo = result[@"picture"];
-                    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
-                    NSURL *url = [NSURL URLWithString:photoURL];
-                    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-                    NSData *imageData = UIImagePNGRepresentation(aImage);
-                    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
-                    newUser[@"profileImage"] = image;
-
-                    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-                        if (error != nil) {
-                            //TODO: - Show an alert for unexpected error
-                            [self presentViewController:self.registrationAlert animated:YES completion:^{
-                                [self.activityIndicator stopAnimating];
-                            }];
-                        } else {
-                            [self.activityIndicator stopAnimating];
-                            [self showTabBar];
-                        }
-                    }];
+                    NSArray *allResults = @[result[@"first_name"], result[@"last_name"], result[@"email"], result[@"picture"]];
+                    [self createNewUserFromResult:allResults];
                 }
                 else {
                     NSString *username = result[@"email"];
@@ -118,36 +96,34 @@
     }];
 }
 
-- (IBAction)registerUser:(id)sender {
-    [self.activityIndicator startAnimating];
+- (void)createNewUserFromResult:(NSArray *)result {
+    PFUser *newUser = [PFUser user];
+    newUser[@"completedTasks"] = @0;
+    newUser[@"totalTasks"] = @0;
+    newUser[@"name"] = [NSString stringWithFormat:@"%@ %@", [result objectAtIndex:0], [result objectAtIndex:1]];
+    newUser[@"email"] = [result objectAtIndex:2];
+    newUser.password = [result objectAtIndex:2];
+    newUser.username = [result objectAtIndex:2];
     
-    if([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""])
-    {
-        [self presentViewController:self.blankAlert animated:YES completion:^{
-            [self.activityIndicator stopAnimating];
-        }];
-    }
-    else
-    {
-        PFUser *newUser = [PFUser user];
-        
-        newUser.username = self.usernameField.text;
-        newUser.password = self.passwordField.text;
-        newUser[@"completedTasks"] = @0;
-        newUser[@"totalTasks"] = @0;
-        
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (error != nil) {
-                //TODO: - Show an alert for unexpected error
-                [self presentViewController:self.registrationAlert animated:YES completion:^{
-                    [self.activityIndicator stopAnimating];
-                }];
-            } else {
+    PFFileObject *photo = [result objectAtIndex:3];
+    NSString *photoURL = [photo valueForKeyPath:@"data"][@"url"];
+    NSURL *url = [NSURL URLWithString:photoURL];
+    UIImage *aImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    NSData *imageData = UIImagePNGRepresentation(aImage);
+    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+    newUser[@"profileImage"] = image;
+
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+        if (error != nil) {
+            //TODO: - Show an alert for unexpected error
+            [self presentViewController:self.registrationAlert animated:YES completion:^{
                 [self.activityIndicator stopAnimating];
-                [self showTabBar];
-            }
-        }];
-    }
+            }];
+        } else {
+            [self.activityIndicator stopAnimating];
+            [self showTabBar];
+        }
+    }];
 }
 
 - (IBAction)loginUser:(id)sender {
@@ -184,5 +160,6 @@
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
 
     [sceneDelegate changeRootViewController:viewController];
-} 
+}
+
 @end
