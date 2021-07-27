@@ -8,6 +8,8 @@
 #import "ComposePlanViewController.h"
 #import "Networker.h"
 #import "Task.h"
+#import "Parse/Parse.h"
+#import "AppDelegate.h"
 
 @interface ComposePlanViewController ()
 
@@ -15,8 +17,11 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskTypeControl;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskFrequencyControl;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
-@property (nonatomic) NSMutableArray<Task *> *arrayOfTasks;
 @property (nonatomic) UIAlertController *addTaskAlert;
+@property (nonatomic) UIAlertController *recommendationAlert;
+@property (nonatomic) NSMutableArray<Task *> *tasks;
+@property (nonatomic) NSMutableDictionary *taskTypes;
+@property (nonatomic) int userCount;
 
 @end
 
@@ -29,6 +34,9 @@
     self.taskFrequencyControl.selectedSegmentIndex = UISegmentedControlNoSegment;
     
     [self createAlerts];
+    
+    [self countUsers];
+    [self recommendTasks];
 }
 
 - (void)createAlerts {
@@ -81,6 +89,94 @@
 
 - (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:true];
+}
+
+- (void)countUsers {
+    PFQuery *userQuery = [PFUser query];
+    [userQuery includeKey:@"objectId"];
+    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (users != nil) {
+            self.userCount = [users count]-1;
+            NSLog(@"user count %d", self.userCount);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)recommendTasks {
+    [self queryAndCountTasks];
+    
+    int physicalCount = 0;
+    int dietCount = 0;
+    int mentalCount = 0;
+    
+    for (Task *task in self.tasks) {
+        if ([task.author.objectId isEqual:PFUser.currentUser.objectId]) {
+            if ([task.type isEqual:@"Physical"]) {
+                physicalCount++;
+            }
+            else if ([task.type isEqual:@"Diet"]) {
+                dietCount++;
+            }
+            else if ([task.type isEqual:@"Mental"]) {
+                mentalCount++;
+            }
+        }
+    }
+
+    //TODO: create alert controllers
+    NSString *alertText = nil;
+    self.recommendationAlert = [UIAlertController alertControllerWithTitle:@"Need a recommendation?" message:alertText preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //handle response here
+    }];
+    [self.recommendationAlert addAction:okAction];
+
+}
+
+- (void)queryAndCountTasks {
+    PFQuery *query = [PFQuery queryWithClassName:@"Task"];
+    [query includeKey:@"type"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
+        if (tasks != nil) {
+            self.tasks = (NSMutableArray *)tasks;
+            [self countAverageTasks];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void)countAverageTasks {
+    float physicalCount = 0.0;
+    float dietCount = 0.0;
+    float mentalCount = 0.0;
+    
+    for (Task *task in self.tasks) {
+        if (![task.author.objectId isEqual:PFUser.currentUser.objectId]) {
+            if ([task.type isEqual:@"Physical"]) {
+                physicalCount++;
+            }
+            else if ([task.type isEqual:@"Diet"]) {
+                dietCount++;
+            }
+            else if ([task.type isEqual:@"Mental"]) {
+                mentalCount++;
+            }
+        }
+    }
+    
+    //TODO: delete this stuff later
+    NSLog(@"physical count %f", physicalCount/self.userCount);
+    NSLog(@"diet count %f", dietCount/self.userCount);
+    NSLog(@"mental count %f", mentalCount/self.userCount);
+    
+    self.taskTypes = [NSMutableDictionary dictionary];
+    [self.taskTypes setObject:[NSNumber numberWithInteger:physicalCount] forKey:@"Physical"];
+    [self.taskTypes setObject:[NSNumber numberWithInteger:dietCount] forKey:@"Diet"];
+    [self.taskTypes setObject:[NSNumber numberWithInteger:mentalCount] forKey:@"Mental"];
 }
 
 @end

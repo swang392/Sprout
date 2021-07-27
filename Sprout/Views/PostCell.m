@@ -19,7 +19,7 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void) refreshData {
+- (void)refreshData {
     [self.profileImage setImage:nil];
     self.usernameLabel.text = nil;
     self.captionLabel.text = nil;
