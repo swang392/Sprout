@@ -47,7 +47,7 @@
     query.limit = numPosts;
     
     [query whereKey:@"author" equalTo:self.user];
-
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
         if (tasks != nil)
         {
@@ -71,7 +71,7 @@
     [cell.completedButton setImage:image forState:UIControlStateNormal];
     UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
     [cell.completedButton setTintColor:color];
-
+    
     cell.taskLabel.text = nil;
     cell.timeframeLabel.text = nil;
     

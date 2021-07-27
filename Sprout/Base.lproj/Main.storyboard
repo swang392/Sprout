@@ -872,6 +872,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EvK-lp-eWc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EvK-lp-eWc" firstAttribute="trailing" secondItem="4aR-SJ-Khl" secondAttribute="trailing" constant="126" id="27C-uj-fY6"/>
                             <constraint firstItem="T72-1k-Lnq" firstAttribute="leading" secondItem="7QJ-gd-aBr" secondAttribute="trailing" constant="15" id="2w5-iz-sY5"/>
@@ -903,6 +904,9 @@
                             <constraint firstItem="Peu-FZ-JAm" firstAttribute="leading" secondItem="EvK-lp-eWc" secondAttribute="leading" constant="15" id="yFf-bh-Wry"/>
                             <constraint firstItem="4aR-SJ-Khl" firstAttribute="top" secondItem="EvK-lp-eWc" secondAttribute="top" id="yca-Qa-BFp"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="z5H-xW-Cwg" appends="YES" id="dVL-SN-Dim"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="T4h-Us-tOp"/>
                     <connections>
@@ -918,6 +922,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQg-yj-4Ok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="z5H-xW-Cwg">
+                    <connections>
+                        <action selector="doubleTapped:" destination="JKu-Te-YEU" id="Ar2-Mh-Be6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-813.04347826086962" y="1635.9375"/>
         </scene>

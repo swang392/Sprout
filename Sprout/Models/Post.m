@@ -16,7 +16,7 @@
 @dynamic caption;
 @dynamic usersWhoLiked;
 
-+ (nonnull NSString *)parseClassName{
++ (nonnull NSString *)parseClassName {
     return @"Post";
 }
 
