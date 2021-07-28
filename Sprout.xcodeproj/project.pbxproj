@@ -24,6 +24,7 @@
 		3F641D23269CD74600313D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D22269CD74600313D49 /* main.m */; };
 		3F641D2D269CD74600313D49 /* SproutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D2C269CD74600313D49 /* SproutTests.m */; };
 		3F641D38269CD74600313D49 /* SproutUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D37269CD74600313D49 /* SproutUITests.m */; };
+		3F7606B526B1B30A00452D18 /* TaskRecommender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7606B426B1B30A00452D18 /* TaskRecommender.m */; };
 		3FADF3CE269E00D9002B5911 /* SocialFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */; };
 		3FADF3D6269E0D8C002B5911 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D5269E0D8C002B5911 /* TaskCell.m */; };
 		3FADF3D9269E0D9B002B5911 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D8269E0D9B002B5911 /* PostCell.m */; };
@@ -89,6 +90,8 @@
 		3F641D33269CD74600313D49 /* SproutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SproutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F641D37269CD74600313D49 /* SproutUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SproutUITests.m; sourceTree = "<group>"; };
 		3F641D39269CD74600313D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F7606B326B1B30A00452D18 /* TaskRecommender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskRecommender.h; sourceTree = "<group>"; };
+		3F7606B426B1B30A00452D18 /* TaskRecommender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskRecommender.m; sourceTree = "<group>"; };
 		3FADF3CC269E00D9002B5911 /* SocialFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialFeedViewController.h; sourceTree = "<group>"; };
 		3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialFeedViewController.m; sourceTree = "<group>"; };
 		3FADF3D4269E0D8C002B5911 /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				3FADF3DE269E2920002B5911 /* Task.m */,
 				3FADF3E0269E2934002B5911 /* Post.h */,
 				3FADF3E1269E2934002B5911 /* Post.m */,
+				3F7606B326B1B30A00452D18 /* TaskRecommender.h */,
+				3F7606B426B1B30A00452D18 /* TaskRecommender.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 				3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */,
 				3FADF3CE269E00D9002B5911 /* SocialFeedViewController.m in Sources */,
 				3FADF3E2269E2934002B5911 /* Post.m in Sources */,
+				3F7606B526B1B30A00452D18 /* TaskRecommender.m in Sources */,
 				3FADF3E5269E2C9E002B5911 /* ComposePlanViewController.m in Sources */,
 				3FADF3D6269E0D8C002B5911 /* TaskCell.m in Sources */,
 				3F0BE4CB269DE7A800D41611 /* ProfileViewController.m in Sources */,
