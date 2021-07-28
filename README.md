@@ -37,6 +37,7 @@ Sprint 1
 - [x] User can create a new account, log in, and sign out of account
 - [x] User sees profile with their fitness plan and accomplishments
 - [x] User can edit their profile (either during onboarding or after)
+- [x] User can log in through their Facebook Account (using Facebook SDK)
 
 - Home Screen
 - [x] User can add new tasks
@@ -45,17 +46,17 @@ Sprint 1
 - [x] User can mark tasks on their plan as complete
 
 - Social Screen
-- [ ] User can connect friends through facebook or google sdk
 - [x] User can view social feed of other people's daily accomplishments
 
 **Optional Nice-to-have Stories**
 
 - [ ] User can see a list of their followers
+- [ ] User can connect friends through facebook or google sdk
 - [ ] User can edit tasks
 - [ ] User can see locations of other friends
 - [ ] user can search for other users
 - [ ] User can see a list of their following
-- [ ] User can like accomplishments on social feed
+- [x] User can like accomplishments on social feed
 - [ ] User can comment on accomplishments on social feed
 
 ### 2. Screen Archetypes
