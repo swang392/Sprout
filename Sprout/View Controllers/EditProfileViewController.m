@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //TODO: get name and image from Facebook SDK if there is a facebook account paired to the Parse User.
     self.user = PFUser.currentUser;
     if(self.user[@"name"] != nil && self.user[@"profileImage"] != nil)
     {

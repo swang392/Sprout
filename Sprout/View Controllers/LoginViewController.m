@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
+#import "TaskRecommender.h"
 
 @interface LoginViewController ()
 
@@ -160,6 +161,8 @@
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
 
     [sceneDelegate changeRootViewController:viewController];
+    
+    [TaskRecommender.shared countUsers];
 }
 
 @end

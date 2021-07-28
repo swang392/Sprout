@@ -10,6 +10,7 @@
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
 #import "UITextView+Placeholder.h"
+#import "TaskRecommender.h"
 
 @interface SignUpViewController () <UITextViewDelegate>
 
@@ -118,6 +119,8 @@
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
 
     [sceneDelegate changeRootViewController:viewController];
+    
+    [TaskRecommender.shared countUsers];
 }
 
 @end

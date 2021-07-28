@@ -10,6 +10,7 @@
 #import "TaskCell.h"
 #import "Task.h"
 #import "TaskDetailsViewController.h"
+#import "TaskRecommender.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -27,6 +28,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [TaskRecommender.shared loadTaskAverages];
     
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
