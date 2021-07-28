@@ -20,9 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
 @property (nonatomic) UIAlertController *addTaskAlert;
 @property (nonatomic) UIAlertController *recommendationAlert;
-@property (nonatomic) int myPhysicalCount;
-@property (nonatomic) int myMentalCount;
-@property (nonatomic) int myDietCount;
 @property (nonatomic) NSMutableArray<Task *> *myTasks;
 
 @end
@@ -98,26 +95,11 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
         if (tasks != nil) {
             self.myTasks = (NSMutableArray *)tasks;
-            [self countMyTasks];
+            [self presentRecommendationAlert];
         } else {
             //TODO: handle error
         }
     }];
-}
-
-- (void)countMyTasks {
-    for (Task *task in self.myTasks) {
-        if ([task.type isEqual:@"Physical"]) {
-            self.myPhysicalCount++;
-        }
-        else if ([task.type isEqual:@"Diet"]) {
-            self.myDietCount++;
-        }
-        else if ([task.type isEqual:@"Mental"]) {
-            self.myMentalCount++;
-        }
-    }
-    [self presentRecommendationAlert];
 }
 
 - (void)presentRecommendationAlert {
@@ -125,15 +107,15 @@
         NSString *alertText = nil;
         BOOL presentRecommendation = false;
         
-        if (self.myPhysicalCount < [[taskDict objectForKey:@"Physical"] floatValue]) {
+        if ([self.myPhysicalCount intValue] < [[taskDict objectForKey:@"Physical"] floatValue]) {
             alertText = @"Other Sprout users have more physical health tasks!";
             presentRecommendation = true;
         }
-        else if (self.myMentalCount < [[taskDict objectForKey:@"Mental"] floatValue]) {
+        else if ([self.myMentalCount intValue] < [[taskDict objectForKey:@"Mental"] floatValue]) {
             alertText = @"Other Sprout users have more mental health tasks!";
             presentRecommendation = true;
         }
-        else if (self.myDietCount < [[taskDict objectForKey:@"Diet"] floatValue]) {
+        else if ([self.myDietCount intValue] < [[taskDict objectForKey:@"Diet"] floatValue]) {
             alertText = @"Other Sprout users have more diet-related tasks!";
             presentRecommendation = true;
         }

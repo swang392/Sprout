@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposePlanViewController : UIViewController
 
+@property (nonatomic) NSNumber *myPhysicalCount;
+@property (nonatomic) NSNumber *myMentalCount;
+@property (nonatomic) NSNumber *myDietCount;
+
 @end
 
 NS_ASSUME_NONNULL_END
