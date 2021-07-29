@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int numUsers;
 @property (nonatomic) NSArray<Task *> *tasks;
 @property (nonatomic) NSMutableDictionary *taskTypes;
+@property (nonatomic) NSArray<NSString *> *stravaActivityTypes;
+@property (nonatomic) NSMutableDictionary *dietWordCounter;
+@property (nonatomic) NSMutableDictionary *physicalWordCounter;
+@property (nonatomic) NSMutableDictionary *mentalWordCounter;
 
 + (instancetype)shared;
 

@@ -10,6 +10,7 @@ target 'Sprout' do
   pod 'Parse'
   pod 'DateTools'
   pod 'UITextView+Placeholder'
+  pod 'FLAnimatedImage', '~> 1.0'
 
   target 'SproutTests' do
     inherit! :search_paths

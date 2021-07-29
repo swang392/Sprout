@@ -25,6 +25,7 @@
 		3F641D2D269CD74600313D49 /* SproutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D2C269CD74600313D49 /* SproutTests.m */; };
 		3F641D38269CD74600313D49 /* SproutUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D37269CD74600313D49 /* SproutUITests.m */; };
 		3F7606B526B1B30A00452D18 /* TaskRecommender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7606B426B1B30A00452D18 /* TaskRecommender.m */; };
+		3FAC65AB26B3072C002E1E37 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */; };
 		3FADF3CE269E00D9002B5911 /* SocialFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */; };
 		3FADF3D6269E0D8C002B5911 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D5269E0D8C002B5911 /* TaskCell.m */; };
 		3FADF3D9269E0D9B002B5911 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D8269E0D9B002B5911 /* PostCell.m */; };
@@ -92,6 +93,8 @@
 		3F641D39269CD74600313D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7606B326B1B30A00452D18 /* TaskRecommender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskRecommender.h; sourceTree = "<group>"; };
 		3F7606B426B1B30A00452D18 /* TaskRecommender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskRecommender.m; sourceTree = "<group>"; };
+		3FAC65A926B3072C002E1E37 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		3FADF3CC269E00D9002B5911 /* SocialFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialFeedViewController.h; sourceTree = "<group>"; };
 		3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialFeedViewController.m; sourceTree = "<group>"; };
 		3FADF3D4269E0D8C002B5911 /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				3F36696726AB6E700026F32D /* TaskDetailsViewController.m */,
 				3F36696926AF37F40026F32D /* SignUpViewController.h */,
 				3F36696A26AF37F40026F32D /* SignUpViewController.m */,
+				3FAC65A926B3072C002E1E37 /* LaunchScreenViewController.h */,
+				3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */,
 				3F641D12269CD74500313D49 /* AppDelegate.m in Sources */,
 				3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */,
+				3FAC65AB26B3072C002E1E37 /* LaunchScreenViewController.m in Sources */,
 				3FADF3E826A07970002B5911 /* Networker.m in Sources */,
 				3FADF3DF269E2920002B5911 /* Task.m in Sources */,
 				3F641D23269CD74600313D49 /* main.m in Sources */,
