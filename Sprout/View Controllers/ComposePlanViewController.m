@@ -5,6 +5,7 @@
 //  Created by Sarah Wang on 7/13/21.
 //
 
+#include <stdlib.h>
 #import "ComposePlanViewController.h"
 #import "Networker.h"
 #import "Task.h"
@@ -106,7 +107,7 @@
     [TaskRecommender.shared getTaskTypesWithCompletion:^(NSMutableDictionary * _Nonnull taskDict, NSError * _Nonnull error) {
         NSString *alertHeaderText = nil;
         __block NSString *alertText= nil;
-        NSString *recommendationType = nil;
+        __block NSString *recommendationType = nil;
         
         BOOL presentRecommendation = false;
         
@@ -129,6 +130,10 @@
         [TaskRecommender.shared getRecommendationWithType:recommendationType withCompletion:^(NSString * _Nonnull recommendation, NSError * _Nonnull error) {
             if (presentRecommendation) {
                 alertText = [NSString stringWithFormat:@"Another Sprout user has the following task: %@", recommendation];
+                if ([recommendationType isEqual:@"Physical"]) {
+                    int random = arc4random_uniform(88);
+                    alertText = [NSString stringWithFormat:@"Try out this exercise: %@", self.exercises[random][@"fields"][@"Exercise"]];
+                }
                 self.recommendationAlert = [UIAlertController alertControllerWithTitle:alertHeaderText message:alertText preferredStyle:(UIAlertControllerStyleAlert)];
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     //handle response here
