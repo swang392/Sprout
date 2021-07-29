@@ -33,19 +33,14 @@ Sprint 1
 
 **Required Must-have Stories**
 
-- Onboarding and Profile
 - [x] User can create a new account, log in, and sign out of account
 - [x] User sees profile with their fitness plan and accomplishments
 - [x] User can edit their profile (either during onboarding or after)
 - [x] User can log in through their Facebook Account (using Facebook SDK)
-
-- Home Screen
 - [x] User can add new tasks
 - [x] User can view tasks on Home screen
 - [x] User can delete tasks
 - [x] User can mark tasks on their plan as complete
-
-- Social Screen
 - [x] User can view social feed of other people's daily accomplishments
 
 **Optional Nice-to-have Stories**
