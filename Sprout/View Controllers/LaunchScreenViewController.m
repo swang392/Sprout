@@ -37,6 +37,8 @@
     LoginViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     [sceneDelegate changeRootViewController:viewController];
+    
+    //TODO: add fade into login screen
 }
 
 @end

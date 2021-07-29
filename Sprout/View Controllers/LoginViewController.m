@@ -30,6 +30,8 @@
     [super viewDidLoad];
     
     [self createAlerts];
+    
+    //TODO: create textviews with placeholder text instead of UITextField
 }
 
 - (void)createAlerts {
