@@ -54,12 +54,15 @@
         if (![task.author.objectId isEqual:PFUser.currentUser.objectId]) {
             if ([task.type isEqual:@"Physical"]) {
                 physicalCount++;
+                [self updateRecommendationWithTask:task withType:@"Physical"];
             }
             else if ([task.type isEqual:@"Diet"]) {
                 dietCount++;
+                [self updateRecommendationWithTask:task withType:@"Diet"];
             }
             else if ([task.type isEqual:@"Mental"]) {
                 mentalCount++;
+                [self updateRecommendationWithTask:task withType:@"Mental"];
             }
         }
     }
@@ -73,6 +76,64 @@
 - (void)getTaskTypesWithCompletion:(void(^)(NSMutableDictionary *taskDict, NSError *error))completion {
     if (self.taskTypes) {
         completion(self.taskTypes, nil);
+    }
+    else {
+        //TODO: show error in getting types
+    }
+}
+
+- (void)updateRecommendationWithTask:(Task *)task withType:(NSString *)type {
+    if ([type isEqual:@"Physical"]) {
+        if (task.completed) {
+            self.physicalRecommendation = task.name;
+        }
+        else {
+            self.backupPhysicalRecommendation = task.name;
+        }
+    }
+    else if ([type isEqual:@"Mental"]) {
+        if (task.completed) {
+            self.mentalRecommendation = task.name;
+        }
+        else {
+            self.backupMentalRecommendation = task.name;
+        }
+    }
+    else if ([type isEqual:@"Diet"]) {
+        if (task.completed) {
+            self.dietRecommendation = task.name;
+        }
+        else {
+            self.backupDietRecommendation = task.name;
+        }
+    }
+}
+
+- (void)getRecommendationWithType:(NSString *)type
+                   withCompletion:(void(^)(NSString *recommendation, NSError *error))completion {
+    if ([type isEqual:@"Physical"]) {
+        if(self.physicalRecommendation) {
+            completion(self.physicalRecommendation, nil);
+        }
+        else {
+            completion(self.backupPhysicalRecommendation, nil);
+        }
+    }
+    else if ([type isEqual:@"Diet"]) {
+        if(self.dietRecommendation) {
+            completion(self.dietRecommendation, nil);
+        }
+        else {
+            completion(self.backupDietRecommendation, nil);
+        }
+    }
+    else if ([type isEqual:@"Mental"]) {
+        if(self.mentalRecommendation) {
+            completion(self.mentalRecommendation, nil);
+        }
+        else {
+            completion(self.backupMentalRecommendation, nil);
+        }
     }
     else {
         //TODO: show error in getting types

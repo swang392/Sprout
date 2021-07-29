@@ -5,6 +5,7 @@
 //  Created by Sarah Wang on 7/13/21.
 //
 
+#include <stdlib.h>
 #import "ComposePlanViewController.h"
 #import "Networker.h"
 #import "Task.h"
@@ -20,9 +21,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
 @property (nonatomic) UIAlertController *addTaskAlert;
 @property (nonatomic) UIAlertController *recommendationAlert;
-@property (nonatomic) int myPhysicalCount;
-@property (nonatomic) int myMentalCount;
-@property (nonatomic) int myDietCount;
 @property (nonatomic) NSMutableArray<Task *> *myTasks;
 
 @end
@@ -98,55 +96,53 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *tasks, NSError *error) {
         if (tasks != nil) {
             self.myTasks = (NSMutableArray *)tasks;
-            [self countMyTasks];
+            [self presentRecommendationAlert];
         } else {
             //TODO: handle error
         }
     }];
 }
 
-- (void)countMyTasks {
-    for (Task *task in self.myTasks) {
-        if ([task.type isEqual:@"Physical"]) {
-            self.myPhysicalCount++;
-        }
-        else if ([task.type isEqual:@"Diet"]) {
-            self.myDietCount++;
-        }
-        else if ([task.type isEqual:@"Mental"]) {
-            self.myMentalCount++;
-        }
-    }
-    [self presentRecommendationAlert];
-}
-
 - (void)presentRecommendationAlert {
     [TaskRecommender.shared getTaskTypesWithCompletion:^(NSMutableDictionary * _Nonnull taskDict, NSError * _Nonnull error) {
-        NSString *alertText = nil;
+        NSString *alertHeaderText = nil;
+        __block NSString *alertText= nil;
+        __block NSString *recommendationType = nil;
+        
         BOOL presentRecommendation = false;
         
-        if (self.myPhysicalCount < [[taskDict objectForKey:@"Physical"] floatValue]) {
-            alertText = @"Other Sprout users have more physical health tasks!";
+        if ([self.myPhysicalCount intValue] < [[taskDict objectForKey:@"Physical"] floatValue]) {
+            alertHeaderText = @"Need a recommendation? Add a physical health task!";
             presentRecommendation = true;
+            recommendationType = @"Physical";
         }
-        else if (self.myMentalCount < [[taskDict objectForKey:@"Mental"] floatValue]) {
-            alertText = @"Other Sprout users have more mental health tasks!";
+        else if ([self.myMentalCount intValue] < [[taskDict objectForKey:@"Mental"] floatValue]) {
+            alertHeaderText = @"Need a recommendation? Add a mental health task!";
             presentRecommendation = true;
+            recommendationType = @"Mental";
         }
-        else if (self.myDietCount < [[taskDict objectForKey:@"Diet"] floatValue]) {
-            alertText = @"Other Sprout users have more diet-related tasks!";
+        else if ([self.myDietCount intValue] < [[taskDict objectForKey:@"Diet"] floatValue]) {
+            alertHeaderText = @"Need a recommendation? Add a diet-related task!";
             presentRecommendation = true;
+            recommendationType = @"Diet";
         }
-
-        if (presentRecommendation) {
-            self.recommendationAlert = [UIAlertController alertControllerWithTitle:@"Need a recommendation?" message:alertText preferredStyle:(UIAlertControllerStyleAlert)];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                //handle response here
-            }];
-            [self.recommendationAlert addAction:okAction];
-            [self presentViewController:self.recommendationAlert animated:YES completion:^{
-            }];
-        }
+        
+        [TaskRecommender.shared getRecommendationWithType:recommendationType withCompletion:^(NSString * _Nonnull recommendation, NSError * _Nonnull error) {
+            if (presentRecommendation) {
+                alertText = [NSString stringWithFormat:@"Another Sprout user has the following task: %@", recommendation];
+                if ([recommendationType isEqual:@"Physical"]) {
+                    int random = arc4random_uniform(88);
+                    alertText = [NSString stringWithFormat:@"Try out this exercise: %@", self.exercises[random][@"fields"][@"Exercise"]];
+                }
+                self.recommendationAlert = [UIAlertController alertControllerWithTitle:alertHeaderText message:alertText preferredStyle:(UIAlertControllerStyleAlert)];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    //handle response here
+                }];
+                [self.recommendationAlert addAction:okAction];
+                [self presentViewController:self.recommendationAlert animated:YES completion:^{
+                }];
+            }
+        }];
     }];
 }
 
