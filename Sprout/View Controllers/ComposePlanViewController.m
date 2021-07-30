@@ -51,7 +51,7 @@
 }
 
 - (IBAction)addTaskButton:(id)sender {
-    if([self.taskNameField.text isEqual:@""] || self.taskTypeControl.selectedSegmentIndex == UISegmentedControlNoSegment || self.taskFrequencyControl.selectedSegmentIndex == UISegmentedControlNoSegment)
+    if ([self.taskNameField.text isEqual:@""] || self.taskTypeControl.selectedSegmentIndex == UISegmentedControlNoSegment || self.taskFrequencyControl.selectedSegmentIndex == UISegmentedControlNoSegment)
     {
         [self presentViewController:self.addTaskAlert animated:YES completion:^{
         }];
@@ -60,22 +60,23 @@
         NSString *taskName = self.taskNameField.text;
         
         NSString *taskType = @"Physical";
-        if(self.taskTypeControl.selectedSegmentIndex == 1){
+        if (self.taskTypeControl.selectedSegmentIndex == 1) {
             taskType = @"Diet";
         }
-        else if(self.taskTypeControl.selectedSegmentIndex == 2){
+        else if (self.taskTypeControl.selectedSegmentIndex == 2) {
             taskType = @"Mental";
         }
-        else if(self.taskTypeControl.selectedSegmentIndex == 3){
+        else if (self.taskTypeControl.selectedSegmentIndex == 3) {
             taskType = @"Miscellaneous";
         }
         
         NSString *timeframe = @"Daily";
-        if(self.taskFrequencyControl.selectedSegmentIndex == 1)
+        if (self.taskFrequencyControl.selectedSegmentIndex == 1) {
             timeframe = @"Weekly";
+        }
         
         [Task createTaskWithName:taskName withTimeframe:timeframe withType:taskType withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(!succeeded){
+            if (!succeeded) {
                 //TODO: - Show an alert for unexpected error
             }
         }];

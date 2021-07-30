@@ -32,8 +32,7 @@
     self.userNameField.text = self.user[@"name"];
     self.emailField.text = self.user[@"email"];
     
-    if(self.user[@"name"] != nil && self.user[@"profileImage"] != nil)
-    {
+    if (self.user[@"profileImage"] != nil) {
         PFFileObject *temp_file = self.user[@"profileImage"];
         [temp_file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
             UIImage *thumbnailImage = [UIImage imageWithData:imageData];

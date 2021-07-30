@@ -112,7 +112,7 @@
 - (void)getRecommendationWithType:(NSString *)type
                    withCompletion:(void(^)(NSString *recommendation, NSError *error))completion {
     if ([type isEqual:@"Physical"]) {
-        if(self.physicalRecommendation) {
+        if (self.physicalRecommendation) {
             completion(self.physicalRecommendation, nil);
         }
         else {
@@ -120,7 +120,7 @@
         }
     }
     else if ([type isEqual:@"Diet"]) {
-        if(self.dietRecommendation) {
+        if (self.dietRecommendation) {
             completion(self.dietRecommendation, nil);
         }
         else {
@@ -128,7 +128,7 @@
         }
     }
     else if ([type isEqual:@"Mental"]) {
-        if(self.mentalRecommendation) {
+        if (self.mentalRecommendation) {
             completion(self.mentalRecommendation, nil);
         }
         else {

@@ -64,7 +64,7 @@
 }
 
 - (void)markCompleteness:(BOOL) completedStatus {
-    if(completedStatus) {
+    if (completedStatus) {
         UIImage *image = [UIImage systemImageNamed:@"checkmark.square.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
         [self.completedButton setImage:image forState:UIControlStateNormal];
         UIColor *customColor = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
