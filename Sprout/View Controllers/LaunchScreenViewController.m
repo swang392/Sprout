@@ -23,11 +23,11 @@
     
     [self createGif];
     
-    [self performSelector:@selector(goToLoginScreen) withObject:self afterDelay:2.0];
+    [self performSelector:@selector(goToLoginScreen) withObject:self afterDelay:5.0];
 }
 
 - (void)createGif {
-    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.imgur.com/YgCdmug.gif"]]];
+    FLAnimatedImage *image = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.imgur.com/ZWXcdRf.gif"]]];
     self.launchScreenImage.animatedImage = image;
     [self.view addSubview:self.launchScreenImage];
 }

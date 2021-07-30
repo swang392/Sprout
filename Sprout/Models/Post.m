@@ -31,7 +31,7 @@
     newPost.completedTasks = completedTasks;
     newPost.totalTasks = totalTasks;
     newPost.caption = caption;
-    newPost.usersWhoLiked = [NSArray new]; 
+    newPost.usersWhoLiked = [NSArray new];
     
     [newPost saveInBackgroundWithBlock:completion];
 }

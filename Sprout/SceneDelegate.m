@@ -33,9 +33,9 @@
 {
     UIOpenURLContext *context = URLContexts.allObjects.firstObject;
     [FBSDKApplicationDelegate.sharedInstance application:UIApplication.sharedApplication
-                                               openURL:context.URL
-                                     sourceApplication:context.options.sourceApplication
-                                            annotation:context.options.annotation];
+                                                 openURL:context.URL
+                                       sourceApplication:context.options.sourceApplication
+                                              annotation:context.options.annotation];
 }
 
 - (void)changeRootViewController:(UIViewController *)viewController{

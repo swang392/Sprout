@@ -40,7 +40,7 @@
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     query.limit = numPosts;
-
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.posts = (NSMutableArray *)posts;
@@ -53,7 +53,7 @@
 
 - (void)refreshData:(UIRefreshControl *)refreshControl {
     [self queryPosts:20];
-    [refreshControl endRefreshing]; 
+    [refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -70,7 +70,7 @@
     cell.usernameLabel.text = nil;
     cell.post = post;
     
-    [cell refreshData]; 
+    [cell refreshData];
     return cell;
 }
 
@@ -78,7 +78,7 @@
     if ([segue.identifier isEqualToString:@"detailsSegue"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         PostDetailsViewController *postDetailsViewController = [segue destinationViewController];
-        postDetailsViewController.post = self.posts[indexPath.row]; 
+        postDetailsViewController.post = self.posts[indexPath.row];
     }
 }
 

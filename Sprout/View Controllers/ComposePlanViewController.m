@@ -58,7 +58,7 @@
     }
     else {
         NSString *taskName = self.taskNameField.text;
-       
+        
         NSString *taskType = @"Physical";
         if(self.taskTypeControl.selectedSegmentIndex == 1){
             taskType = @"Diet";

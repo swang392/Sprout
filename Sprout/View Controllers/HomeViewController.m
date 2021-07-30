@@ -106,7 +106,11 @@
 }
 
 - (void)createFitnessExercises {
-    NSURL *url = [NSURL URLWithString:@"https://api.airtable.com/v0/appPZEtyXkEIJAxpS/Grid%20view?api_key=keyxenAzfLx3sx7xa"];
+    NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+    NSString *apiKey= [dict objectForKey: @"apiKey"];
+    NSString *urlString = @"https://api.airtable.com/v0/appPZEtyXkEIJAxpS/Grid%20view?api_key=";
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", urlString, apiKey]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
