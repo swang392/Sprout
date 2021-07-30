@@ -12,8 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *pickPhotoButton;
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (nonatomic) PFUser *user;
 
 @end
@@ -23,10 +24,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self refreshData];
+}
+
+- (void)refreshData {
     self.user = PFUser.currentUser;
+    self.userNameField.text = self.user[@"name"];
+    self.emailField.text = self.user[@"email"];
+    
     if(self.user[@"name"] != nil && self.user[@"profileImage"] != nil)
     {
-        self.userNameField.text = self.user[@"name"];
         PFFileObject *temp_file = self.user[@"profileImage"];
         [temp_file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
             UIImage *thumbnailImage = [UIImage imageWithData:imageData];
@@ -42,11 +49,18 @@
 
 - (IBAction)saveButton:(id)sender {
     self.user[@"name"] = self.userNameField.text;
+    self.user[@"email"] = self.emailField.text;
     NSData *imageData = UIImagePNGRepresentation(self.profilePicView.image);
     PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
     self.user[@"profileImage"] = image;
     [PFUser.currentUser saveInBackground];
     
+    [self refreshData];
+    
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)backButton:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
