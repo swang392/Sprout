@@ -32,7 +32,7 @@
                     </view>
                     <connections>
                         <outlet property="launchScreenImage" destination="p5L-r6-0Pb" id="auY-zS-3g5"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Rvq-q4-K1l"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="launchScreenSegue" id="Rvq-q4-K1l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAJ-K4-wKZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
