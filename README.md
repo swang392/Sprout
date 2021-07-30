@@ -42,6 +42,9 @@ Sprint 1
 - [x] User can delete tasks
 - [x] User can mark tasks on their plan as complete
 - [x] User can view social feed of other people's daily accomplishments
+- [x] User can double tap on a post to like it (gesture requirement)
+- [x] Splash screen animation (library for visual polish)
+- [x] Algorithm to suggest tasks to users using airtable database
 
 **Optional Nice-to-have Stories**
 
