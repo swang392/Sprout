@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LaunchScreenViewController-->
+        <!--SplashScreenViewController-->
         <scene sceneID="lZb-9F-vEo">
             <objects>
-                <viewController storyboardIdentifier="LaunchScreenViewController" title="LaunchScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z6H-3f-i2u" customClass="LaunchScreenViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4tI-OV-kWa" customClass="Laun">
+                <viewController restorationIdentifier="SplashScreenViewController" storyboardIdentifier="SplashScreenViewController" title="SplashScreenViewController" id="Z6H-3f-i2u" customClass="SplashScreenViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4tI-OV-kWa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -782,11 +782,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lTv-86-i2I">
-                                <rect key="frame" x="0.0" y="56" width="414" height="138"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileBannerScreen" translatesAutoresizingMaskIntoConstraints="NO" id="AE7-yo-AKO">
+                                <rect key="frame" x="0.0" y="0.0" width="419" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-Ax-iFF">
                                 <rect key="frame" x="20" y="76" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1395,6 +1394,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="profileBannerScreen" width="1120" height="622"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

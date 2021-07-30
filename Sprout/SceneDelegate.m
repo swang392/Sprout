@@ -25,7 +25,7 @@
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     }
     else {
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"LaunchScreenViewController"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SplashScreenViewController"];
     }
 }
 

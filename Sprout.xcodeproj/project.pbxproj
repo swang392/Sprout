@@ -20,12 +20,10 @@
 		3F641D15269CD74500313D49 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D14269CD74500313D49 /* SceneDelegate.m */; };
 		3F641D1B269CD74500313D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F641D19269CD74500313D49 /* Main.storyboard */; };
 		3F641D1D269CD74600313D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F641D1C269CD74600313D49 /* Assets.xcassets */; };
-		3F641D20269CD74600313D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F641D1E269CD74600313D49 /* LaunchScreen.storyboard */; };
 		3F641D23269CD74600313D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D22269CD74600313D49 /* main.m */; };
 		3F641D2D269CD74600313D49 /* SproutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D2C269CD74600313D49 /* SproutTests.m */; };
 		3F641D38269CD74600313D49 /* SproutUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F641D37269CD74600313D49 /* SproutUITests.m */; };
 		3F7606B526B1B30A00452D18 /* TaskRecommender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7606B426B1B30A00452D18 /* TaskRecommender.m */; };
-		3FAC65AB26B3072C002E1E37 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */; };
 		3FADF3CE269E00D9002B5911 /* SocialFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */; };
 		3FADF3D6269E0D8C002B5911 /* TaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D5269E0D8C002B5911 /* TaskCell.m */; };
 		3FADF3D9269E0D9B002B5911 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3D8269E0D9B002B5911 /* PostCell.m */; };
@@ -34,6 +32,8 @@
 		3FADF3E5269E2C9E002B5911 /* ComposePlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3E4269E2C9E002B5911 /* ComposePlanViewController.m */; };
 		3FADF3E826A07970002B5911 /* Networker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FADF3E726A07970002B5911 /* Networker.m */; };
 		3FADF3EA26A07AB6002B5911 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FADF3E926A07AB6002B5911 /* Keys.plist */; };
+		3FBF880126B47A760021CA40 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF880026B47A750021CA40 /* SplashScreenViewController.m */; };
+		3FBF880C26B484E20021CA40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF880A26B484E20021CA40 /* LaunchScreen.storyboard */; };
 		3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */; };
 		4E034D14A9B8074CAFA4A32C /* Pods_SproutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */; };
 		DFA952BA6063164418312B07 /* Pods_Sprout_SproutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F8FDBF204F0E76FFE8AE1 /* Pods_Sprout_SproutUITests.framework */; };
@@ -82,7 +82,6 @@
 		3F641D14269CD74500313D49 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		3F641D1A269CD74500313D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F641D1C269CD74600313D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3F641D1F269CD74600313D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F641D21269CD74600313D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F641D22269CD74600313D49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3F641D28269CD74600313D49 /* SproutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SproutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +92,6 @@
 		3F641D39269CD74600313D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7606B326B1B30A00452D18 /* TaskRecommender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskRecommender.h; sourceTree = "<group>"; };
 		3F7606B426B1B30A00452D18 /* TaskRecommender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskRecommender.m; sourceTree = "<group>"; };
-		3FAC65A926B3072C002E1E37 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
-		3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		3FADF3CC269E00D9002B5911 /* SocialFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialFeedViewController.h; sourceTree = "<group>"; };
 		3FADF3CD269E00D9002B5911 /* SocialFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialFeedViewController.m; sourceTree = "<group>"; };
 		3FADF3D4269E0D8C002B5911 /* TaskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCell.h; sourceTree = "<group>"; };
@@ -110,6 +107,9 @@
 		3FADF3E626A07970002B5911 /* Networker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networker.h; sourceTree = "<group>"; };
 		3FADF3E726A07970002B5911 /* Networker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Networker.m; sourceTree = "<group>"; };
 		3FADF3E926A07AB6002B5911 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		3FBF87FF26B47A750021CA40 /* SplashScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		3FBF880026B47A750021CA40 /* SplashScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		3FBF880B26B484E20021CA40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD86C4326AB3B2700320DD3 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
 		3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 		743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SproutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +173,8 @@
 				3F36696726AB6E700026F32D /* TaskDetailsViewController.m */,
 				3F36696926AF37F40026F32D /* SignUpViewController.h */,
 				3F36696A26AF37F40026F32D /* SignUpViewController.m */,
-				3FAC65A926B3072C002E1E37 /* LaunchScreenViewController.h */,
-				3FAC65AA26B3072C002E1E37 /* LaunchScreenViewController.m */,
+				3FBF87FF26B47A750021CA40 /* SplashScreenViewController.h */,
+				3FBF880026B47A750021CA40 /* SplashScreenViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 				3F641D14269CD74500313D49 /* SceneDelegate.m */,
 				3F641D19269CD74500313D49 /* Main.storyboard */,
 				3F641D1C269CD74600313D49 /* Assets.xcassets */,
-				3F641D1E269CD74600313D49 /* LaunchScreen.storyboard */,
+				3FBF880A26B484E20021CA40 /* LaunchScreen.storyboard */,
 				3F641D21269CD74600313D49 /* Info.plist */,
 				3F641D22269CD74600313D49 /* main.m */,
 				3FADF3E626A07970002B5911 /* Networker.h */,
@@ -403,7 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FADF3EA26A07AB6002B5911 /* Keys.plist in Resources */,
-				3F641D20269CD74600313D49 /* LaunchScreen.storyboard in Resources */,
+				3FBF880C26B484E20021CA40 /* LaunchScreen.storyboard in Resources */,
 				3F641D1D269CD74600313D49 /* Assets.xcassets in Resources */,
 				3F641D1B269CD74500313D49 /* Main.storyboard in Resources */,
 			);
@@ -538,9 +538,9 @@
 				3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */,
 				3F641D12269CD74500313D49 /* AppDelegate.m in Sources */,
 				3F46509E26A7573000E6890E /* EditProfileViewController.m in Sources */,
-				3FAC65AB26B3072C002E1E37 /* LaunchScreenViewController.m in Sources */,
 				3FADF3E826A07970002B5911 /* Networker.m in Sources */,
 				3FADF3DF269E2920002B5911 /* Task.m in Sources */,
+				3FBF880126B47A760021CA40 /* SplashScreenViewController.m in Sources */,
 				3F641D23269CD74600313D49 /* main.m in Sources */,
 				3F36696B26AF37F40026F32D /* SignUpViewController.m in Sources */,
 				3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */,
@@ -596,10 +596,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3F641D1E269CD74600313D49 /* LaunchScreen.storyboard */ = {
+		3FBF880A26B484E20021CA40 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3F641D1F269CD74600313D49 /* Base */,
+				3FBF880B26B484E20021CA40 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
