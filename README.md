@@ -55,6 +55,7 @@ Sprint 1
 - [ ] User can connect friends through facebook sdk
 - [ ] user can search for other users
 - [ ] User can see a list of their following
+- [x] user can see a detail view of posts
 - [x] User can like accomplishments on social feed
 - [ ] User can comment on accomplishments on social feed
 
