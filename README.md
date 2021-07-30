@@ -48,10 +48,11 @@ Sprint 1
 
 **Optional Nice-to-have Stories**
 
-- [ ] User can see a list of their followers
-- [ ] User can connect friends through facebook or google sdk
+- [x] User can see a detailed view of their tasks
 - [ ] User can edit tasks
-- [ ] User can see locations of other friends
+- [ ] User can edit profile after creating it
+- [ ] User can see a list of their followers
+- [ ] User can connect friends through facebook sdk
 - [ ] user can search for other users
 - [ ] User can see a list of their following
 - [x] User can like accomplishments on social feed
