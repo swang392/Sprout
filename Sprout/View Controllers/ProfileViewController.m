@@ -15,7 +15,9 @@
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameField;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (nonatomic) PFUser *user;
 
 @end
@@ -27,12 +29,21 @@
     
     self.user = PFUser.currentUser;
     
-    if([self.user[@"name"] isEqual:@""]){
-        self.nameField.text = self.user.username;
+    [self refreshData];
+    
+    NSTimer *refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:refreshTimer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)refreshData {
+    if ([self.user[@"name"] isEqual:@""]) {
+        self.nameLabel.text = self.user.username;
     }
     else{
-        self.nameField.text = self.user[@"name"];
+        self.nameLabel.text = self.user[@"name"];
     }
+    self.usernameLabel.text = self.user.username;
+    self.emailLabel.text = self.user[@"email"];
     PFFileObject *photo = self.user[@"profileImage"];
     [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
         self.profileImageView.image = [UIImage imageWithData:imageData];

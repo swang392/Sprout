@@ -1,22 +1,22 @@
 //
-//  LaunchScreenViewController.m
+//  SplashScreenViewController.m
 //  Sprout
 //
-//  Created by Sarah Wang on 7/29/21.
+//  Created by Sarah Wang on 7/30/21.
 //
 
-#import "LaunchScreenViewController.h"
+#import "SplashScreenViewController.h"
 #import "FLAnimatedImage.h"
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
 
-@interface LaunchScreenViewController ()
+@interface SplashScreenViewController ()
 
 @property (weak, nonatomic) IBOutlet FLAnimatedImageView *launchScreenImage;
 
 @end
 
-@implementation LaunchScreenViewController
+@implementation SplashScreenViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

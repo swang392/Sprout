@@ -129,7 +129,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"editPlanSegue"]) {
+    if ([segue.identifier isEqualToString:@"editPlanSegue"]) {
         UINavigationController *navigationController = [segue destinationViewController];
         ComposePlanViewController *composePlanViewController = (ComposePlanViewController*)navigationController.topViewController;
         composePlanViewController.myPhysicalCount = [NSNumber numberWithInt:self.myPhysicalCount];
