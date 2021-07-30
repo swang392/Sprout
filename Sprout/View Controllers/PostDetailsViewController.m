@@ -81,7 +81,7 @@
     }
     else {
         [self.post addObject:PFUser.currentUser.objectId forKey:@"usersWhoLiked"];
-       
+        
         self.post.likeCount = @([self.post.likeCount intValue] + 1);
         [self.post saveInBackground];
         

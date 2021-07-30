@@ -117,7 +117,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HomeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-
+    
     [sceneDelegate changeRootViewController:viewController];
     
     [TaskRecommender.shared countUsers];

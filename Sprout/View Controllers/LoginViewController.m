@@ -67,7 +67,7 @@
             [self createUserThroughFB: self.graphRequest];
         }
         else{
-            NSLog(@"%@", error.localizedDescription);
+            //TODO: show error
         }
     }];
 }
@@ -115,7 +115,7 @@
     NSData *imageData = UIImagePNGRepresentation(aImage);
     PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
     newUser[@"profileImage"] = image;
-
+    
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             //TODO: - Show an alert for unexpected error
@@ -161,7 +161,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     HomeViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-
+    
     [sceneDelegate changeRootViewController:viewController];
     
     [TaskRecommender.shared countUsers];
