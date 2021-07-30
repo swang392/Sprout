@@ -28,7 +28,8 @@
     self.taskNameLabel.text = self.task.name;
     self.timeframeLabel.text = self.task.timeframe;
     self.typeLabel.text = self.task.type;
-    //TODO: add button stuff so users can complete/not complete here.
+    
+    [self markCompleteness:self.task.completed];
 }
 
 - (IBAction)deleteTask:(id)sender {
@@ -46,6 +47,35 @@
     }];
     [self.navigationController popToRootViewControllerAnimated:YES];
     //TODO: make tasks refresh without pulling to refresh.
+}
+
+- (IBAction)didTapCompleted:(id)sender {
+    PFUser *current = [PFUser currentUser];
+    self.task.completed = !self.task.completed;
+    if (self.task.completed) {
+        current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] + 1];
+    }
+    else {
+        current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] - 1];
+    }
+    [current saveInBackground];
+    [self.task saveInBackground];
+    [self markCompleteness:self.task.completed];
+}
+
+- (void)markCompleteness:(BOOL) completedStatus {
+    if(completedStatus) {
+        UIImage *image = [UIImage systemImageNamed:@"checkmark.square.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
+        [self.completedButton setImage:image forState:UIControlStateNormal];
+        UIColor *customColor = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+        [self.completedButton setTintColor:customColor];
+    }
+    else {
+        UIImage *image = [UIImage systemImageNamed:@"square" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
+        [self.completedButton setImage:image forState:UIControlStateNormal];
+        UIColor *customColor = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+        [self.completedButton setTintColor:customColor];
+    }
 }
 
 @end
