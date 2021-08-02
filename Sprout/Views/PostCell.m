@@ -49,6 +49,7 @@
     else {
         [self updateLikeButton:NO];
     }
+    self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
 }
 
 - (void)updateLikeButton:(BOOL)buttonStatus {

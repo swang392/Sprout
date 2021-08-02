@@ -8,8 +8,9 @@
 #import "PostDetailsViewController.h"
 #import "Post.h"
 #import "DateTools.h"
+#import "CommentCell.h"
 
-@interface PostDetailsViewController ()
+@interface PostDetailsViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UIButton *postCommentButton;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
+@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 
 @end
 
@@ -33,6 +35,9 @@
     [super viewDidLoad];
     
     [self refreshData];
+    
+    self.commentTableView.delegate = self;
+    self.commentTableView.dataSource = self;
     
     UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
     self.commentTextView.layer.borderWidth = 1.5f;
@@ -66,6 +71,7 @@
     else {
         [self updateLikeButton:NO];
     }
+    self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
 }
 
 - (IBAction)doubleTapped:(id)sender {
@@ -118,7 +124,7 @@
         //TODO: alert controller
     }
     else {
-        NSDictionary *comment = [[NSDictionary alloc] initWithObjectsAndKeys:self.commentTextView.text, @"text", PFUser.currentUser.objectId, @"user_id", nil];
+        NSDictionary *comment = [[NSDictionary alloc] initWithObjectsAndKeys:self.commentTextView.text, @"text", PFUser.currentUser[@"name"], @"name", nil];
         [self.post addObject:comment forKey:@"comments"];
         self.post.commentCount = @([self.post.commentCount intValue] + 1);
         [self.post saveInBackground];
@@ -127,6 +133,20 @@
         
         self.commentTextView.text = @"";
     }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.post.commentCount intValue];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CommentCell *cell = [self.commentTableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    NSDictionary *comment = [self.post.comments objectAtIndex:indexPath.row];
+    
+    cell.comment = comment;
+    [cell refreshData];
+    
+    return cell;
 }
 
 @end
