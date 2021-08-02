@@ -50,7 +50,7 @@ Sprint 1
 
 - [x] User can see a detailed view of their tasks
 - [ ] User can edit tasks
-- [ ] User can edit profile after creating it
+- [x] User can edit profile after creating it
 - [ ] User can see a list of their followers
 - [ ] User can connect friends through facebook sdk
 - [ ] user can search for other users
