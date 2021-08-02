@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *postCommentButton;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) UIAlertController *postCommentAlert;
 
 @end
 
@@ -39,10 +41,24 @@
     self.commentTableView.delegate = self;
     self.commentTableView.dataSource = self;
     
-    UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+    [self createAlerts];
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
+    [self.commentTableView insertSubview:self.refreshControl atIndex:0];
+    
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
     self.commentTextView.layer.borderWidth = 1.5f;
     self.commentTextView.layer.borderColor = [color CGColor];
     self.commentTextView.layer.cornerRadius = 8;
+}
+
+- (void)createAlerts {
+    self.postCommentAlert = [UIAlertController alertControllerWithTitle:@"Please write a message to comment on this post." message:@"Try again!" preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // handle response here.
+    }];
+    [self.postCommentAlert addAction:okAction];
 }
 
 - (void)refreshData {
@@ -105,7 +121,7 @@
 }
 
 - (void)updateLikeButton:(BOOL)buttonStatus {
-    UIColor *color = [[UIColor alloc]initWithRed:97/255.0 green:179/255.0 blue:121/255.0 alpha:1.0];
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
     if (buttonStatus)
     {
         UIImage *image = [UIImage systemImageNamed:@"heart.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
@@ -119,9 +135,14 @@
     }
 }
 
+- (void)reloadComments {
+    [self.commentTableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
 - (IBAction)postComment:(id)sender {
     if ([self.commentTextView.text isEqual:@""]) {
-        //TODO: alert controller
+        [self presentViewController:self.postCommentAlert animated:YES completion:^{}];
     }
     else {
         NSDictionary *comment = [[NSDictionary alloc] initWithObjectsAndKeys:self.commentTextView.text, @"text", PFUser.currentUser[@"name"], @"name", nil];

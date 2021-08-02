@@ -46,7 +46,7 @@
             self.posts = (NSMutableArray *)posts;
             [self.tableView reloadData];
         } else {
-            NSLog(@"%@", error.localizedDescription);
+           //TODO: show error
         }
     }];
 }
