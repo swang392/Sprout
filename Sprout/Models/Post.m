@@ -15,6 +15,8 @@
 @dynamic totalTasks;
 @dynamic caption;
 @dynamic usersWhoLiked;
+@dynamic commentCount;
+@dynamic comments;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -32,6 +34,8 @@
     newPost.totalTasks = totalTasks;
     newPost.caption = caption;
     newPost.usersWhoLiked = [NSArray new];
+    newPost.commentCount = @(0);
+    newPost.comments = [NSArray new];
     
     [newPost saveInBackgroundWithBlock:completion];
 }

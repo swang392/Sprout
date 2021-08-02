@@ -8,8 +8,9 @@
 #import "PostDetailsViewController.h"
 #import "Post.h"
 #import "DateTools.h"
+#import "CommentCell.h"
 
-@interface PostDetailsViewController ()
+@interface PostDetailsViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -20,6 +21,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *postCommentButton;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
+@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) UIAlertController *postCommentAlert;
 
 @end
 
@@ -29,6 +37,28 @@
     [super viewDidLoad];
     
     [self refreshData];
+    
+    self.commentTableView.delegate = self;
+    self.commentTableView.dataSource = self;
+    
+    [self createAlerts];
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
+    [self.commentTableView insertSubview:self.refreshControl atIndex:0];
+    
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
+    self.commentTextView.layer.borderWidth = 1.5f;
+    self.commentTextView.layer.borderColor = [color CGColor];
+    self.commentTextView.layer.cornerRadius = 8;
+}
+
+- (void)createAlerts {
+    self.postCommentAlert = [UIAlertController alertControllerWithTitle:@"Please write a message to comment on this post." message:@"Try again!" preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // handle response here.
+    }];
+    [self.postCommentAlert addAction:okAction];
 }
 
 - (void)refreshData {
@@ -51,13 +81,13 @@
     self.timestampLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d likes", [self.post.likeCount intValue]];
     
-    NSLog(@"%@", self.post.usersWhoLiked);
     if ([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId]) {
         [self updateLikeButton:YES];
     }
     else {
         [self updateLikeButton:NO];
     }
+    self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
 }
 
 - (IBAction)doubleTapped:(id)sender {
@@ -90,8 +120,8 @@
     }
 }
 
-- (void)updateLikeButton:(BOOL) buttonStatus {
-    UIColor *color = [[UIColor alloc]initWithRed:97/255.0 green:179/255.0 blue:121/255.0 alpha:1.0];
+- (void)updateLikeButton:(BOOL)buttonStatus {
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
     if (buttonStatus)
     {
         UIImage *image = [UIImage systemImageNamed:@"heart.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
@@ -103,6 +133,41 @@
         [self.likeButton setImage:image forState:UIControlStateNormal];
         [self.likeButton setTintColor:color];
     }
+}
+
+- (void)reloadComments {
+    [self.commentTableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+- (IBAction)postComment:(id)sender {
+    if ([self.commentTextView.text isEqual:@""]) {
+        [self presentViewController:self.postCommentAlert animated:YES completion:^{}];
+    }
+    else {
+        NSDictionary *comment = [[NSDictionary alloc] initWithObjectsAndKeys:self.commentTextView.text, @"text", PFUser.currentUser[@"name"], @"name", nil];
+        [self.post addObject:comment forKey:@"comments"];
+        self.post.commentCount = @([self.post.commentCount intValue] + 1);
+        [self.post saveInBackground];
+        
+        self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
+        
+        self.commentTextView.text = @"";
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.post.commentCount intValue];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CommentCell *cell = [self.commentTableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    NSDictionary *comment = [self.post.comments objectAtIndex:indexPath.row];
+    
+    cell.comment = comment;
+    [cell refreshData];
+    
+    return cell;
 }
 
 @end
