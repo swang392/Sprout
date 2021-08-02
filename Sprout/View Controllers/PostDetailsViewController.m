@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+@property (weak, nonatomic) IBOutlet UIButton *postCommentButton;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 
 @end
 
@@ -29,6 +33,11 @@
     [super viewDidLoad];
     
     [self refreshData];
+    
+    UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+    self.commentTextView.layer.borderWidth = 1.5f;
+    self.commentTextView.layer.borderColor = [color CGColor];
+    self.commentTextView.layer.cornerRadius = 8;
 }
 
 - (void)refreshData {
@@ -101,6 +110,22 @@
         UIImage *image = [UIImage systemImageNamed:@"heart" withConfiguration:[UIImageSymbolConfiguration configurationWithScale:(UIImageSymbolScaleLarge)]];
         [self.likeButton setImage:image forState:UIControlStateNormal];
         [self.likeButton setTintColor:color];
+    }
+}
+
+- (IBAction)postComment:(id)sender {
+    if ([self.commentTextView.text isEqual:@""]) {
+        //TODO: alert controller
+    }
+    else {
+        NSDictionary *comment = [[NSDictionary alloc] initWithObjectsAndKeys:self.commentTextView.text, @"text", PFUser.currentUser.objectId, @"user_id", nil];
+        [self.post addObject:comment forKey:@"comments"];
+        self.post.commentCount = @([self.post.commentCount intValue] + 1);
+        [self.post saveInBackground];
+        
+        self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
+        
+        self.commentTextView.text = @"";
     }
 }
 
