@@ -31,7 +31,18 @@
     
     [self createAlerts];
     
-    //TODO: create textviews with placeholder text instead of UITextField
+    [self formatTextViews];
+}
+
+- (void)formatTextViews {
+    UIColor *color = [[UIColor alloc]initWithRed:97/255.0 green:179/255.0 blue:121/255.0 alpha:1.0];
+    self.usernameField.layer.borderWidth = 1.0f;
+    self.usernameField.layer.borderColor = [color CGColor];
+    self.usernameField.layer.cornerRadius = 8;
+    
+    self.passwordField.layer.borderWidth = 1.0f;
+    self.passwordField.layer.borderColor = [color CGColor];
+    self.passwordField.layer.cornerRadius = 8;
 }
 
 - (void)createAlerts {
