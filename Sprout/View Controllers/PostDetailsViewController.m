@@ -51,7 +51,6 @@
     self.timestampLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
     self.likeCountLabel.text = [NSString stringWithFormat:@"%d likes", [self.post.likeCount intValue]];
     
-    NSLog(@"%@", self.post.usersWhoLiked);
     if ([self.post.usersWhoLiked containsObject:PFUser.currentUser.objectId]) {
         [self updateLikeButton:YES];
     }
@@ -90,7 +89,7 @@
     }
 }
 
-- (void)updateLikeButton:(BOOL) buttonStatus {
+- (void)updateLikeButton:(BOOL)buttonStatus {
     UIColor *color = [[UIColor alloc]initWithRed:97/255.0 green:179/255.0 blue:121/255.0 alpha:1.0];
     if (buttonStatus)
     {
