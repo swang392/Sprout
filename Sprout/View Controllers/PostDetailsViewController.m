@@ -184,6 +184,7 @@
 
 - (void)goToFriendsProfile {
     FriendsProfileViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendsProfileViewController"];
+    viewController.author = self.post.author;
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
