@@ -469,7 +469,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DLo-DM-cHc">
-                                <rect key="frame" x="0.0" y="124" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="580"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TaskCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="59" id="fsT-9x-1ZU" customClass="TaskCell">
@@ -566,6 +566,39 @@
                                     <segue destination="WO5-5y-5Aq" kind="show" id="aIj-ua-Qte"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B5-cG-a8o">
+                                <rect key="frame" x="214" y="712" width="180" height="30"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.83137254900000002" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Clear Weekly Tasks">
+                                    <color key="titleColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clearWeeklyTasks:" destination="eil-dR-LUA" eventType="touchUpInside" id="6TW-3m-hDi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pz-EN-OkD">
+                                <rect key="frame" x="20" y="712" width="180" height="30"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.83137254900000002" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="CQX-Tr-FqN"/>
+                                </constraints>
+                                <state key="normal" title="Clear Daily Tasks">
+                                    <color key="titleColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clearDailyTasks:" destination="eil-dR-LUA" eventType="touchUpInside" id="KM1-2a-UZs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xU9-Lg-3Vf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -574,13 +607,18 @@
                             <constraint firstItem="DLo-DM-cHc" firstAttribute="top" secondItem="vb3-nc-QlI" secondAttribute="bottom" constant="11" id="AcL-Yb-V0r"/>
                             <constraint firstItem="Srm-1Z-Oyb" firstAttribute="top" secondItem="xU9-Lg-3Vf" secondAttribute="top" constant="20" id="FWD-Tv-C2e"/>
                             <constraint firstItem="DLo-DM-cHc" firstAttribute="leading" secondItem="xU9-Lg-3Vf" secondAttribute="leading" id="Gjp-e7-u0g"/>
+                            <constraint firstItem="6pz-EN-OkD" firstAttribute="leading" secondItem="xU9-Lg-3Vf" secondAttribute="leading" constant="20" id="IUP-sU-hve"/>
                             <constraint firstItem="X4u-eM-t2K" firstAttribute="top" secondItem="Srm-1Z-Oyb" secondAttribute="bottom" constant="11" id="N0Y-0r-Eog"/>
-                            <constraint firstAttribute="bottom" secondItem="DLo-DM-cHc" secondAttribute="bottom" id="QBf-r0-qXa"/>
+                            <constraint firstItem="1B5-cG-a8o" firstAttribute="leading" secondItem="6pz-EN-OkD" secondAttribute="trailing" constant="14" id="OCx-Um-rfP"/>
                             <constraint firstItem="DLo-DM-cHc" firstAttribute="trailing" secondItem="xU9-Lg-3Vf" secondAttribute="trailing" id="VF3-gq-141"/>
                             <constraint firstItem="xU9-Lg-3Vf" firstAttribute="trailing" secondItem="Srm-1Z-Oyb" secondAttribute="trailing" constant="20" id="YeX-1I-8WP"/>
                             <constraint firstItem="Srm-1Z-Oyb" firstAttribute="leading" secondItem="xU9-Lg-3Vf" secondAttribute="leading" constant="20" id="knE-2c-xK8"/>
                             <constraint firstItem="xU9-Lg-3Vf" firstAttribute="trailing" secondItem="X4u-eM-t2K" secondAttribute="trailing" constant="20" id="mTt-JQ-QKK"/>
+                            <constraint firstAttribute="bottom" secondItem="1B5-cG-a8o" secondAttribute="bottom" constant="100" id="rAE-6f-XJ7"/>
                             <constraint firstItem="vb3-nc-QlI" firstAttribute="top" secondItem="Srm-1Z-Oyb" secondAttribute="bottom" constant="11" id="s7O-dY-4Hj"/>
+                            <constraint firstAttribute="bottom" secondItem="6pz-EN-OkD" secondAttribute="bottom" constant="100" id="uma-oM-KXW"/>
+                            <constraint firstItem="xU9-Lg-3Vf" firstAttribute="trailing" secondItem="1B5-cG-a8o" secondAttribute="trailing" constant="20" id="vUv-ko-bPA"/>
+                            <constraint firstItem="6pz-EN-OkD" firstAttribute="top" secondItem="DLo-DM-cHc" secondAttribute="bottom" constant="8" id="vmu-yn-q7w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Dvg-yR-8Tu"/>
