@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "DateTools.h"
 #import "CommentCell.h"
+#import "FriendsProfileViewController.h"
 
 @interface PostDetailsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -48,15 +49,24 @@
     [self.refreshControl addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
     [self.commentTableView insertSubview:self.refreshControl atIndex:0];
     
-    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
-    tapGesture.numberOfTapsRequired = 2;
-    [tapGesture addTarget:self action:@selector(clickedLike)];
-    [self.doubleTapWindow addGestureRecognizer:tapGesture];
+    [self createTapGestures];
     
     UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
     self.commentTextView.layer.borderWidth = 1.5f;
     self.commentTextView.layer.borderColor = [color CGColor];
     self.commentTextView.layer.cornerRadius = 8;
+}
+
+- (void)createTapGestures {
+    UITapGestureRecognizer *doubleTapGesture = [UITapGestureRecognizer new];
+    doubleTapGesture.numberOfTapsRequired = 2;
+    [doubleTapGesture addTarget:self action:@selector(clickedLike)];
+    [self.doubleTapWindow addGestureRecognizer:doubleTapGesture];
+    
+    UITapGestureRecognizer *friendsProfileGesture = [UITapGestureRecognizer new];
+    friendsProfileGesture.numberOfTapsRequired = 1;
+    [friendsProfileGesture addTarget:self action:@selector(goToFriendsProfile)];
+    [self.profileImageView addGestureRecognizer:friendsProfileGesture];
 }
 
 - (void)createAlerts {
@@ -170,6 +180,11 @@
     [cell refreshData];
     
     return cell;
+}
+
+- (void)goToFriendsProfile {
+    FriendsProfileViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendsProfileViewController"];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end
