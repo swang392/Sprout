@@ -43,7 +43,7 @@
     [self queryTasks:20];
 }
 
-- (void) queryTasks:(int) numPosts {
+- (void) queryTasks:(int)numPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Task"];
     [query includeKey:@"author"];
     [query includeKey:@"taskName"];
@@ -75,6 +75,28 @@
             //TODO: - Show an alert for unexpected error
         }
     }];
+}
+
+- (IBAction)clearWeeklyTasks:(id)sender {
+    [self clearTasks:@"Weekly"];
+    [self.tableView reloadData];
+}
+
+- (IBAction)clearDailyTasks:(id)sender {
+    [self clearTasks:@"Daily"];
+    [self.tableView reloadData];
+}
+
+- (void)clearTasks:(NSString *)timeframe {
+    PFUser *current = [PFUser currentUser];
+    for (Task *task in self.tasks) {
+        if ([task.timeframe isEqual:timeframe] && task.completed) {
+            task.completed = NO;
+            current[@"completedTasks"] =  [NSNumber numberWithInt:[current[@"completedTasks"] intValue] - 1];
+        }
+        [task saveInBackground];
+    }
+    [current saveInBackground];
 }
 
 - (void)refreshData:(UIRefreshControl *)refreshControl {

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userBioLabel;
 @property (nonatomic) PFUser *user;
 
 @end
@@ -44,6 +45,7 @@
     }
     self.usernameLabel.text = self.user.username;
     self.emailLabel.text = self.user[@"email"];
+    self.userBioLabel.text = self.user[@"userBio"];
     PFFileObject *photo = self.user[@"profileImage"];
     [photo getDataInBackgroundWithBlock:^(NSData * _Nullable imageData, NSError * _Nullable error) {
         self.profileImageView.image = [UIImage imageWithData:imageData];
