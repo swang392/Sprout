@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicView;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UITextView *userBioField;
 @property (nonatomic) PFUser *user;
 
 @end
@@ -25,12 +26,18 @@
     [super viewDidLoad];
     
     [self refreshData];
+    
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
+    self.userBioField.layer.borderWidth = 1.5f;
+    self.userBioField.layer.borderColor = [color CGColor];
+    self.userBioField.layer.cornerRadius = 8;
 }
 
 - (void)refreshData {
     self.user = PFUser.currentUser;
     self.userNameField.text = self.user[@"name"];
     self.emailField.text = self.user[@"email"];
+    self.userBioField.text = self.user[@"userBio"];
     
     if (self.user[@"profileImage"] != nil) {
         PFFileObject *temp_file = self.user[@"profileImage"];
@@ -49,9 +56,12 @@
 - (IBAction)saveButton:(id)sender {
     self.user[@"name"] = self.userNameField.text;
     self.user[@"email"] = self.emailField.text;
+    self.user[@"userBio"] = self.userBioField.text;
     NSData *imageData = UIImagePNGRepresentation(self.profilePicView.image);
-    PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
-    self.user[@"profileImage"] = image;
+    if (imageData != nil) {
+        PFFileObject *image = [PFFileObject fileObjectWithName:@"profilePhoto.png" data:imageData];
+        self.user[@"profileImage"] = image;
+    }
     [PFUser.currentUser saveInBackground];
     
     [self refreshData];
