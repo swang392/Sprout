@@ -35,6 +35,7 @@
 		3FBF880126B47A760021CA40 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF880026B47A750021CA40 /* SplashScreenViewController.m */; };
 		3FBF880C26B484E20021CA40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF880A26B484E20021CA40 /* LaunchScreen.storyboard */; };
 		3FBF880F26B874740021CA40 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF880E26B874740021CA40 /* CommentCell.m */; };
+		3FBF881226B9BD8E0021CA40 /* FriendsProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF881126B9BD8E0021CA40 /* FriendsProfileViewController.m */; };
 		3FD86C4526AB3B2700320DD3 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */; };
 		4E034D14A9B8074CAFA4A32C /* Pods_SproutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */; };
 		DFA952BA6063164418312B07 /* Pods_Sprout_SproutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335F8FDBF204F0E76FFE8AE1 /* Pods_Sprout_SproutUITests.framework */; };
@@ -113,6 +114,8 @@
 		3FBF880B26B484E20021CA40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FBF880D26B874740021CA40 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		3FBF880E26B874740021CA40 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		3FBF881026B9BD8E0021CA40 /* FriendsProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsProfileViewController.h; sourceTree = "<group>"; };
+		3FBF881126B9BD8E0021CA40 /* FriendsProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsProfileViewController.m; sourceTree = "<group>"; };
 		3FD86C4326AB3B2700320DD3 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
 		3FD86C4426AB3B2700320DD3 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 		743B907A73B8FFEE894C3740 /* Pods_SproutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SproutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +181,8 @@
 				3F36696A26AF37F40026F32D /* SignUpViewController.m */,
 				3FBF87FF26B47A750021CA40 /* SplashScreenViewController.h */,
 				3FBF880026B47A750021CA40 /* SplashScreenViewController.m */,
+				3FBF881026B9BD8E0021CA40 /* FriendsProfileViewController.h */,
+				3FBF881126B9BD8E0021CA40 /* FriendsProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				3FBF880126B47A760021CA40 /* SplashScreenViewController.m in Sources */,
 				3F641D23269CD74600313D49 /* main.m in Sources */,
 				3F36696B26AF37F40026F32D /* SignUpViewController.m in Sources */,
+				3FBF881226B9BD8E0021CA40 /* FriendsProfileViewController.m in Sources */,
 				3F0BE4C8269DE5E300D41611 /* HomeViewController.m in Sources */,
 				3FADF3CE269E00D9002B5911 /* SocialFeedViewController.m in Sources */,
 				3FADF3E2269E2934002B5911 /* Post.m in Sources */,

@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) UIAlertController *postCommentAlert;
+@property (weak, nonatomic) IBOutlet UIView *doubleTapWindow;
 
 @end
 
@@ -46,6 +47,11 @@
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
     [self.commentTableView insertSubview:self.refreshControl atIndex:0];
+    
+    UITapGestureRecognizer *tapGesture = [UITapGestureRecognizer new];
+    tapGesture.numberOfTapsRequired = 2;
+    [tapGesture addTarget:self action:@selector(clickedLike)];
+    [self.doubleTapWindow addGestureRecognizer:tapGesture];
     
     UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
     self.commentTextView.layer.borderWidth = 1.5f;
@@ -88,10 +94,6 @@
         [self updateLikeButton:NO];
     }
     self.commentCountLabel.text = [NSString stringWithFormat:@"%d comments", [self.post.commentCount intValue]];
-}
-
-- (IBAction)doubleTapped:(id)sender {
-    [self clickedLike];
 }
 
 - (IBAction)didTapLike:(id)sender {
