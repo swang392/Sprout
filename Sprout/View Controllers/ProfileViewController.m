@@ -37,12 +37,7 @@
 }
 
 - (void)refreshData {
-    if ([self.user[@"name"] isEqual:@""]) {
-        self.nameLabel.text = self.user.username;
-    }
-    else{
-        self.nameLabel.text = self.user[@"name"];
-    }
+    self.nameLabel.text = self.user[@"name"];
     self.usernameLabel.text = self.user.username;
     self.emailLabel.text = self.user[@"email"];
     self.userBioLabel.text = self.user[@"userBio"];

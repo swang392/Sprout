@@ -28,12 +28,7 @@
     
     PFUser *user = self.post.author;
     
-    if ([user[@"name"] isEqual:@""]) {
-        self.usernameLabel.text = user.username;
-    }
-    else {
-        self.usernameLabel.text  = user[@"name"];
-    }
+    self.usernameLabel.text  = user[@"name"];
     self.captionLabel.text = self.post.caption;
     self.createdAtLabel.text = self.post.createdAt.shortTimeAgoSinceNow;
     self.progressLabel.text = [NSString stringWithFormat:@"I completed %@ of %@ tasks today!", self.post.completedTasks, self.post.totalTasks];

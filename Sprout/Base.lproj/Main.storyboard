@@ -989,7 +989,7 @@
             <objects>
                 <viewController restorationIdentifier="FriendsProfileViewController" storyboardIdentifier="FriendsProfileViewController" title="FriendsProfileViewController" id="Npe-JZ-eeA" customClass="FriendsProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UCt-QX-KM9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friendsBannerScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ocA-Cf-nOp">
@@ -999,7 +999,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GaO-Lx-ugh">
-                                <rect key="frame" x="20" y="188" width="185" height="185"/>
+                                <rect key="frame" x="20" y="156" width="185" height="185"/>
                                 <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="185" id="9mO-cN-DZ0"/>
@@ -1013,19 +1013,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lj2-lu-2os">
-                                <rect key="frame" x="60" y="401" width="76" height="21"/>
+                                <rect key="frame" x="60" y="369" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFc-GT-T5O">
-                                <rect key="frame" x="20" y="443" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="411" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smiley.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jgc-di-VHp">
-                                <rect key="frame" x="20" y="393.5" width="30" height="29"/>
+                                <rect key="frame" x="20" y="361.5" width="30" height="29"/>
                                 <color key="tintColor" red="0.95686274510000002" green="0.83137254900000002" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Drh-PN-icM"/>
@@ -1063,7 +1063,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEG-52-aGM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1810.144927536232" y="1635.9375"/>
+            <point key="canvasLocation" x="-833" y="1636"/>
         </scene>
         <!--Post Details View Controller-->
         <scene sceneID="3Nz-SJ-sG2">
@@ -1303,7 +1303,7 @@
                         <outlet property="progressLabel" destination="T72-1k-Lnq" id="LxV-qx-5OD"/>
                         <outlet property="timestampLabel" destination="88f-uh-5pK" id="LrD-6U-6KW"/>
                         <outlet property="usernameLabel" destination="dH8-6B-ddD" id="6vi-GZ-HZR"/>
-                        <segue destination="reG-Nc-sM6" kind="showDetail" identifier="friendsProfileSegue" id="9Ts-xT-k2z"/>
+                        <segue destination="Npe-JZ-eeA" kind="show" identifier="friendsProfileSegue" id="8GV-GV-zmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jQg-yj-4Ok" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1723,25 +1723,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLe-ga-b5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3484.057971014493" y="1635.9375"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3PA-0t-sgQ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="reG-Nc-sM6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="VUC-90-YGo"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aqc-XS-JUl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Npe-JZ-eeA" kind="relationship" relationship="rootViewController" id="pYX-LY-IlT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tNy-Ef-hz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-941" y="1636"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
