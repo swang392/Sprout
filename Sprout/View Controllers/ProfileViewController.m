@@ -31,9 +31,6 @@
     self.user = PFUser.currentUser;
     
     [self refreshData];
-    
-    NSTimer *refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:refreshTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)refreshData {
@@ -56,6 +53,10 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *controller = [storyboard  instantiateViewControllerWithIdentifier:@"LoginViewController"];
     sceneDelegate.window.rootViewController = controller;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self refreshData];
 }
 
 @end

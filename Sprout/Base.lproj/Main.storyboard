@@ -383,7 +383,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2ka-d8-RrD">
-                                <rect key="frame" x="20" y="494.5" width="374" height="163.5"/>
+                                <rect key="frame" x="20" y="494.5" width="374" height="114.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -427,16 +427,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="TK0-KD-0Ju">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="8xO-M7-ad3">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="YVX-AB-qLL">
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="backButton:" destination="hBT-1C-SOB" id="Arg-Nd-s7Y"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="6fA-ce-YQf">
-                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="saveButton:" destination="hBT-1C-SOB" id="O6A-20-odV"/>
+                                <action selector="saveButton:" destination="hBT-1C-SOB" id="kU8-74-0ll"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -444,7 +438,7 @@
                         <outlet property="emailField" destination="YMg-v1-UDm" id="Igr-CG-5ki"/>
                         <outlet property="pickPhotoButton" destination="C1I-gT-nf5" id="xdl-bQ-14Q"/>
                         <outlet property="profilePicView" destination="65b-hT-ZCm" id="Sr7-xe-OtG"/>
-                        <outlet property="saveButton" destination="6fA-ce-YQf" id="saH-Db-aKs"/>
+                        <outlet property="saveButton" destination="YVX-AB-qLL" id="RWF-Tc-846"/>
                         <outlet property="userBioField" destination="2ka-d8-RrD" id="OE2-IK-vrn"/>
                         <outlet property="userNameField" destination="ia5-4B-kdN" id="xXI-fV-11I"/>
                     </connections>
@@ -456,7 +450,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4394.202898550725" y="1635.9375"/>
+            <point key="canvasLocation" x="3434.7826086956525" y="1635.9375"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="Dxj-Eb-UkZ">
@@ -950,7 +944,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit Profile" id="BZj-cl-1Ss">
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="uuR-Fx-AdF" kind="presentation" id="cjP-5b-Y7V"/>
+                                <segue destination="hBT-1C-SOB" kind="show" id="gVJ-Mv-UiE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -964,7 +958,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZ6-N1-oL6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2692.753623188406" y="1635.9375"/>
+            <point key="canvasLocation" x="2612" y="1636"/>
         </scene>
         <!--Profile-->
         <scene sceneID="G1B-1b-adV">
@@ -1732,29 +1726,12 @@
             </objects>
             <point key="canvasLocation" x="1782.608695652174" y="2366.5178571428569"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pvw-AH-d0l">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uuR-Fx-AdF" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="auN-po-geh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="hBT-1C-SOB" kind="relationship" relationship="rootViewController" id="pHs-Ov-YSi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fLe-ga-b5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3484.057971014493" y="1635.9375"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vA6-gw-o3j"/>
         <segue reference="PWC-Q6-JFs"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="appLogo" width="180" height="180"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>

@@ -65,12 +65,7 @@
     [PFUser.currentUser saveInBackground];
     
     [self refreshData];
-    
-    [self dismissViewControllerAnimated:true completion:nil];
-}
-
-- (IBAction)backButton:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 //methods from codepath
