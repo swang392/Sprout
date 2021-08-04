@@ -92,7 +92,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="RRy-A8-Tcf" kind="show" id="IZr-Np-xk5"/>
+                                    <action selector="didTapSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xOP-MT-N8l"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GLm-Xx-Iea">
@@ -152,6 +152,7 @@
                         <outlet property="passwordField" destination="3js-mW-1N6" id="wP1-RH-Wu7"/>
                         <outlet property="usernameField" destination="GLm-Xx-Iea" id="qmb-D6-1CC"/>
                         <segue destination="Pno-On-Ekf" kind="show" identifier="loginSegue" id="vA6-gw-o3j"/>
+                        <segue destination="RRy-A8-Tcf" kind="show" identifier="signUpSegue" id="Gmt-kP-ABM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,7 +162,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="202.89855072463769" y="-226.33928571428569"/>
+            <point key="canvasLocation" x="155" y="-226"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="Sju-kb-sNd">
@@ -1745,7 +1746,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mzc-b7-JD2"/>
+        <segue reference="vA6-gw-o3j"/>
         <segue reference="PWC-Q6-JFs"/>
     </inferredMetricsTieBreakers>
     <resources>
