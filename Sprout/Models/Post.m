@@ -17,6 +17,7 @@
 @dynamic usersWhoLiked;
 @dynamic commentCount;
 @dynamic comments;
+@dynamic authorEmail;
 
 + (nonnull NSString *)parseClassName {
     return @"Post";
@@ -36,6 +37,7 @@
     newPost.usersWhoLiked = [NSArray new];
     newPost.commentCount = @(0);
     newPost.comments = [NSArray new];
+    newPost.authorEmail = PFUser.currentUser.email;
     
     [newPost saveInBackgroundWithBlock:completion];
 }

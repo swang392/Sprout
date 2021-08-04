@@ -190,6 +190,7 @@
     if ([segue.identifier isEqualToString:@"friendsProfileSegue"]) {
         FriendsProfileViewController *viewController = [segue destinationViewController];
         viewController.author = self.post.author;
+        viewController.userEmail = self.post.authorEmail;
     }
 }
 @end
