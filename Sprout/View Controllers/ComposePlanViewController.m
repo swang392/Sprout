@@ -47,7 +47,7 @@
 }
 
 - (IBAction)finishedAddingTasks:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (IBAction)addTaskButton:(id)sender {
