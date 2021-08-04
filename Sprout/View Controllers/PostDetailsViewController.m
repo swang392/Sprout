@@ -182,6 +182,10 @@
     return cell;
 }
 
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.view endEditing:true];
+}
+
 - (void)goToFriendsProfile {
     [self performSegueWithIdentifier:@"friendsProfileSegue" sender:self];
 }
