@@ -788,7 +788,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="993" y="2367"/>
+            <point key="canvasLocation" x="912" y="2482"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="7kc-aW-dfK">
@@ -1551,7 +1551,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1822" y="2367"/>
+            <point key="canvasLocation" x="1783" y="2483"/>
         </scene>
         <!--Social-->
         <scene sceneID="N7a-fe-PZY">
@@ -1593,7 +1593,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeframe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0m-v6-wrf">
-                                <rect key="frame" x="127" y="256" width="76.5" height="20.5"/>
+                                <rect key="frame" x="127" y="256" width="257" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1624,15 +1624,18 @@
                                 <color key="textColor" red="0.3803921569" green="0.70196078429999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeframe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-wR-okZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Timeframe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-wR-okZ">
                                 <rect key="frame" x="30" y="256" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.3803921569" green="0.70196078429999997" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkN-GO-VmJ">
-                                <rect key="frame" x="250" y="279" width="131" height="30"/>
+                                <rect key="frame" x="256" y="296.5" width="125" height="30"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.83137254900000002" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="LOG-uC-TSJ"/>
+                                </constraints>
                                 <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Delete This Task">
                                     <color key="titleColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1657,20 +1660,19 @@
                             <constraint firstItem="hIU-1V-v44" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" id="2eB-h2-Yn0"/>
                             <constraint firstItem="yhc-YA-LC6" firstAttribute="top" secondItem="hIU-1V-v44" secondAttribute="bottom" constant="30" id="3Dv-Ye-9VT"/>
                             <constraint firstItem="yhc-YA-LC6" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" constant="29" id="EUX-Ng-Zkh"/>
-                            <constraint firstItem="MkN-GO-VmJ" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" constant="250" id="GcA-F3-M2C"/>
                             <constraint firstItem="1Np-Hu-Top" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wqK-vH-PA2" secondAttribute="trailing" constant="30" id="OBt-Q7-cEO"/>
                             <constraint firstItem="wqK-vH-PA2" firstAttribute="leading" secondItem="yhc-YA-LC6" secondAttribute="trailing" constant="10" id="OSA-A3-QbB"/>
                             <constraint firstItem="wqK-vH-PA2" firstAttribute="firstBaseline" secondItem="yhc-YA-LC6" secondAttribute="firstBaseline" id="QM5-uy-3f6"/>
                             <constraint firstItem="xLS-tU-J0n" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" constant="30" id="Rr1-Zx-g7c"/>
                             <constraint firstItem="ODj-4K-cmi" firstAttribute="top" secondItem="1Np-Hu-Top" secondAttribute="top" id="XR3-dY-Ph7"/>
                             <constraint firstItem="xLS-tU-J0n" firstAttribute="top" secondItem="yhc-YA-LC6" secondAttribute="bottom" constant="30" id="ZXz-XZ-hzD"/>
-                            <constraint firstItem="1Np-Hu-Top" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k0m-v6-wrf" secondAttribute="trailing" constant="30" id="cIz-ib-fgr"/>
+                            <constraint firstItem="1Np-Hu-Top" firstAttribute="trailing" secondItem="k0m-v6-wrf" secondAttribute="trailing" constant="30" id="cIz-ib-fgr"/>
                             <constraint firstItem="ODj-4K-cmi" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" constant="126" id="cTK-Oa-LcH"/>
                             <constraint firstItem="hIU-1V-v44" firstAttribute="trailing" secondItem="1Np-Hu-Top" secondAttribute="trailing" id="dgN-eM-XNV"/>
-                            <constraint firstItem="1Np-Hu-Top" firstAttribute="bottom" secondItem="MkN-GO-VmJ" secondAttribute="bottom" constant="450" id="dhz-jg-qyC"/>
                             <constraint firstItem="N3Q-wR-okZ" firstAttribute="leading" secondItem="1Np-Hu-Top" secondAttribute="leading" constant="30" id="eBh-XS-cqT"/>
                             <constraint firstItem="1Np-Hu-Top" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Aac-t8-fNy" secondAttribute="trailing" constant="30" id="mtc-vI-wxQ"/>
                             <constraint firstItem="Aac-t8-fNy" firstAttribute="firstBaseline" secondItem="xLS-tU-J0n" secondAttribute="firstBaseline" id="oEv-cT-ZKT"/>
+                            <constraint firstItem="MkN-GO-VmJ" firstAttribute="top" secondItem="k0m-v6-wrf" secondAttribute="bottom" constant="20" id="oUa-Z6-EVK"/>
                             <constraint firstItem="N3Q-wR-okZ" firstAttribute="top" secondItem="xLS-tU-J0n" secondAttribute="bottom" constant="30" id="p6Y-Gi-K0U"/>
                             <constraint firstItem="wqK-vH-PA2" firstAttribute="top" secondItem="hIU-1V-v44" secondAttribute="bottom" constant="30" id="rfk-tt-ZPH"/>
                             <constraint firstItem="1Np-Hu-Top" firstAttribute="trailing" secondItem="MkN-GO-VmJ" secondAttribute="trailing" constant="33" id="uee-ZU-Gx0"/>
@@ -1688,7 +1690,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdc-So-j88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="2367"/>
+            <point key="canvasLocation" x="2612" y="2482"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
