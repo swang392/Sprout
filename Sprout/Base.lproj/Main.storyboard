@@ -583,7 +583,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="WO5-5y-5Aq" kind="show" id="aIj-ua-Qte"/>
+                                    <segue destination="shg-cU-DRY" kind="show" identifier="" id="uXE-Vb-cTh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B5-cG-a8o">
@@ -1480,14 +1480,14 @@
             <objects>
                 <viewController restorationIdentifier="ComposePostViewController" storyboardIdentifier="ComposePostViewController" title="ComposePostViewController" id="shg-cU-DRY" customClass="ComposePostViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oqe-wf-vWc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greentextloog" translatesAutoresizingMaskIntoConstraints="NO" id="P4i-qQ-8r0">
-                                <rect key="frame" x="126" y="98" width="162" height="83"/>
+                                <rect key="frame" x="126" y="66" width="162" height="83"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGc-1a-QcJ">
-                                <rect key="frame" x="0.0" y="157" width="414" height="8"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="8"/>
                                 <color key="backgroundColor" red="0.64705882349999999" green="0.84313725490000002" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="8" id="EmY-Pa-9cY"/>
@@ -1495,7 +1495,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpi-fl-Ezl">
-                                <rect key="frame" x="20" y="201" width="374" height="100"/>
+                                <rect key="frame" x="20" y="169" width="374" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="cxL-Jq-BVi"/>
@@ -1533,12 +1533,6 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="oKQ-dA-fMf">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3BW-J4-GAG">
-                            <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="cancelPost:" destination="shg-cU-DRY" id="IB3-B7-jeC"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="uob-zf-yt9">
                             <color key="tintColor" red="0.039215686270000001" green="0.1647058824" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1557,7 +1551,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1822" y="3090"/>
+            <point key="canvasLocation" x="1822" y="2367"/>
         </scene>
         <!--Social-->
         <scene sceneID="N7a-fe-PZY">
@@ -1577,25 +1571,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peF-Hl-ooP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="42" y="884"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PUu-Wo-3cr">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WO5-5y-5Aq" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="jDD-V1-Ooe"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zPF-D2-Gdg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="shg-cU-DRY" kind="relationship" relationship="rootViewController" id="7PW-TI-V7C"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Hc-Zr-JfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1822" y="2367"/>
         </scene>
         <!--Task Details View Controller-->
         <scene sceneID="f4f-mW-odP">
