@@ -150,10 +150,13 @@
     [task resume];
 }
 
+- (IBAction)editPlan:(id)sender {
+    [self performSegueWithIdentifier:@"editPlanSegue" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"editPlanSegue"]) {
-        UINavigationController *navigationController = [segue destinationViewController];
-        ComposePlanViewController *composePlanViewController = (ComposePlanViewController*)navigationController.topViewController;
+        ComposePlanViewController *composePlanViewController = [segue destinationViewController];
         composePlanViewController.myPhysicalCount = [NSNumber numberWithInt:self.myPhysicalCount];
         composePlanViewController.myMentalCount = [NSNumber numberWithInt:self.myMentalCount];
         composePlanViewController.myDietCount = [NSNumber numberWithInt:self.myDietCount];

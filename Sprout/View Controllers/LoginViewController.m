@@ -11,6 +11,7 @@
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
 #import "TaskRecommender.h"
+#import "SignUpViewController.h"
 
 @interface LoginViewController ()
 
@@ -176,6 +177,16 @@
     [sceneDelegate changeRootViewController:viewController];
     
     [TaskRecommender.shared countUsers];
+}
+
+- (IBAction)didTapSignup:(id)sender {
+    [self performSegueWithIdentifier:@"signUpSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"signUpSegue"]) {
+        SignUpViewController *viewController = [segue destinationViewController];
+    }
 }
 
 @end

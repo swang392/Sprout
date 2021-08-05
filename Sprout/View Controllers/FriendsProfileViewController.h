@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FriendsProfileViewController : UIViewController
 
 @property (nonatomic) PFUser *author;
+@property (nonatomic) NSString *userEmail;
 
 @end
 

@@ -182,10 +182,20 @@
     return cell;
 }
 
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.view endEditing:true];
+}
+
 - (void)goToFriendsProfile {
-    FriendsProfileViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FriendsProfileViewController"];
-    viewController.author = self.post.author;
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"friendsProfileSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"friendsProfileSegue"]) {
+        FriendsProfileViewController *viewController = [segue destinationViewController];
+        viewController.author = self.post.author;
+        viewController.userEmail = self.post.authorEmail;
+    }
 }
 
 @end

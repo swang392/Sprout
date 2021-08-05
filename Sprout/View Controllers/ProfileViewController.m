@@ -31,18 +31,10 @@
     self.user = PFUser.currentUser;
     
     [self refreshData];
-    
-    NSTimer *refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshData) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:refreshTimer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)refreshData {
-    if ([self.user[@"name"] isEqual:@""]) {
-        self.nameLabel.text = self.user.username;
-    }
-    else{
-        self.nameLabel.text = self.user[@"name"];
-    }
+    self.nameLabel.text = self.user[@"name"];
     self.usernameLabel.text = self.user.username;
     self.emailLabel.text = self.user[@"email"];
     self.userBioLabel.text = self.user[@"userBio"];
@@ -61,6 +53,10 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *controller = [storyboard  instantiateViewControllerWithIdentifier:@"LoginViewController"];
     sceneDelegate.window.rootViewController = controller;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self refreshData];
 }
 
 @end
