@@ -57,9 +57,12 @@ Sprint 1
 - [ ] User can connect friends through facebook sdk
 - [ ] user can search for other users
 - [ ] User can see a list of their following
+- [x] User can see other people's profiles
+- [x] Clicking on another person's email opens the Mail app
 - [x] user can see a detail view of posts
 - [x] User can like accomplishments on social feed
 - [x] User can comment on accomplishments on social feed
+- [x] User can add user biography
 
 ### 2. Screen Archetypes
 
