@@ -38,25 +38,20 @@ Sprint 1
 - [x] User can create a new account, log in, and sign out of account
 - [x] User sees profile with their fitness plan and accomplishments
 - [x] User can edit their profile (either during onboarding or after)
-- [x] User can log in through their Facebook Account (using Facebook SDK)
+- [x] User can log in or sign up through their Facebook Account (using Facebook SDK)
 - [x] User can add new tasks
 - [x] User can view tasks on Home screen
 - [x] User can delete tasks
 - [x] User can mark tasks on their plan as complete
 - [x] User can view social feed of other people's daily accomplishments
-- [x] User can double tap on a post to like it (gesture requirement)
-- [x] Splash screen animation (library for visual polish)
+- [x] User can double tap on a post to like it 
+- [x] Splash screen animation
 - [x] Algorithm to suggest tasks to users using airtable database
 
 **Optional Nice-to-have Stories**
 
 - [x] User can see a detailed view of their tasks
-- [ ] User can edit tasks
 - [x] User can edit profile after creating it
-- [ ] User can see a list of their followers
-- [ ] User can connect friends through facebook sdk
-- [ ] user can search for other users
-- [ ] User can see a list of their following
 - [x] User can see other people's profiles
 - [x] Clicking on another person's email opens the Mail app
 - [x] user can see a detail view of posts
