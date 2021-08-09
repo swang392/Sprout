@@ -36,6 +36,11 @@
     [self createAlerts];
     
     [self recommendTasks];
+    
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.5];
+    self.taskNameField.layer.borderWidth = 1.5f;
+    self.taskNameField.layer.borderColor = [color CGColor];
+    self.taskNameField.layer.cornerRadius = 8;
 }
 
 - (void)createAlerts {

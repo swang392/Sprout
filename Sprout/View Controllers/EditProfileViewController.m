@@ -31,6 +31,14 @@
     self.userBioField.layer.borderWidth = 1.5f;
     self.userBioField.layer.borderColor = [color CGColor];
     self.userBioField.layer.cornerRadius = 8;
+    
+    self.userNameField.layer.borderWidth = 1.5f;
+    self.userNameField.layer.borderColor = [color CGColor];
+    self.userNameField.layer.cornerRadius = 8;
+    
+    self.emailField.layer.borderWidth = 1.5f;
+    self.emailField.layer.borderColor = [color CGColor];
+    self.emailField.layer.cornerRadius = 8;
 }
 
 - (void)refreshData {
