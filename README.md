@@ -11,10 +11,9 @@ Original App Design Project - Sarah Wang
 
 ## Overview
 ### Description
-Sprout is a personal fitness app, that allows you to create custom fitness and wellness plans that suits your needs. You can share your daily accomplishments with friends on the app.
+Sprout is a personalized health tracking app, and primarily focuses on fitness, diet, and mental health. Users can add daily and weekly tasks to their to-do list and share their daily accomplishments to a global feed. Sprout also recommends tasks to ensure that users are prioritizing all aspects of wellness. 
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Health and Fitness (and some Social) 
 - **Mobile:** Gives push notifications to remind you about daily health tasks to keep you on track. Uses Google Maps API to locate users near you.
 - **Story:** Allows users to create fitness and health plans for themselves and share their self-improvement journeys with others.
@@ -104,24 +103,8 @@ https://user-images.githubusercontent.com/24441980/128757374-c2286ee8-d83b-4e8d-
 ## Wireframes
 <img src="https://i.imgur.com/jvp9vyB.jpg" width=600>
 
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-
-Goal -- NOT USING THIS!
-| Property | Type | Description |
-| -------- | -------- | -------- |
-| objectId | string | unique id for the user goal (default field) |
-| author | pointer to user | image author |
-| timeframe | Number |number of days in the schedule|
-| createdAt | DateTime | date when post is created (default field)|
-| tasks | array of Tasks | list of all of the daily tasks |
-| post | pointer to post | posts daily accomplishments|
 
 User 
 | Property | Type | Description |
@@ -153,8 +136,6 @@ Task
 
 
 ### Networking
-- [Add list of network requests by screen ]
-- 
 - Social Screen
     - (Read/GET) Query posts in personal and friend feed
 - Home feed
@@ -165,5 +146,3 @@ Task
 - Profile
     - (GET) Query logged in user
     - optional: (Read/GET) query user's followers and following
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
