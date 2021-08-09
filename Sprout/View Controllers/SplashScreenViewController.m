@@ -23,7 +23,7 @@
     
     [self createGif];
     
-    [self performSelector:@selector(goToLoginScreen) withObject:self afterDelay:5.0];
+    [self performSelector:@selector(goToLoginScreen) withObject:self afterDelay:4.0];
 }
 
 - (void)createGif {

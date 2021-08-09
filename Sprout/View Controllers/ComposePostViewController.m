@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIColor *color = [[UIColor alloc]initWithRed:10/255.0 green:42/255.0 blue:92/255.0 alpha:1.0];
+    UIColor *color = [[UIColor alloc]initWithRed:243/255.0 green:222/255.0 blue:229/255.0 alpha:1.0];
     self.composeTextView.layer.borderWidth = 1.5f;
     self.composeTextView.layer.borderColor = [color CGColor];
     self.composeTextView.layer.cornerRadius = 8;
