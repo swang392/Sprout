@@ -48,9 +48,7 @@
 
 - (void)createAlerts {
     self.blankAlert = [UIAlertController alertControllerWithTitle:@"Username or password is empty." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        // handle response here.
-    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
     [self.blankAlert addAction:okAction];
     
     self.registrationAlert = [UIAlertController alertControllerWithTitle:@"Error registering user." message:@"Please try again!" preferredStyle:(UIAlertControllerStyleAlert)];
@@ -75,7 +73,6 @@
                                  initWithGraphPath:@"/me"
                                  parameters:@{@"fields":@"first_name,last_name,email,picture"}
                                  HTTPMethod:@"GET"];
-            //TODO: modify graph request/the following method to get a high-res profile picture
             [self createUserThroughFB: self.graphRequest];
         }
         else{

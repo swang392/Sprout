@@ -46,7 +46,7 @@
             self.posts = (NSMutableArray *)posts;
             [self.tableView reloadData];
         } else {
-           //TODO: show error
+            //TODO: show error
         }
     }];
 }
