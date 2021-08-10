@@ -46,7 +46,6 @@
         }
     }];
     [self.navigationController popToRootViewControllerAnimated:YES];
-    //TODO: make tasks refresh without pulling to refresh.
 }
 
 - (IBAction)didTapCompleted:(id)sender {

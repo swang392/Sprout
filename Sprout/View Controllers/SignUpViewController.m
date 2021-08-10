@@ -74,7 +74,7 @@
     [self.activityIndicator startAnimating];
     
     if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]
-       || [self.nameField.text isEqual:@""] || [self.emailField.text isEqual:@""])
+        || [self.nameField.text isEqual:@""] || [self.emailField.text isEqual:@""])
     {
         [self presentViewController:self.blankAlert animated:YES completion:^{
             [self.activityIndicator stopAnimating];
